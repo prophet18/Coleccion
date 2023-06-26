@@ -24,8 +24,7 @@ import javafx.stage.Stage;
 
 public class ColecciónGUI extends Application {
 	
-	public static void main(String[] args) {		
-		
+	public static void main(String[] args) {				
         launch(args);
     }
 	
@@ -38,172 +37,174 @@ public class ColecciónGUI extends Application {
 		/*
     	 * Creating cards for game by instantiating CardInfo.java with appropriate constructor
     	 */
+		
+		// "C://Users//deane//MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_1.png"
     	
-    	CardInfo blueParallelogram1 = new CardInfo("Blue", 1, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_1.png");	
-    	CardInfo blueParallelogram2 = new CardInfo("Blue", 2, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_2.png");   
-    	CardInfo blueParallelogram3 = new CardInfo("Blue", 3, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_3.png");
-    	CardInfo blueParallelogramE1 = new CardInfo("Blue", 1, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_E_1.png");	
-    	CardInfo blueParallelogramE2 = new CardInfo("Blue", 2, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_E_2.png");   
-    	CardInfo blueParallelogramE3 = new CardInfo("Blue", 3, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_E_3.png");
-    	CardInfo blueParallelogramS1 = new CardInfo("Blue", 1, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_S_1.png");	
-    	CardInfo blueParallelogramS2 = new CardInfo("Blue", 2, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_S_2.png");   
-    	CardInfo blueParallelogramS3 = new CardInfo("Blue", 3, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Blue_Parallelogram_S_3.png");
+    	CardInfo blueParallelogram1 = new CardInfo("Blue", 1, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_1.png");	
+    	CardInfo blueParallelogram2 = new CardInfo("Blue", 2, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_2.png");   
+    	CardInfo blueParallelogram3 = new CardInfo("Blue", 3, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_3.png");
+    	CardInfo blueParallelogramE1 = new CardInfo("Blue", 1, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_E_1.png");	
+    	CardInfo blueParallelogramE2 = new CardInfo("Blue", 2, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_E_2.png");   
+    	CardInfo blueParallelogramE3 = new CardInfo("Blue", 3, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_E_3.png");
+    	CardInfo blueParallelogramS1 = new CardInfo("Blue", 1, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_S_1.png");	
+    	CardInfo blueParallelogramS2 = new CardInfo("Blue", 2, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_S_2.png");   
+    	CardInfo blueParallelogramS3 = new CardInfo("Blue", 3, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_S_3.png");
     	
-    	CardInfo greenParallelogram1 = new CardInfo("Green", 1, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_1.png");	
-    	CardInfo greenParallelogram2 = new CardInfo("Green", 2, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_2.png");   
-    	CardInfo greenParallelogram3 = new CardInfo("Green", 3, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_3.png");
-    	CardInfo greenParallelogramE1 = new CardInfo("Green", 1, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_E_1.png");	
-    	CardInfo greenParallelogramE2 = new CardInfo("Green", 2, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_E_2.png");   
-    	CardInfo greenParallelogramE3 = new CardInfo("Green", 3, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_E_3.png");
-    	CardInfo greenParallelogramS1 = new CardInfo("Green", 1, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_S_1.png");	
-    	CardInfo greenParallelogramS2 = new CardInfo("Green", 2, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_S_2.png");   
-    	CardInfo greenParallelogramS3 = new CardInfo("Green", 3, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Green_Parallelogram_S_3.png");
+    	CardInfo greenParallelogram1 = new CardInfo("Green", 1, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_1.png");	
+    	CardInfo greenParallelogram2 = new CardInfo("Green", 2, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_2.png");   
+    	CardInfo greenParallelogram3 = new CardInfo("Green", 3, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_3.png");
+    	CardInfo greenParallelogramE1 = new CardInfo("Green", 1, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_E_1.png");	
+    	CardInfo greenParallelogramE2 = new CardInfo("Green", 2, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_E_2.png");   
+    	CardInfo greenParallelogramE3 = new CardInfo("Green", 3, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_E_3.png");
+    	CardInfo greenParallelogramS1 = new CardInfo("Green", 1, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_S_1.png");	
+    	CardInfo greenParallelogramS2 = new CardInfo("Green", 2, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_S_2.png");   
+    	CardInfo greenParallelogramS3 = new CardInfo("Green", 3, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Green_Parallelogram_S_3.png");
     	
-    	CardInfo orangeParallelogram1 = new CardInfo("Orange", 1, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_1.png");	
-    	CardInfo orangeParallelogram2 = new CardInfo("Orange", 2, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_2.png");   
-    	CardInfo orangeParallelogram3 = new CardInfo("Orange", 3, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_3.png");
-    	CardInfo orangeParallelogramE1 = new CardInfo("Orange", 1, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_E_1.png");	
-    	CardInfo orangeParallelogramE2 = new CardInfo("Orange", 2, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_E_2.png");   
-    	CardInfo orangeParallelogramE3 = new CardInfo("Orange", 3, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_E_3.png");
-    	CardInfo orangeParallelogramS1 = new CardInfo("Orange", 1, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_S_1.png");	
-    	CardInfo orangeParallelogramS2 = new CardInfo("Orange", 2, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_S_2.png");   
-    	CardInfo orangeParallelogramS3 = new CardInfo("Orange", 3, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Orange_Parallelogram_S_3.png");
+    	CardInfo orangeParallelogram1 = new CardInfo("Orange", 1, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_1.png");	
+    	CardInfo orangeParallelogram2 = new CardInfo("Orange", 2, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_2.png");   
+    	CardInfo orangeParallelogram3 = new CardInfo("Orange", 3, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_3.png");
+    	CardInfo orangeParallelogramE1 = new CardInfo("Orange", 1, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_E_1.png");	
+    	CardInfo orangeParallelogramE2 = new CardInfo("Orange", 2, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_E_2.png");   
+    	CardInfo orangeParallelogramE3 = new CardInfo("Orange", 3, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_E_3.png");
+    	CardInfo orangeParallelogramS1 = new CardInfo("Orange", 1, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_S_1.png");	
+    	CardInfo orangeParallelogramS2 = new CardInfo("Orange", 2, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_S_2.png");   
+    	CardInfo orangeParallelogramS3 = new CardInfo("Orange", 3, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Orange_Parallelogram_S_3.png");
     	
-    	CardInfo redParallelogram1 = new CardInfo("Red", 1, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_1.png");	
-    	CardInfo redParallelogram2 = new CardInfo("Red", 2, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_2.png");   
-    	CardInfo redParallelogram3 = new CardInfo("Red", 3, "Parallelogram", "Solid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_3.png");
-    	CardInfo redParallelogramE1 = new CardInfo("Red", 1, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_E_1.png");	
-    	CardInfo redParallelogramE2 = new CardInfo("Red", 2, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_E_2.png");   
-    	CardInfo redParallelogramE3 = new CardInfo("Red", 3, "Parallelogram", "Empty", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_E_3.png");
-    	CardInfo redParallelogramS1 = new CardInfo("Red", 1, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_S_1.png");	
-    	CardInfo redParallelogramS2 = new CardInfo("Red", 2, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_S_2.png");   
-    	CardInfo redParallelogramS3 = new CardInfo("Red", 3, "Parallelogram", "Grid", "/home/cronus/MEGAsync/Colección/Parallelograms/Colección_Red_Parallelogram_S_3.png");
+    	CardInfo redParallelogram1 = new CardInfo("Red", 1, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_1.png");	
+    	CardInfo redParallelogram2 = new CardInfo("Red", 2, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_2.png");   
+    	CardInfo redParallelogram3 = new CardInfo("Red", 3, "Parallelogram", "Solid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_3.png");
+    	CardInfo redParallelogramE1 = new CardInfo("Red", 1, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_E_1.png");	
+    	CardInfo redParallelogramE2 = new CardInfo("Red", 2, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_E_2.png");   
+    	CardInfo redParallelogramE3 = new CardInfo("Red", 3, "Parallelogram", "Empty", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_E_3.png");
+    	CardInfo redParallelogramS1 = new CardInfo("Red", 1, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_S_1.png");	
+    	CardInfo redParallelogramS2 = new CardInfo("Red", 2, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_S_2.png");   
+    	CardInfo redParallelogramS3 = new CardInfo("Red", 3, "Parallelogram", "Grid", "C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Red_Parallelogram_S_3.png");
     	
-    	//
     	
-    	CardInfo blueRectangle1 = new CardInfo("Blue", 1, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_1.png");	
-    	CardInfo blueRectangle2 = new CardInfo("Blue", 2, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_2.png");   
-    	CardInfo blueRectangle3 = new CardInfo("Blue", 3, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_3.png");
-    	CardInfo blueRectangleE1 = new CardInfo("Blue", 1, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_E_1.png");	
-    	CardInfo blueRectangleE2 = new CardInfo("Blue", 2, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_E_2.png");   
-    	CardInfo blueRectangleE3 = new CardInfo("Blue", 3, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_E_3.png");
-    	CardInfo blueRectangleS1 = new CardInfo("Blue", 1, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_S_1.png");	
-    	CardInfo blueRectangleS2 = new CardInfo("Blue", 2, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_S_2.png");   
-    	CardInfo blueRectangleS3 = new CardInfo("Blue", 3, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Blue_Rectangle_S_3.png");
     	
-    	CardInfo greenRectangle1 = new CardInfo("Green", 1, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_1.png");	
-    	CardInfo greenRectangle2 = new CardInfo("Green", 2, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_2.png");   
-    	CardInfo greenRectangle3 = new CardInfo("Green", 3, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_3.png");
-    	CardInfo greenRectangleE1 = new CardInfo("Green", 1, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_E_1.png");	
-    	CardInfo greenRectangleE2 = new CardInfo("Green", 2, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_E_2.png");   
-    	CardInfo greenRectangleE3 = new CardInfo("Green", 3, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_E_3.png");
-    	CardInfo greenRectangleS1 = new CardInfo("Green", 1, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_S_1.png");	
-    	CardInfo greenRectangleS2 = new CardInfo("Green", 2, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_S_2.png");   
-    	CardInfo greenRectangleS3 = new CardInfo("Green", 3, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Green_Rectangle_S_3.png");
+    	CardInfo blueRectangle1 = new CardInfo("Blue", 1, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_1.png");	
+    	CardInfo blueRectangle2 = new CardInfo("Blue", 2, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_2.png");   
+    	CardInfo blueRectangle3 = new CardInfo("Blue", 3, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_3.png");
+    	CardInfo blueRectangleE1 = new CardInfo("Blue", 1, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_E_1.png");	
+    	CardInfo blueRectangleE2 = new CardInfo("Blue", 2, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_E_2.png");   
+    	CardInfo blueRectangleE3 = new CardInfo("Blue", 3, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_E_3.png");
+    	CardInfo blueRectangleS1 = new CardInfo("Blue", 1, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_S_1.png");	
+    	CardInfo blueRectangleS2 = new CardInfo("Blue", 2, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_S_2.png");   
+    	CardInfo blueRectangleS3 = new CardInfo("Blue", 3, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Blue_Rectangle_S_3.png");
     	
-    	CardInfo orangeRectangle1 = new CardInfo("Orange", 1, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_1.png");	
-    	CardInfo orangeRectangle2 = new CardInfo("Orange", 2, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_2.png");   
-    	CardInfo orangeRectangle3 = new CardInfo("Orange", 3, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_3.png");
-    	CardInfo orangeRectangleE1 = new CardInfo("Orange", 1, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_E_1.png");	
-    	CardInfo orangeRectangleE2 = new CardInfo("Orange", 2, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_E_2.png");   
-    	CardInfo orangeRectangleE3 = new CardInfo("Orange", 3, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_E_3.png");
-    	CardInfo orangeRectangleS1 = new CardInfo("Orange", 1, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_S_1.png");	
-    	CardInfo orangeRectangleS2 = new CardInfo("Orange", 2, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_S_2.png");   
-    	CardInfo orangeRectangleS3 = new CardInfo("Orange", 3, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Orange_Rectangle_S_3.png");
+    	CardInfo greenRectangle1 = new CardInfo("Green", 1, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_1.png");	
+    	CardInfo greenRectangle2 = new CardInfo("Green", 2, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_2.png");   
+    	CardInfo greenRectangle3 = new CardInfo("Green", 3, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_3.png");
+    	CardInfo greenRectangleE1 = new CardInfo("Green", 1, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_E_1.png");	
+    	CardInfo greenRectangleE2 = new CardInfo("Green", 2, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_E_2.png");   
+    	CardInfo greenRectangleE3 = new CardInfo("Green", 3, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_E_3.png");
+    	CardInfo greenRectangleS1 = new CardInfo("Green", 1, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_S_1.png");	
+    	CardInfo greenRectangleS2 = new CardInfo("Green", 2, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_S_2.png");   
+    	CardInfo greenRectangleS3 = new CardInfo("Green", 3, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Green_Rectangle_S_3.png");
     	
-    	CardInfo redRectangle1 = new CardInfo("Red", 1, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_1.png");	
-    	CardInfo redRectangle2 = new CardInfo("Red", 2, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_2.png");   
-    	CardInfo redRectangle3 = new CardInfo("Red", 3, "Rectangle", "Solid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_3.png");
-    	CardInfo redRectangleE1 = new CardInfo("Red", 1, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_E_1.png");	
-    	CardInfo redRectangleE2 = new CardInfo("Red", 2, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_E_2.png");   
-    	CardInfo redRectangleE3 = new CardInfo("Red", 3, "Rectangle", "Empty", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_E_3.png");
-    	CardInfo redRectangleS1 = new CardInfo("Red", 1, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_S_1.png");	
-    	CardInfo redRectangleS2 = new CardInfo("Red", 2, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_S_2.png");   
-    	CardInfo redRectangleS3 = new CardInfo("Red", 3, "Rectangle", "Grid", "/home/cronus/MEGAsync/Colección/Rectangles/Colección_Red_Rectangle_S_3.png");
+    	CardInfo orangeRectangle1 = new CardInfo("Orange", 1, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_1.png");	
+    	CardInfo orangeRectangle2 = new CardInfo("Orange", 2, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_2.png");   
+    	CardInfo orangeRectangle3 = new CardInfo("Orange", 3, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_3.png");
+    	CardInfo orangeRectangleE1 = new CardInfo("Orange", 1, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_E_1.png");	
+    	CardInfo orangeRectangleE2 = new CardInfo("Orange", 2, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_E_2.png");   
+    	CardInfo orangeRectangleE3 = new CardInfo("Orange", 3, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_E_3.png");
+    	CardInfo orangeRectangleS1 = new CardInfo("Orange", 1, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_S_1.png");	
+    	CardInfo orangeRectangleS2 = new CardInfo("Orange", 2, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_S_2.png");   
+    	CardInfo orangeRectangleS3 = new CardInfo("Orange", 3, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Orange_Rectangle_S_3.png");
     	
-    	//
+    	CardInfo redRectangle1 = new CardInfo("Red", 1, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_1.png");	
+    	CardInfo redRectangle2 = new CardInfo("Red", 2, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_2.png");   
+    	CardInfo redRectangle3 = new CardInfo("Red", 3, "Rectangle", "Solid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_3.png");
+    	CardInfo redRectangleE1 = new CardInfo("Red", 1, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_E_1.png");	
+    	CardInfo redRectangleE2 = new CardInfo("Red", 2, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_E_2.png");   
+    	CardInfo redRectangleE3 = new CardInfo("Red", 3, "Rectangle", "Empty", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_E_3.png");
+    	CardInfo redRectangleS1 = new CardInfo("Red", 1, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_S_1.png");	
+    	CardInfo redRectangleS2 = new CardInfo("Red", 2, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_S_2.png");   
+    	CardInfo redRectangleS3 = new CardInfo("Red", 3, "Rectangle", "Grid", "C://Users//deane//MEGAsync//Colección//Rectangles//Colección_Red_Rectangle_S_3.png");
     	
-    	CardInfo blueSemicircle1 = new CardInfo("Blue", 1, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_1.png");	
-    	CardInfo blueSemicircle2 = new CardInfo("Blue", 2, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_2.png");   
-    	CardInfo blueSemicircle3 = new CardInfo("Blue", 3, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_3.png");
-    	CardInfo blueSemicircleE1 = new CardInfo("Blue", 1, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_E_1.png");	
-    	CardInfo blueSemicircleE2 = new CardInfo("Blue", 2, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_E_2.png");   
-    	CardInfo blueSemicircleE3 = new CardInfo("Blue", 3, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_E_3.png");
-    	CardInfo blueSemicircleS1 = new CardInfo("Blue", 1, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_S_1.png");	
-    	CardInfo blueSemicircleS2 = new CardInfo("Blue", 2, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_S_2.png");   
-    	CardInfo blueSemicircleS3 = new CardInfo("Blue", 3, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Blue_Semicircle_S_3.png");
     	
-    	CardInfo greenSemicircle1 = new CardInfo("Green", 1, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_1.png");	
-    	CardInfo greenSemicircle2 = new CardInfo("Green", 2, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_2.png");   
-    	CardInfo greenSemicircle3 = new CardInfo("Green", 3, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_3.png");
-    	CardInfo greenSemicircleE1 = new CardInfo("Green", 1, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_E_1.png");	
-    	CardInfo greenSemicircleE2 = new CardInfo("Green", 2, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_E_2.png");   
-    	CardInfo greenSemicircleE3 = new CardInfo("Green", 3, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_E_3.png");
-    	CardInfo greenSemicircleS1 = new CardInfo("Green", 1, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_S_1.png");	
-    	CardInfo greenSemicircleS2 = new CardInfo("Green", 2, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_S_2.png");   
-    	CardInfo greenSemicircleS3 = new CardInfo("Green", 3, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Green_Semicircle_S_3.png");
     	
-    	CardInfo orangeSemicircle1 = new CardInfo("Orange", 1, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_1.png");	
-    	CardInfo orangeSemicircle2 = new CardInfo("Orange", 2, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_2.png");   
-    	CardInfo orangeSemicircle3 = new CardInfo("Orange", 3, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_3.png");
-    	CardInfo orangeSemicircleE1 = new CardInfo("Orange", 1, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_E_1.png");	
-    	CardInfo orangeSemicircleE2 = new CardInfo("Orange", 2, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_E_2.png");   
-    	CardInfo orangeSemicircleE3 = new CardInfo("Orange", 3, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_E_3.png");
-    	CardInfo orangeSemicircleS1 = new CardInfo("Orange", 1, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_S_1.png");	
-    	CardInfo orangeSemicircleS2 = new CardInfo("Orange", 2, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_S_2.png");   
-    	CardInfo orangeSemicircleS3 = new CardInfo("Orange", 3, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Orange_Semicircle_S_3.png");
+    	CardInfo blueSemicircle1 = new CardInfo("Blue", 1, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_1.png");	
+    	CardInfo blueSemicircle2 = new CardInfo("Blue", 2, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_2.png");   
+    	CardInfo blueSemicircle3 = new CardInfo("Blue", 3, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_3.png");
+    	CardInfo blueSemicircleE1 = new CardInfo("Blue", 1, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_E_1.png");	
+    	CardInfo blueSemicircleE2 = new CardInfo("Blue", 2, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_E_2.png");   
+    	CardInfo blueSemicircleE3 = new CardInfo("Blue", 3, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_E_3.png");
+    	CardInfo blueSemicircleS1 = new CardInfo("Blue", 1, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_S_1.png");	
+    	CardInfo blueSemicircleS2 = new CardInfo("Blue", 2, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_S_2.png");   
+    	CardInfo blueSemicircleS3 = new CardInfo("Blue", 3, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Blue_Semicircle_S_3.png");
     	
-    	CardInfo redSemicircle1 = new CardInfo("Red", 1, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_1.png");	
-    	CardInfo redSemicircle2 = new CardInfo("Red", 2, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_2.png");   
-    	CardInfo redSemicircle3 = new CardInfo("Red", 3, "Semicircle", "Solid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_3.png");
-    	CardInfo redSemicircleE1 = new CardInfo("Red", 1, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_E_1.png");	
-    	CardInfo redSemicircleE2 = new CardInfo("Red", 2, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_E_2.png");   
-    	CardInfo redSemicircleE3 = new CardInfo("Red", 3, "Semicircle", "Empty", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_E_3.png");
-    	CardInfo redSemicircleS1 = new CardInfo("Red", 1, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_S_1.png");	
-    	CardInfo redSemicircleS2 = new CardInfo("Red", 2, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_S_2.png");   
-    	CardInfo redSemicircleS3 = new CardInfo("Red", 3, "Semicircle", "Grid", "/home/cronus/MEGAsync/Colección/Semicircles/Colección_Red_Semicircle_S_3.png");
+    	CardInfo greenSemicircle1 = new CardInfo("Green", 1, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_1.png");	
+    	CardInfo greenSemicircle2 = new CardInfo("Green", 2, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_2.png");   
+    	CardInfo greenSemicircle3 = new CardInfo("Green", 3, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_3.png");
+    	CardInfo greenSemicircleE1 = new CardInfo("Green", 1, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_E_1.png");	
+    	CardInfo greenSemicircleE2 = new CardInfo("Green", 2, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_E_2.png");   
+    	CardInfo greenSemicircleE3 = new CardInfo("Green", 3, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_E_3.png");
+    	CardInfo greenSemicircleS1 = new CardInfo("Green", 1, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_S_1.png");	
+    	CardInfo greenSemicircleS2 = new CardInfo("Green", 2, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_S_2.png");   
+    	CardInfo greenSemicircleS3 = new CardInfo("Green", 3, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Green_Semicircle_S_3.png");
     	
-    	//
+    	CardInfo orangeSemicircle1 = new CardInfo("Orange", 1, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_1.png");	
+    	CardInfo orangeSemicircle2 = new CardInfo("Orange", 2, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_2.png");   
+    	CardInfo orangeSemicircle3 = new CardInfo("Orange", 3, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_3.png");
+    	CardInfo orangeSemicircleE1 = new CardInfo("Orange", 1, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_E_1.png");	
+    	CardInfo orangeSemicircleE2 = new CardInfo("Orange", 2, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_E_2.png");   
+    	CardInfo orangeSemicircleE3 = new CardInfo("Orange", 3, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_E_3.png");
+    	CardInfo orangeSemicircleS1 = new CardInfo("Orange", 1, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_S_1.png");	
+    	CardInfo orangeSemicircleS2 = new CardInfo("Orange", 2, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_S_2.png");   
+    	CardInfo orangeSemicircleS3 = new CardInfo("Orange", 3, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Orange_Semicircle_S_3.png");
     	
-    	CardInfo blueTriangle1 = new CardInfo("Blue", 1, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_1.png");	
-    	CardInfo blueTriangle2 = new CardInfo("Blue", 2, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_2.png");   
-    	CardInfo blueTriangle3 = new CardInfo("Blue", 3, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_3.png");
-    	CardInfo blueTriangleE1 = new CardInfo("Blue", 1, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_E_1.png");	
-    	CardInfo blueTriangleE2 = new CardInfo("Blue", 2, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_E_2.png");   
-    	CardInfo blueTriangleE3 = new CardInfo("Blue", 3, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_E_3.png");
-    	CardInfo blueTriangleS1 = new CardInfo("Blue", 1, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_S_1.png");	
-    	CardInfo blueTriangleS2 = new CardInfo("Blue", 2, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_S_2.png");   
-    	CardInfo blueTriangleS3 = new CardInfo("Blue", 3, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Blue_Triangle_S_3.png");
+    	CardInfo redSemicircle1 = new CardInfo("Red", 1, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_1.png");	
+    	CardInfo redSemicircle2 = new CardInfo("Red", 2, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_2.png");   
+    	CardInfo redSemicircle3 = new CardInfo("Red", 3, "Semicircle", "Solid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_3.png");
+    	CardInfo redSemicircleE1 = new CardInfo("Red", 1, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_E_1.png");	
+    	CardInfo redSemicircleE2 = new CardInfo("Red", 2, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_E_2.png");   
+    	CardInfo redSemicircleE3 = new CardInfo("Red", 3, "Semicircle", "Empty", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_E_3.png");
+    	CardInfo redSemicircleS1 = new CardInfo("Red", 1, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_S_1.png");	
+    	CardInfo redSemicircleS2 = new CardInfo("Red", 2, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_S_2.png");   
+    	CardInfo redSemicircleS3 = new CardInfo("Red", 3, "Semicircle", "Grid", "C://Users//deane//MEGAsync//Colección//Semicircles//Colección_Red_Semicircle_S_3.png");
     	
-    	CardInfo greenTriangle1 = new CardInfo("Green", 1, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_1.png");	
-    	CardInfo greenTriangle2 = new CardInfo("Green", 2, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_2.png");   
-    	CardInfo greenTriangle3 = new CardInfo("Green", 3, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_3.png");
-    	CardInfo greenTriangleE1 = new CardInfo("Green", 1, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_E_1.png");	
-    	CardInfo greenTriangleE2 = new CardInfo("Green", 2, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_E_2.png");   
-    	CardInfo greenTriangleE3 = new CardInfo("Green", 3, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_E_3.png");
-    	CardInfo greenTriangleS1 = new CardInfo("Green", 1, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_S_1.png");	
-    	CardInfo greenTriangleS2 = new CardInfo("Green", 2, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_S_2.png");   
-    	CardInfo greenTriangleS3 = new CardInfo("Green", 3, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Green_Triangle_S_3.png");
     	
-    	CardInfo orangeTriangle1 = new CardInfo("Orange", 1, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_1.png");	
-    	CardInfo orangeTriangle2 = new CardInfo("Orange", 2, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_2.png");   
-    	CardInfo orangeTriangle3 = new CardInfo("Orange", 3, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_3.png");
-    	CardInfo orangeTriangleE1 = new CardInfo("Orange", 1, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_E_1.png");	
-    	CardInfo orangeTriangleE2 = new CardInfo("Orange", 2, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_E_2.png");   
-    	CardInfo orangeTriangleE3 = new CardInfo("Orange", 3, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_E_3.png");
-    	CardInfo orangeTriangleS1 = new CardInfo("Orange", 1, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_S_1.png");	
-    	CardInfo orangeTriangleS2 = new CardInfo("Orange", 2, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_S_2.png");   
-    	CardInfo orangeTriangleS3 = new CardInfo("Orange", 3, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Orange_Triangle_S_3.png");
     	
-    	CardInfo redTriangle1 = new CardInfo("Red", 1, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_1.png");	
-    	CardInfo redTriangle2 = new CardInfo("Red", 2, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_2.png");   
-    	CardInfo redTriangle3 = new CardInfo("Red", 3, "Triangle", "Solid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_3.png");
-    	CardInfo redTriangleE1 = new CardInfo("Red", 1, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_E_1.png");	
-    	CardInfo redTriangleE2 = new CardInfo("Red", 2, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_E_2.png");   
-    	CardInfo redTriangleE3 = new CardInfo("Red", 3, "Triangle", "Empty", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_E_3.png");
-    	CardInfo redTriangleS1 = new CardInfo("Red", 1, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_S_1.png");	
-    	CardInfo redTriangleS2 = new CardInfo("Red", 2, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_S_2.png");   
-    	CardInfo redTriangleS3 = new CardInfo("Red", 3, "Triangle", "Grid", "/home/cronus/MEGAsync/Colección/Triangles/Colección_Red_Triangle_S_3.png");
+    	CardInfo blueTriangle1 = new CardInfo("Blue", 1, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_1.png");	
+    	CardInfo blueTriangle2 = new CardInfo("Blue", 2, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_2.png");   
+    	CardInfo blueTriangle3 = new CardInfo("Blue", 3, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_3.png");
+    	CardInfo blueTriangleE1 = new CardInfo("Blue", 1, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_E_1.png");	
+    	CardInfo blueTriangleE2 = new CardInfo("Blue", 2, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_E_2.png");   
+    	CardInfo blueTriangleE3 = new CardInfo("Blue", 3, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_E_3.png");
+    	CardInfo blueTriangleS1 = new CardInfo("Blue", 1, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_S_1.png");	
+    	CardInfo blueTriangleS2 = new CardInfo("Blue", 2, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_S_2.png");   
+    	CardInfo blueTriangleS3 = new CardInfo("Blue", 3, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Blue_Triangle_S_3.png");
+    	
+    	CardInfo greenTriangle1 = new CardInfo("Green", 1, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_1.png");	
+    	CardInfo greenTriangle2 = new CardInfo("Green", 2, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_2.png");   
+    	CardInfo greenTriangle3 = new CardInfo("Green", 3, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_3.png");
+    	CardInfo greenTriangleE1 = new CardInfo("Green", 1, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_E_1.png");	
+    	CardInfo greenTriangleE2 = new CardInfo("Green", 2, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_E_2.png");   
+    	CardInfo greenTriangleE3 = new CardInfo("Green", 3, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_E_3.png");
+    	CardInfo greenTriangleS1 = new CardInfo("Green", 1, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_S_1.png");	
+    	CardInfo greenTriangleS2 = new CardInfo("Green", 2, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_S_2.png");   
+    	CardInfo greenTriangleS3 = new CardInfo("Green", 3, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Green_Triangle_S_3.png");
+    	
+    	CardInfo orangeTriangle1 = new CardInfo("Orange", 1, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_1.png");	
+    	CardInfo orangeTriangle2 = new CardInfo("Orange", 2, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_2.png");   
+    	CardInfo orangeTriangle3 = new CardInfo("Orange", 3, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_3.png");
+    	CardInfo orangeTriangleE1 = new CardInfo("Orange", 1, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_E_1.png");	
+    	CardInfo orangeTriangleE2 = new CardInfo("Orange", 2, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_E_2.png");   
+    	CardInfo orangeTriangleE3 = new CardInfo("Orange", 3, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_E_3.png");
+    	CardInfo orangeTriangleS1 = new CardInfo("Orange", 1, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_S_1.png");	
+    	CardInfo orangeTriangleS2 = new CardInfo("Orange", 2, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_S_2.png");   
+    	CardInfo orangeTriangleS3 = new CardInfo("Orange", 3, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Orange_Triangle_S_3.png");
+    	
+    	CardInfo redTriangle1 = new CardInfo("Red", 1, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_1.png");	
+    	CardInfo redTriangle2 = new CardInfo("Red", 2, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_2.png");   
+    	CardInfo redTriangle3 = new CardInfo("Red", 3, "Triangle", "Solid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_3.png");
+    	CardInfo redTriangleE1 = new CardInfo("Red", 1, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_E_1.png");	
+    	CardInfo redTriangleE2 = new CardInfo("Red", 2, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_E_2.png");   
+    	CardInfo redTriangleE3 = new CardInfo("Red", 3, "Triangle", "Empty", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_E_3.png");
+    	CardInfo redTriangleS1 = new CardInfo("Red", 1, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_S_1.png");	
+    	CardInfo redTriangleS2 = new CardInfo("Red", 2, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_S_2.png");   
+    	CardInfo redTriangleS3 = new CardInfo("Red", 3, "Triangle", "Grid", "C://Users//deane//MEGAsync//Colección//Triangles//Colección_Red_Triangle_S_3.png");
     	    	
     	/*
     	 * Creating (and adjusting) images for the cards 
@@ -415,7 +416,7 @@ public class ColecciónGUI extends Application {
 		
 		Scene sceneTwo = new Scene(cardGrid, 1200, 800);
 		
-		Image bamboo1 = new Image(new FileInputStream("/home/cronus/MEGAsync/Colección/MET_DP202557_CRD.jpg"));
+		Image bamboo1 = new Image(new FileInputStream("C://Users//deane//MEGAsync//Colección//MET_DP202557_CRD.jpg"));
 		
 		BackgroundImage bgImg1 = new BackgroundImage(bamboo1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 				new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false));

@@ -3,13 +3,20 @@
 package frameworks;
 
 import java.util.*;
+
+import javaFiles.Card;
+
 import java.io.*;
 
 public class MatchingAlgorithm {
 	
 	boolean colorSame, numberSame, typeSame, fillSame, isActive;
 	
-	/*
+	MatchingAlgorithm(Card uno, Card dos, Card tres) {
+		
+	}
+	
+	
 	public boolean sameColor(CardInfo cardOne, CardInfo cardTwo, CardInfo cardThree) {
 		
 		if ((cardOne.shapeColor == cardTwo.shapeColor) && (cardThree.shapeColor == cardTwo.shapeColor) && (cardThree.shapeColor == cardOne.shapeColor)) {
@@ -49,7 +56,7 @@ public class MatchingAlgorithm {
 		}		
 		return fillSame;		
 	}
-	*/
+	
 	
 	
 	public static void main(String[] args) throws IOException {
