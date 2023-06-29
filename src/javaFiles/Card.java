@@ -35,6 +35,14 @@ public class Card {
 		return active;
 	}
 	
+	public void info() {
+		System.out.println("Card Properties: ");
+		System.out.println("	Color --> " + this.color);
+		System.out.println("	Number --> " + this.number);
+		System.out.println("	Type --> " + this.shape);
+		System.out.println("	Fill --> " + this.fill);
+	}
+	
 	/*
 	
 	*/

@@ -14,6 +14,8 @@ import javax.swing.JCheckBox;
 
 import frameworks.CardInfo;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableBooleanValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -30,14 +32,8 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class Game extends Application {
+public class Game extends Application {	
 	
-	int cardA = 0;
-	Stack<Card> cards3 = new Stack<Card>();
-	Card actcard1, actcard2, actcard3;
-	boolean finalchecks = false;
-	
-	CheckMatch blah;
 	
 	public static void main(String[] args) {				
         launch(args);
@@ -53,9 +49,34 @@ public class Game extends Application {
     	Card[] board = new Card[12];	
     	
     	Button[] buttons = new Button[12];
+    	
+    	GameButton[] pooped = new GameButton[12];
+    	
+    	for (int i = 0; i < 12; i++) {
+    		board[i] = Deck.peek();
+    		Deck.pop();    	
+    		buttons[i] = new Button("", board[i].view);
+    		pooped[i] = new GameButton(board[i]);
+    	}
+    	
 		
 		EventHandler<ActionEvent> checker = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
 			
+			for (int p = 0; p < 12; p++) {
+				if (board[p].active == true) {
+					board[p].active = false;  
+					System.out.println("Wroooong");
+				} else {
+					board[p].active = true;
+				}
+	    	}
+			
+			
+			
+			
+			
+		
+			/*
 			if (cardA == 3) {		
 				
 				for (int j = 0; j < 12; j++) {
@@ -70,25 +91,34 @@ public class Game extends Application {
 				
 				blah = new CheckMatch(actcard1, actcard2, actcard3);
 				
-				if (blah.matchCheck == true) {
-					finalchecks = true;
-					System.out.println("Riiiight");
-				} else {finalchecks = false; System.out.println("Wroooong");}
 				
-			}}
+				
+			}
+			
+			*/
+			}
 
 		};
+		
+		EventHandler<ActionEvent> cadd = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+			for (int t = 0; t < 12; t++) {   	
+	    		if (pooped[t].isOn == true) {
+	    			System.out.println("Wroooong");
+	    		}
+	    	};
+		}
+		};
+		
+		for (int t = 0; t < 12; t++) {   	
+    		pooped[t].setOnAction(cadd);
+    	}
+		
 		
 		
 		
 		
     	
-    	for (int i = 0; i < 12; i++) {
-    		board[i] = Deck.peek();
-    		Deck.pop();    	
-    		buttons[i] = new Button("", board[i].view);
-    		buttons[i].setOnAction(checker);
-    	}
+    
     	
     	
     	GridPane cGrid = new GridPane();	cGrid.setMinSize(1100, 700);		cGrid.setPadding(new Insets(10, 10, 10, 10));
@@ -99,7 +129,22 @@ public class Game extends Application {
 				 cGrid.add(buttons[8], 2, 2);		cGrid.add(buttons[9], 3, 0);		cGrid.add(buttons[10], 3, 1);		 cGrid.add(buttons[11], 3, 2);
     	
     	
-
+				 
+		
+				 
+				 
+				 
+		GridPane bGrid = new GridPane();	bGrid.setMinSize(1100, 700);		bGrid.setPadding(new Insets(10, 10, 10, 10));
+				 bGrid.setVgap(10);			bGrid.setHgap(10);					bGrid.setAlignment(Pos.CENTER);
+				 
+				 bGrid.add(pooped[0], 0, 0);		bGrid.add(pooped[1], 0, 1);		bGrid.add(pooped[2], 0, 2);		 bGrid.add(pooped[3], 1, 0);
+				 bGrid.add(pooped[4], 1, 1);		bGrid.add(pooped[5], 1, 2);		bGrid.add(pooped[6], 2, 0);		 bGrid.add(pooped[7], 2, 1);
+				 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
+				 
+				 
+				 
+				 
+/*
 
 		EventHandler<ActionEvent> eve1 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
 			if (board[0].active == true) {
@@ -129,13 +174,13 @@ public class Game extends Application {
 			System.out.println("Card Properties: ");
 		};
 		
-				 	 
+			*/	 	 
 				 
 				 
 				 
 				 
 
-		Scene sTwo = new Scene(cGrid, 1200, 800);
+		Scene sTwo = new Scene(bGrid, 1200, 800);
 					
 		Image bamboo2 = new Image(new FileInputStream("C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg"));
 					
@@ -144,7 +189,7 @@ public class Game extends Application {
 
 		Background bgImg3 = new Background(bgImg2);
 					
-		cGrid.setBackground(bgImg3);
+		bGrid.setBackground(bgImg3);
 					
 		s1.setScene(sTwo);
 
@@ -154,12 +199,7 @@ public class Game extends Application {
 	}
 
 	
-	public void upcard () {
-		cardA++;		
-	}
-	public void downcard () {
-		cardA--;
-	}
+	
 
 }
 

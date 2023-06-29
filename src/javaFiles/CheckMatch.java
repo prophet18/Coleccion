@@ -121,5 +121,9 @@ public class CheckMatch {
 		}		
 		return fillDifferent;		
 	}
+	
+	public void results() {
+		System.out.println("Are Cards a Match? " + matchCheck);
+	}
 
 }
