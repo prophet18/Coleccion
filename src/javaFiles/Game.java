@@ -34,6 +34,8 @@ import javafx.stage.Stage;
 
 public class Game extends Application {	
 	
+	int xyz = 0;
+	
 	
 	public static void main(String[] args) {				
         launch(args);
@@ -42,7 +44,7 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		Deck2 Deck = new Deck2();		
+		Deck Deck = new Deck();		
 		
     	Collections.shuffle(Deck);
     	
@@ -68,6 +70,7 @@ public class Game extends Application {
 					System.out.println("Wroooong");
 				} else {
 					board[p].active = true;
+					xyz++;
 				}
 	    	}
 			
@@ -121,7 +124,7 @@ public class Game extends Application {
     
     	
     	
-    	GridPane cGrid = new GridPane();	cGrid.setMinSize(1100, 700);		cGrid.setPadding(new Insets(10, 10, 10, 10));
+    	GridPane cGrid = new GridPane();	cGrid.setMinSize(1000, 800);		cGrid.setPadding(new Insets(5, 5, 5, 5));
 				 cGrid.setVgap(10);			cGrid.setHgap(10);					cGrid.setAlignment(Pos.CENTER);
 				 
 				 cGrid.add(buttons[0], 0, 0);		cGrid.add(buttons[1], 0, 1);		cGrid.add(buttons[2], 0, 2);		 cGrid.add(buttons[3], 1, 0);
@@ -134,7 +137,7 @@ public class Game extends Application {
 				 
 				 
 				 
-		GridPane bGrid = new GridPane();	bGrid.setMinSize(1100, 700);		bGrid.setPadding(new Insets(10, 10, 10, 10));
+		GridPane bGrid = new GridPane();	bGrid.setMinSize(1000, 800);		bGrid.setPadding(new Insets(5, 5, 5, 5));
 				 bGrid.setVgap(10);			bGrid.setHgap(10);					bGrid.setAlignment(Pos.CENTER);
 				 
 				 bGrid.add(pooped[0], 0, 0);		bGrid.add(pooped[1], 0, 1);		bGrid.add(pooped[2], 0, 2);		 bGrid.add(pooped[3], 1, 0);
@@ -180,12 +183,12 @@ public class Game extends Application {
 				 
 				 
 
-		Scene sTwo = new Scene(bGrid, 1200, 800);
+		Scene sTwo = new Scene(bGrid, 1100, 900);
 					
 		Image bamboo2 = new Image(new FileInputStream("C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg"));
 					
 		BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-						new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false));
+						new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
 		Background bgImg3 = new Background(bgImg2);
 					

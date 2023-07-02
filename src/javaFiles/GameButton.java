@@ -20,7 +20,7 @@ public class GameButton extends Button {
 	ArrayList<Card> toots = new ArrayList<Card>();
 	
 	public GameButton() {
-		
+		isOn = false;
 	}
 	
 	

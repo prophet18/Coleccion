@@ -1,4 +1,5 @@
-// First step for card setup / data import
+// Class for card setup / data import
+// Defines card properties, basic functions
 // Windows 10
 // Elliot Dean
 // 19 June 22023
@@ -27,8 +28,8 @@ public class Card {
 	public void imgAdd (Image cImg) {
 		image = cImg;
 		view = new ImageView(image);
-		view.setFitWidth(84);
-		view.setFitHeight(132);
+		view.setFitWidth(160);
+		view.setFitHeight(251);
 	}
 	
 	public boolean isActive () {

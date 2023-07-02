@@ -15,27 +15,39 @@ public class Board  {
 	
 	public Board() throws FileNotFoundException {
 		
-		Deck2 deck5 = new Deck2();
+		Deck Deck = new Deck();
 		
-		Collections.shuffle(deck5);
+		Collections.shuffle(Deck);
+		
+		GameButton gbutt = new GameButton();
+		
+		for (int e = 0; e < 12; e++) {
+			GameButton f = new GameButton();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
     	
     	Card[] board = new Card[12];	
     	
     	Button[] buttons = new Button[12];
     	
     	for (int i = 0; i < 12; i++) {
-    		board[i] = deck5.peek();
-    		deck5.pop();    	
+    		board[i] = Deck.peek();
+    		Deck.pop();    	
     		buttons[i] = new Button("", board[i].view);
     	}
     	
-    	HashMap<Button, Card> halo = new HashMap<Button, Card>();
     	
-    	for (int i = 0; i < 12; i++) {
-    		halo.put(buttons[i], board[i]);
-    	}
-    	
-    	Button pushme = new Button();
     	
 		
 	}
@@ -49,3 +61,15 @@ public class Board  {
 	
 
 }
+
+
+
+
+/*
+
+Listener
+
+
+
+
+*/

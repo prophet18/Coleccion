@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": ""
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ColecciónGUI",
+            "request": "launch",
+            "mainClass": "Colección/frameworks.ColecciónGUI",
+            "projectName": "Colección"
+        },
+        {
+            "type": "java",
+            "name": "GameGUI",
+            "request": "launch",
+            "mainClass": "Colección/frameworks.GameGUI",
+            "projectName": "Colección"
+        },
+        {
+            "type": "java",
+            "name": "MatchingAlgorithm",
+            "request": "launch",
+            "mainClass": "Colección/frameworks.MatchingAlgorithm",
+            "projectName": "Colección"
+        },
+        {
+            "type": "java",
+            "name": "Game",
+            "request": "launch",
+            "mainClass": "Colección/javaFiles.Game",
+            "projectName": "Colección"
+        }
+    ]
+}

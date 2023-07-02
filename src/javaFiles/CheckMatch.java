@@ -1,4 +1,6 @@
-// Class for board setup and function
+// Class to create CheckMatch object.
+// This will take 3 cards as parameters (arguments), and analyze them for each attribute.
+// The 4 attributes have their own boolean. "matchCheck" is the final true / false variable.
 
 package javaFiles;
 
@@ -12,9 +14,9 @@ import java.io.*;
 
 public class CheckMatch {
 	
-	boolean colorSame, numberSame, typeSame, fillSame, colorDifferent, numberDifferent, typeDifferent, fillDifferent;
+	boolean colorSame, numberSame, typeSame, fillSame;
+	boolean colorDifferent, numberDifferent, typeDifferent, fillDifferent;
 	boolean colorCheck, numberCheck, typeCheck, fillCheck, matchCheck;
-
 	Card first, second, third;
 	
 	CheckMatch(Card uno, Card dos, Card tres) {
@@ -125,5 +127,4 @@ public class CheckMatch {
 	public void results() {
 		System.out.println("Are Cards a Match? " + matchCheck);
 	}
-
 }

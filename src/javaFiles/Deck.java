@@ -1,3 +1,6 @@
+// Creates the deck for the game.
+// Adds card objects, images, and pushes into a stack
+
 package javaFiles;
 
 import java.io.FileInputStream;
@@ -6,9 +9,9 @@ import java.util.*;
 
 import javafx.scene.image.Image;
 
-public class Deck2 extends Stack<Card> {
+public class Deck extends Stack<Card> {
 	
-	public Deck2() throws FileNotFoundException {
+	public Deck() throws FileNotFoundException {
 		
 		Card	bP1	=	new	Card("Blue",	1,	"Parallelogram",	"Solid",	"C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_1.png"); 
 		Card	bP2	=	new	Card("Blue",	2,	"Parallelogram",	"Solid",	"C://Users//deane//MEGAsync//Colección//Parallelograms//Colección_Blue_Parallelogram_2.png");
@@ -298,8 +301,7 @@ public class Deck2 extends Stack<Card> {
     	Image redT3ei = new Image(new FileInputStream(rTE3.path));
     	Image redT1gi = new Image(new FileInputStream(rTS1.path));
     	Image redT2gi = new Image(new FileInputStream(rTS2.path));
-    	Image redT3gi = new Image(new FileInputStream(rTS3.path));
-    	
+    	Image redT3gi = new Image(new FileInputStream(rTS3.path));    	
     	
     	bP1.imgAdd(	blueP1i	);
     	bP2.imgAdd(	blueP2i	);
@@ -590,8 +592,5 @@ public class Deck2 extends Stack<Card> {
     	this.push(	rTS1	);
     	this.push(	rTS2	);
     	this.push(	rTS3	);
-
-
 	}
-
 }
