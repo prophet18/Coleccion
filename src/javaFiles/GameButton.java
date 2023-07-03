@@ -71,7 +71,7 @@ public class GameButton extends Button {
 		
 		
 		this.setGraphic(c.view);
-		this.setOnAction(gb);
+		// this.setOnAction(gb);
 		
 		
 	}

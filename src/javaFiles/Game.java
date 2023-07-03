@@ -3,6 +3,11 @@
 // Card sizes: Total - 672 x 1056 pixels		Scaled down - 168 x 264 		OR		84 x 132
 // Background size: 4000 x 2340 px				Scaled down - 2000 x 1170		OR		1000 x 585
 
+// Filepath for JavaFX on Cronus - /usr/lib/jvm/java-20-openjdk/
+// Filepath for JavaFX on Grendel -
+
+
+
 package javaFiles;
 
 import java.io.FileInputStream;
@@ -44,7 +49,7 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		Deck Deck = new Deck();		
+		DeckV2 Deck = new DeckV2();		
 		
     	Collections.shuffle(Deck);
     	
@@ -185,7 +190,10 @@ public class Game extends Application {
 
 		Scene sTwo = new Scene(bGrid, 1100, 900);
 					
-		Image bamboo2 = new Image(new FileInputStream("C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg"));
+		Image bamboo2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg"));
+		
+		// Filepath for images on Grendel - C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg
+		// Filepath for images on Cronus - /home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg
 					
 		BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 						new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
