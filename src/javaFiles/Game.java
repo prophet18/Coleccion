@@ -14,13 +14,14 @@ import java.io.FileInputStream;
 import java.util.Collections;
 import java.util.EventListener;
 import java.util.Stack;
-
 import javax.swing.JCheckBox;
-
 import frameworks.CardInfo;
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableBooleanValue;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -40,6 +41,10 @@ import javafx.stage.Stage;
 public class Game extends Application {	
 	
 	int xyz = 0;
+	
+	BooleanProperty isAct = new SimpleBooleanProperty(false);
+	
+	Board bord;
 	
 	
 	public static void main(String[] args) {				
@@ -80,9 +85,6 @@ public class Game extends Application {
 	    	}
 			
 			
-			
-			
-			
 		
 			/*
 			if (cardA == 3) {		
@@ -121,12 +123,40 @@ public class Game extends Application {
     		pooped[t].setOnAction(cadd);
     	}
 		
+		ObservableBooleanValue root = null;
 		
 		
 		
 		
-    	
-    
+		
+		
+		ChangeListener<Boolean> boot = new ChangeListener<Boolean>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
+				isAct.set(true);
+				System.out.println(" ");
+			}
+
+			
+
+			
+		};
+		
+		root.addListener(boot);
+		
+		EventHandler<ActionEvent> isActi = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+			isAct.setValue(true);
+		}
+		};
+		
+		Button jeeet = new Button();
+		
+		
+		
+		
+		
+		
     	
     	
     	GridPane cGrid = new GridPane();	cGrid.setMinSize(1000, 800);		cGrid.setPadding(new Insets(5, 5, 5, 5));

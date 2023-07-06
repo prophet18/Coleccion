@@ -4,6 +4,10 @@ package javaFiles;
 
 import java.util.*;
 import javaFiles.Card;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -12,6 +16,7 @@ import java.io.*;
 
 public class Board  {
 	
+	BooleanProperty isAct = new SimpleBooleanProperty(false);
 	Card cardactive1, cardactive2, cardactive3;	
 	
 	
@@ -41,7 +46,17 @@ public class Board  {
     	GameButton	gBeleven= new GameButton(	cards[10]);
     	GameButton	gBtwelve= new GameButton(	cards[11]);
     	
-    	EventHandler<ActionEvent> 	event1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[0].active == true) {cards[0].active = false;} else {cards[0].active = true;}}};
+    	EventHandler<ActionEvent> 	event1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)
+    		{if (cards[0].active == true) {
+    			cards[0].active = false;
+    			} else {
+    				cards[0].active = true;
+    				
+    				System.out.println(" DPPPPNS ");
+    				}
+    			}
+    	};
+    	
     	EventHandler<ActionEvent> 	event2  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[1].active == true) {cards[1].active = false;} else {cards[1].active = true;}}};
     	EventHandler<ActionEvent> 	event3  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[2].active == true) {cards[2].active = false;} else {cards[2].active = true;}}};
     	EventHandler<ActionEvent> 	event4  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[3].active == true) {cards[3].active = false;} else {cards[3].active = true;}}};
@@ -66,8 +81,26 @@ public class Board  {
     	gBten.setOnAction	(event10);
     	gBeleven.setOnAction	(event11);
     	gBtwelve.setOnAction	(event12);
+    	
+    	
+    	
+    	
+    	
+    	
+    	ChangeListener<Boolean> boot = new ChangeListener<Boolean>() {
 
-		
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
+				isAct.set(true);
+				System.out.println(" chacha ");
+			}
+
+			
+
+			
+		};
+    	
+		isAct.addListener(boot);
 		
 		
 		
@@ -100,10 +133,6 @@ public class Board  {
 
 
 /*
-
-Listener
-
-
 
 
 */
