@@ -54,7 +54,7 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		DeckV2 Deck = new DeckV2();		
+		DeckV3 Deck = new DeckV3();		
 		
     	Collections.shuffle(Deck);
     	
@@ -69,8 +69,10 @@ public class Game extends Application {
     		Deck.pop();    	
     		buttons[i] = new Button("", board[i].view);
     		pooped[i] = new GameButton(board[i]);
+    		
     	}
     	
+    	// pooped[4].info();
 		
 		EventHandler<ActionEvent> checker = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
 			
@@ -123,34 +125,7 @@ public class Game extends Application {
     		pooped[t].setOnAction(cadd);
     	}
 		
-		ObservableBooleanValue root = null;
-		
-		
-		
-		
-		
-		
-		ChangeListener<Boolean> boot = new ChangeListener<Boolean>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
-				isAct.set(true);
-				System.out.println(" ");
-			}
-
-			
-
-			
-		};
-		
-		root.addListener(boot);
-		
-		EventHandler<ActionEvent> isActi = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			isAct.setValue(true);
-		}
-		};
-		
-		Button jeeet = new Button();
+	
 		
 		
 		
@@ -213,25 +188,19 @@ public class Game extends Application {
 		};
 		
 			*/	 	 
+				
 				 
 				 
 				 
 				 
-
-		Scene sTwo = new Scene(bGrid, 1100, 900);
-					
-		Image bamboo2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg"));
+				 
+		Board haha1 = new Board();	
 		
-		// Filepath for images on Grendel - C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg
-		// Filepath for images on Cronus - /home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg
-					
-		BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-						new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+		
 
-		Background bgImg3 = new Background(bgImg2);
+		Scene sTwo = new Scene(haha1.goGrid(), 1100, 900);
 					
-		bGrid.setBackground(bgImg3);
-					
+		
 		s1.setScene(sTwo);
 
 		s1.setTitle("Colección");

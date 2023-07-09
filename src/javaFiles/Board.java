@@ -10,7 +10,16 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.GridPane;
 
 import java.io.*;
 
@@ -19,10 +28,30 @@ public class Board  {
 	BooleanProperty isAct = new SimpleBooleanProperty(false);
 	Card cardactive1, cardactive2, cardactive3;	
 	
+	CheckMatch bobo, bobo2, bobo3, bobo4, bobo5, bobo6;
+	
+	Boolean unless = false;
+	
+	GameButton	gbu1;
+	GameButton	gbu2;
+	GameButton	gbu3;
+	GameButton	gbu4;
+	GameButton	gbu5;
+	GameButton	gbu6;
+	GameButton	gbu7;
+	GameButton	gbu8;
+	GameButton	gbu9;
+	GameButton	gbu10;
+	GameButton	gbu11;
+	GameButton	gbu12;
+
+	HashMap<Integer, GameButton> botton;
+	
+	
 	
 	public Board() throws FileNotFoundException {
 		
-		DeckV2 Deck = new DeckV2();
+		DeckV3 Deck = new DeckV3();
 		
 		Collections.shuffle(Deck);
 	
@@ -104,24 +133,139 @@ public class Board  {
 		
 		
 		
+		gbu1	=	new	GameButton(cards[0]);
+		gbu2	=	new	GameButton(cards[1]);
+		gbu3	=	new	GameButton(cards[2]);
+		gbu4	=	new	GameButton(cards[3]);
+		gbu5	=	new	GameButton(cards[4]);
+		gbu6	=	new	GameButton(cards[5]);
+		gbu7	=	new	GameButton(cards[6]);
+		gbu8	=	new	GameButton(cards[7]);
+		gbu9	=	new	GameButton(cards[8]);
+		gbu10	=	new	GameButton(cards[9]);
+		gbu11	=	new	GameButton(cards[10]);
+		gbu12	=	new	GameButton(cards[11]);
+
+
 		
 		
 		
+		botton = new HashMap<Integer, GameButton>();
+			botton.put(1, gbu1);	botton.put(2, gbu2);	botton.put(3, gbu3);	botton.put(4, gbu4);
+			botton.put(5, gbu5);	botton.put(6, gbu6);	botton.put(7, gbu7);	botton.put(8, gbu8);
+			botton.put(9, gbu9);	botton.put(10, gbu10);	botton.put(11, gbu11);	botton.put(12, gbu12);
+			
 		
+			
+			
+			
+			
+			
+			
+			
+			
 		
+		bobo = new CheckMatch (botton.get(2).gb01, botton.get(3).gb01, botton.get(4).gb01);
 		
+		bobo2 = new CheckMatch (botton.get(5).gb01, botton.get(6).gb01, botton.get(7).gb01);
 		
+		bobo3 = new CheckMatch (botton.get(9).gb01, botton.get(10).gb01, botton.get(11).gb01);
+		
+		bobo4 = new CheckMatch (botton.get(1).gb01, botton.get(3).gb01, botton.get(5).gb01);
+		
+		bobo5 = new CheckMatch (botton.get(2).gb01, botton.get(4).gb01, botton.get(6).gb01);
+		
+		bobo6 = new CheckMatch (botton.get(7).gb01, botton.get(5).gb01, botton.get(10).gb01);
+		
+			
+			
+		if (bobo.matchCheck == true) {
+			bobo.listCards();
+		} else if (bobo2.matchCheck == true) {
+			bobo2.listCards();
+		} else if (bobo3.matchCheck == true) {
+			bobo3.listCards();
+		} else if (bobo4.matchCheck == true) {
+			bobo4.listCards();
+		} else if (bobo4.matchCheck == true) {
+			bobo4.listCards();
+		} else if (bobo5.matchCheck == true) {
+			bobo5.listCards();    	
     	
-    	
-    	
-    	
-    	
+		
+	}
+		
+		
+		
+		
+		
+	
+		/*
+	
+		GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
+		 		 goGrid.setVgap(10);		goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
+		 
+		goGrid.add(botton.get(1), 0, 0);	goGrid.add(botton.get(2), 0, 1);	goGrid.add(botton.get(3), 0, 2);		 goGrid.add(botton.get(4), 1, 0);
+		goGrid.add(botton.get(5), 1, 1);	goGrid.add(botton.get(6), 1, 2);	goGrid.add(botton.get(7), 2, 0);		 goGrid.add(botton.get(8), 2, 1);
+		goGrid.add(botton.get(9), 2, 2);	goGrid.add(botton.get(10), 3, 0);	goGrid.add(botton.get(11), 3, 1);		 goGrid.add(botton.get(12), 3, 2);
+		
+		*/
 		
 	}
 	
 	
+	public GridPane goGrid() throws FileNotFoundException{
+		
+		
+		
+		
+		
+		 GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
+		 goGrid.setVgap(10);				goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
+
+		 goGrid.add(botton.get(1), 0, 0);	goGrid.add(botton.get(2), 0, 1);	goGrid.add(botton.get(3), 0, 2);		 goGrid.add(botton.get(4), 1, 0);
+		 goGrid.add(botton.get(5), 1, 1);	goGrid.add(botton.get(6), 1, 2);	goGrid.add(botton.get(7), 2, 0);		 goGrid.add(botton.get(8), 2, 1);
+		 goGrid.add(botton.get(9), 2, 2);	goGrid.add(botton.get(10), 3, 0);	goGrid.add(botton.get(11), 3, 1);		 goGrid.add(botton.get(12), 3, 2);
+		 
+		 
+		 Image bamboo2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//bamboo_scroll_art_2.jpg"));
+			
+			// Filepath for images on Grendel - C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg
+			// Filepath for images on Cronus - /home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg
+						
+			BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+							new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+
+			Background bgImg3 = new Background(bgImg2);
+		 
+		 
+		 
+		 goGrid.setBackground(bgImg3);
+		 
+		return goGrid;
+	}
 	
+	public Boolean matching() {
+		
+		for (int w : botton.keySet()) {
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			System.out.println(w + " " + botton.get(w).gb01.color);
+		}
 	
+		
+		
+		unless = true;
+		return unless;
+		
+	}
 	
 	
 	

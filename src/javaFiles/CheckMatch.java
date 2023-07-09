@@ -124,7 +124,15 @@ public class CheckMatch {
 		return fillDifferent;		
 	}
 	
-	public void results() {
+	public void result() {
 		System.out.println("Are Cards a Match? " + matchCheck);
 	}
+	
+	public void listCards() {
+		first.info();
+		second.info();
+		third.info();
+		
+	}
+	
 }
