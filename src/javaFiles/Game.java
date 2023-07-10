@@ -51,7 +51,7 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		DeckV2 Deck = new DeckV2();		
+		DeckV3 Deck = new DeckV3();		
 		
     	Collections.shuffle(Deck);
     	
@@ -84,27 +84,6 @@ public class Game extends Application {
 	    	}
 			
 			
-		
-			/*
-			if (cardA == 3) {		
-				
-				for (int j = 0; j < 12; j++) {
-					if (board[j].active == true) {
-						cards3.push(board[j]);
-					}
-				}
-				
-				actcard1 = cards3.peek();	cards3.pop();
-				actcard2 = cards3.peek();	cards3.pop();
-				actcard3 = cards3.peek();	cards3.pop();
-				
-				blah = new CheckMatch(actcard1, actcard2, actcard3);
-				
-				
-				
-			}
-			
-			*/
 			}
 
 		};
@@ -122,12 +101,6 @@ public class Game extends Application {
     		pooped[t].setOnAction(cadd);
     	}
 		
-	
-		
-		
-		
-		
-		
 		
     	
     	
@@ -140,9 +113,6 @@ public class Game extends Application {
     	
     	
 				 
-		
-				 
-				 
 				 
 		GridPane bGrid = new GridPane();	bGrid.setMinSize(1000, 800);		bGrid.setPadding(new Insets(5, 5, 5, 5));
 				 bGrid.setVgap(10);			bGrid.setHgap(10);					bGrid.setAlignment(Pos.CENTER);
@@ -152,41 +122,7 @@ public class Game extends Application {
 				 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
 				 
 				 
-				 
-				 
-/*
 
-		EventHandler<ActionEvent> eve1 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			if (board[0].active == true) {
-				board[0].active = false; downcard(); 
-				System.out.println("Wroooong");
-			} else {
-				board[0].active = true; upcard(); 
-			}						
-		}
-		};
-		EventHandler<ActionEvent> eve2 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[1].active == true) {board[1].active = false; downcard();} else {board[1].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve3 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[2].active == true) {board[2].active = false; downcard();} else {board[2].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve4 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[3].active == true) {board[3].active = false; downcard();} else {board[3].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve5 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[4].active == true) {board[4].active = false; downcard();} else {board[4].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve6 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[5].active == true) {board[5].active = false; downcard();} else {board[5].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve7 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[6].active == true) {board[6].active = false; downcard();} else {board[6].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve8 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[7].active == true) {board[7].active = false; downcard();} else {board[7].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve9 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[8].active == true) {board[8].active = false; downcard();} else {board[8].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve10 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[9].active == true) {board[9].active = false; downcard();} else {board[9].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve11 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[10].active == true) {board[10].active = false; downcard();} else {board[10].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve12 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[11].active == true) {board[11].active = false; downcard();} else {board[11].active = true; upcard();}}};
-		
-		buttons[0].setOnAction(eve1); buttons[1].setOnAction(eve2); buttons[2].setOnAction(eve3); buttons[3].setOnAction(eve4); buttons[4].setOnAction(eve5); buttons[5].setOnAction(eve6);
-		buttons[6].setOnAction(eve7); buttons[7].setOnAction(eve8); buttons[8].setOnAction(eve9); buttons[9].setOnAction(eve10); buttons[10].setOnAction(eve11); buttons[11].setOnAction(eve12);
-		
-		if (board[0].active == false) {
-			System.out.println("Card Properties: ");
-		};
-		
-			*/	 	 
-				
-				 
 				 
 				 
 				 
@@ -197,7 +133,7 @@ public class Game extends Application {
 
 		Scene sTwo = new Scene(haha1.goGrid(), 1100, 900);
 		
-		// sTwo.getStylesheets().add(this.getClass().getResource("/home/cronus/GitHub/Coleccion/css_styling_coleccion.css").toExternalForm());
+		sTwo.getStylesheets().add("C://Users//deane//GitHub//Coleccion//css_styling_coleccion.css");
 		
 		
 		
@@ -226,118 +162,4 @@ public class Game extends Application {
 
 /*
 
-@Override
-public void start(Stage primaryStage) throws Exception {
-    String[] ingredients = new String[]{
-        "Pepperoni",
-        "Cheese",
-        "Tomato",
-        "Olives",
-        "Chicken"
-    };
-    final int maxCount = 3;
-    final Set<CheckBox> activeBoxes = new LinkedHashSet<>();
-
-    ChangeListener<Boolean> listener = (o, oldValue, newValue) -> {
-        // get checkbox containing property
-        CheckBox cb = (CheckBox) ((ReadOnlyProperty) o).getBean();
-
-        if (newValue) {
-            activeBoxes.add(cb);
-            if (activeBoxes.size() > maxCount) {
-                // get first checkbox to be activated
-                cb = activeBoxes.iterator().next();
-
-                // unselect; change listener will remove
-                cb.setSelected(false);
-            }
-        } else {
-            activeBoxes.remove(cb);
-        }
-    };
-
-    VBox root = new VBox();
-
-    // create checkboxes
-    for (int i = 0; i < ingredients.length; i++) {
-        CheckBox cb = new CheckBox(ingredients[i]);
-        cb.selectedProperty().addListener(listener);
-        root.getChildren().add(cb);
-    }
-
-    Scene scene = new Scene(root);
-    primaryStage.setScene(scene);
-    primaryStage.show();
-}
-
-
 */
-
-
-/*
-
-final CheckBox[] checkBoxes = new CheckBox[ingredients.length];
-
-ChangeListener<Boolean> listener = new ChangeListener<Boolean>() {
-
-    private int activeCount = 0;
-
-    public void changed(ObservableValue<? extends Boolean> o, Boolean oldValue, Boolean newValue) {
-        if (newValue) {
-            activeCount++;
-            if (activeCount == maxCount) {
-                // disable unselected CheckBoxes
-                for (CheckBox cb : checkBoxes) {
-                    if (!cb.isSelected()) {
-                        cb.setDisable(true);
-                    }
-                }
-            }
-        } else {
-            if (activeCount == maxCount) {
-                // reenable CheckBoxes
-                for (CheckBox cb : checkBoxes) {
-                    cb.setDisable(false);
-                }
-            }
-            activeCount--;
-        }
-    }
-};
-
-VBox root = new VBox();
-
-// create checkboxes
-for (int i = 0; i < ingredients.length; i++) {
-    CheckBox cb = new CheckBox(ingredients[i]);
-    cb.selectedProperty().addListener(listener);
-    root.getChildren().add(cb);
-    checkBoxes[i] = cb;
-}
-
-
-
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -66,18 +66,15 @@ public class GameButton extends Button {
 
 
 
-public GameButton(Card c, int yupp) {
+	public GameButton(Card c, int yupp) {
 	
-	HashMap<Integer, Card> upcards = new HashMap<Integer, Card>();
+		HashMap<Integer, Card> upcards = new HashMap<Integer, Card>();
 	
-	color = c.color; number = c.number; shape = c.shape; fill = c.fill; cidnew = yupp;
+		color = c.color; number = c.number; shape = c.shape; fill = c.fill; cidnew = yupp;
 	
-	isOn = false;
-	this.setGraphic(c.view);
-	
-	
+		isOn = false;
+		this.setGraphic(c.view);
+	}
+}
 
-	
-	
-}
-}
+

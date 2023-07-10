@@ -14,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -43,16 +44,32 @@ public class Board  {
 	
 	public Board() throws FileNotFoundException {
 		
-		DeckV2 Deck = new DeckV2();
+		DeckV3 Deck = new DeckV3();
 		
 		Collections.shuffle(Deck);
 	
-		Card[] cards = new Card[12];    	
+		Card[] cards = new Card[12];   
+		
+		GameButton[] gbs = new GameButton[12];
     	
     	for (int i = 0; i < 12; i++) {
     		cards[i] = Deck.peek();
     		Deck.pop();    	
     	}
+    	
+    	for (int k = 0; k < 12; k++) {
+
+    	    gbs[k] = new GameButton(cards[k]);
+    	    
+    	    gbs[k].info();
+    	};
+    	
+    
+    	
+    	
+    	
+    	
+    	
     	
     			
 		
@@ -77,6 +94,8 @@ public class Board  {
 			botton.put(1, gbu1);	botton.put(2, gbu2);	botton.put(3, gbu3);	botton.put(4, gbu4);
 			botton.put(5, gbu5);	botton.put(6, gbu6);	botton.put(7, gbu7);	botton.put(8, gbu8);
 			botton.put(9, gbu9);	botton.put(10, gbu10);	botton.put(11, gbu11);	botton.put(12, gbu12);
+			
+			
 			
 		
 		
@@ -610,44 +629,12 @@ public class Board  {
     	gbu12.setOnAction(eh12);	gbu12.setId("gamebutton");
     	
     	
-			
-			
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-			
-			
 		
-		// bobo = new CheckMatch (botton.get(2).card, botton.get(3).card, botton.get(4).card);	
-		// if (bobo.matchCheck == true) {bobo.listCards();} 
-		
-	
-		/*
-	
-		GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
-		 		 goGrid.setVgap(10);		goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
-		 
-		goGrid.add(botton.get(1), 0, 0);	goGrid.add(botton.get(2), 0, 1);	goGrid.add(botton.get(3), 0, 2);		 goGrid.add(botton.get(4), 1, 0);
-		goGrid.add(botton.get(5), 1, 1);	goGrid.add(botton.get(6), 1, 2);	goGrid.add(botton.get(7), 2, 0);		 goGrid.add(botton.get(8), 2, 1);
-		goGrid.add(botton.get(9), 2, 2);	goGrid.add(botton.get(10), 3, 0);	goGrid.add(botton.get(11), 3, 1);		 goGrid.add(botton.get(12), 3, 2);
-		
-		*/
+    	
+    	
+    	
+    	
+    	
 		
 	}
 	
@@ -663,13 +650,20 @@ public class Board  {
 		 goGrid.add(botton.get(9), 2, 2);	goGrid.add(botton.get(10), 3, 0);	goGrid.add(botton.get(11), 3, 1);		 goGrid.add(botton.get(12), 3, 2);
 		 
 		 
-		 Image bamboo2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg"));
+		 Image bamboo2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//bamboo_scroll_art_2.jpg"));
+		 Image pausebtn2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//PauseIcon.png"));
+		 Image scoreicon2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//ScoreIcon.png"));
+		 Image timericon2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//TimerIcon.png"));
+		 
+		 ImageView pausebtn = new ImageView(pausebtn2);
+		 ImageView scoreicon = new ImageView(scoreicon2);
+		 ImageView timericon = new ImageView(timericon2);
 			
 						
-			BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+		BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 							new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
-			Background bgImg3 = new Background(bgImg2);
+		Background bgImg3 = new Background(bgImg2);
 		 
 		 
 		 
@@ -677,6 +671,11 @@ public class Board  {
 		 
 		return goGrid;
 	}
+	
+	
+	
+	
+	
 	
 	public Boolean matching() {
 		

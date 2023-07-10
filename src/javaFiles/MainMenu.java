@@ -38,11 +38,11 @@ public class MainMenu extends Application {
 		
 		
 		
-		Image logoImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Collection_Logo_2.png"));
-		Image ngButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Draw_Build_Files/StartGameButton.png"));	
-		Image cButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Draw_Build_Files/ContinueGameButton.png"));
-		Image sButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/SettingsButton.png"));
-		Image hButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Draw_Build_Files//HelpButton.png"));
+		Image logoImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Collection_Logo_2.png"));
+		Image ngButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//StartGameButton.png"));	
+		Image cButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//ContinueGameButton.png"));
+		Image sButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//SettingsButton.png"));
+		Image hButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//HelpButton.png"));
 		
 		ImageView logoI = new ImageView(logoImg);		
 		ImageView ngI = new ImageView(ngButtonImg);
