@@ -15,15 +15,15 @@ import javafx.scene.image.ImageView;
 public class GameButton extends Button {
 	
 	boolean isOn, theTest;
-	 int aa1 = 1; int aa2 = 2; int aa3 = 3; int cidnew; 
+	int aa1 = 1; int aa2 = 2; int aa3 = 3; int cidnew; 
 	
 	String color, shape, fill, path; int number; Boolean active;
 	Image image; ImageView views;
 	
-	int numbAct = 0;
+	int nca;
 	
 	CheckMatch blah;
-	Card gb01, mental1, mental2, mental3;
+	Card card, mental1, mental2, mental3;
 	
 	HashMap<Integer, Card> upcards;
 	
@@ -34,22 +34,21 @@ public class GameButton extends Button {
 	
 	
 	public GameButton() {
-		isOn = false; color = null; number = 0; shape = null; fill = null;
+		isOn = false; color = null; number = 0; shape = null; fill = null; nca = 0; 
 	}
 	
 	
 	
 	public GameButton(Card c) {
 		
-		gb01 = c;	views = c.view;
-		
-		int cardA = 0;
+		card = c;	views = c.view;
 		
 		upcards = new HashMap<Integer, Card>();
 		
 		color = c.color; number = c.number; shape = c.shape; fill = c.fill; 
 		
-		isOn = false;
+		isOn = false; nca = 0;
+		
 		this.setGraphic(c.view);	
 		
 	}
@@ -67,31 +66,6 @@ public class GameButton extends Button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public GameButton(Card c, int yupp) {
 	
 	HashMap<Integer, Card> upcards = new HashMap<Integer, Card>();
@@ -102,64 +76,7 @@ public GameButton(Card c, int yupp) {
 	this.setGraphic(c.view);
 	
 	
-	
-	
-	
-	EventHandler<ActionEvent> gb = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-		
-		
-		if (numbAct == 3) { 
-		}
-		
-		
-		if (isOn == false) {
-			isOn = true;
-			numbAct++;
-			c.active = true;
-		} else {
-			isOn = false;
-			numbAct--;
-			c.active = false;
-		}
-		
-		switch (numbAct) {
-		
-			case 1:
-				upcards.put(1, c);
-				break;
-			
-			case 2:
-				upcards.put(2,  c);
-			
-			case 3:
-				upcards.put(3, c);
-		}
-		
-		
-		
-		
-		
-			
-			/*
-			
-			
-			actcard1 = cards3.peek();	cards3.pop();
-			actcard2 = cards3.peek();	cards3.pop();
-			actcard3 = cards3.peek();	cards3.pop();
-			
-			blah = new CheckMatch(actcard1, actcard2, actcard3);
-		
-			System.out.println(blah.matchCheck);
-		*/
-		
-	}
-	};
-	
-	
-	
-	
-	
-	// this.setOnAction(gb);
+
 	
 	
 }

@@ -3,10 +3,7 @@
 // Card sizes: Total - 672 x 1056 pixels		Scaled down - 168 x 264 		OR		84 x 132
 // Background size: 4000 x 2340 px				Scaled down - 2000 x 1170		OR		1000 x 585
 
-// Filepath for JavaFX on Cronus - /usr/lib/jvm/java-20-openjdk/
-// Filepath for JavaFX on Grendel -
-
-
+// 
 
 package javaFiles;
 
@@ -54,7 +51,7 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		DeckV3 Deck = new DeckV3();		
+		DeckV2 Deck = new DeckV2();		
 		
     	Collections.shuffle(Deck);
     	
@@ -199,7 +196,10 @@ public class Game extends Application {
 		
 
 		Scene sTwo = new Scene(haha1.goGrid(), 1100, 900);
-					
+		
+		// sTwo.getStylesheets().add(this.getClass().getResource("/home/cronus/GitHub/Coleccion/css_styling_coleccion.css").toExternalForm());
+		
+		
 		
 		s1.setScene(sTwo);
 

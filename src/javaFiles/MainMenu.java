@@ -38,11 +38,11 @@ public class MainMenu extends Application {
 		
 		
 		
-		Image logoImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//Collection_Logo_2.png"));
-		Image ngButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//StartGameButton.png"));	
-		Image cButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//ContinueGameButton.png"));
-		Image sButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//SettingsButton.png"));
-		Image hButtonImg = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//HelpButton.png"));
+		Image logoImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Collection_Logo_2.png"));
+		Image ngButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Draw_Build_Files/StartGameButton.png"));	
+		Image cButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Draw_Build_Files/ContinueGameButton.png"));
+		Image sButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/SettingsButton.png"));
+		Image hButtonImg = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/Draw_Build_Files//HelpButton.png"));
 		
 		ImageView logoI = new ImageView(logoImg);		
 		ImageView ngI = new ImageView(ngButtonImg);
@@ -97,7 +97,7 @@ public class MainMenu extends Application {
 		
 		
 		
-		Image swan2 = new Image(new FileInputStream("C://Users//deane//MEGAsync//Colección//swan_scroll_art_1.jpg"));
+		Image swan2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/swan_scroll_art_1.jpg"));
 		BackgroundImage bgImg3 = new BackgroundImage(swan2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 						new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
