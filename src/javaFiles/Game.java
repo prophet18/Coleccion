@@ -13,6 +13,7 @@ package javaFiles;
 import java.io.FileInputStream;
 import java.util.Collections;
 import java.util.EventListener;
+import java.util.HashMap;
 import java.util.Stack;
 import javax.swing.JCheckBox;
 import frameworks.CardInfo;
@@ -41,10 +42,13 @@ import javafx.stage.Stage;
 public class Game extends Application {	
 	
 	int xyz = 0;
-	
+	Boolean iAct = false;
+		
 	BooleanProperty isAct = new SimpleBooleanProperty(false);
 	
 	Board bord;
+	
+	HashMap<Integer, Card> mappin = new HashMap<Integer, Card>();
 	
 	
 	public static void main(String[] args) {				
@@ -54,7 +58,7 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		DeckV2 Deck = new DeckV2();		
+		DeckV3 Deck = new DeckV3();		
 		
     	Collections.shuffle(Deck);
     	
@@ -62,98 +66,65 @@ public class Game extends Application {
     	
     	Button[] buttons = new Button[12];
     	
-    	GameButton[] pooped = new GameButton[12];
+    	// GameButton[] pooped = new GameButton[12];
     	
     	for (int i = 0; i < 12; i++) {
     		board[i] = Deck.peek();
     		Deck.pop();    	
     		buttons[i] = new Button("", board[i].view);
-    		pooped[i] = new GameButton(board[i]);
+    		// pooped[i] = new GameButton(board[i]);
+    	    		
     	}
     	
-		
-		EventHandler<ActionEvent> checker = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+    	
+    	/*
+    	for (int weed = 0; weed < 12; weed++) {
+    	
+    	EventHandler<ActionEvent> newE = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+ 			
+ 			
+  			 
 			
-			for (int p = 0; p < 12; p++) {
-				if (board[p].active == true) {
-					board[p].active = false;  
+			
+				if (board[weed].active == true) {
+					board[weed].active = false; 
 					System.out.println("Wroooong");
+					xyz--;
 				} else {
-					board[p].active = true;
+					board[weed].active = true; 
 					xyz++;
+				}	
+				
+				System.out.println(xyz);
+				
+				switch (xyz) {
+					case 1:
+						System.out.println("ones");
+						mappin.put(1, board[weed]);
+						break;
+					case 2:
+						System.out.println("twos");
+						mappin.put(2, board[weed]);
+						break;
+					case 3:
+						System.out.println("threeees");
+						mappin.put(3, board[weed]);
+						break;			
+						
 				}
-	    	}
-			
-			
-		
-			/*
-			if (cardA == 3) {		
-				
-				for (int j = 0; j < 12; j++) {
-					if (board[j].active == true) {
-						cards3.push(board[j]);
-					}
-				}
-				
-				actcard1 = cards3.peek();	cards3.pop();
-				actcard2 = cards3.peek();	cards3.pop();
-				actcard3 = cards3.peek();	cards3.pop();
-				
-				blah = new CheckMatch(actcard1, actcard2, actcard3);
-				
 				
 				
 			}
-			
-			*/
-			}
-
-		};
+ 		};
+	}		 
+	
+	
+	
+	*/
+    		
+    	
 		
-		EventHandler<ActionEvent> cadd = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			for (int t = 0; t < 12; t++) {   	
-	    		if (pooped[t].isOn == true) {
-	    			System.out.println("Wroooong");
-	    		}
-	    	};
-		}
-		};
-		
-		for (int t = 0; t < 12; t++) {   	
-    		pooped[t].setOnAction(cadd);
-    	}
-		
-		ObservableBooleanValue root = null;
-		
-		
-		
-		
-		
-		
-		ChangeListener<Boolean> boot = new ChangeListener<Boolean>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
-				isAct.set(true);
-				System.out.println(" ");
-			}
-
-			
-
-			
-		};
-		
-		root.addListener(boot);
-		
-		EventHandler<ActionEvent> isActi = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			isAct.setValue(true);
-		}
-		};
-		
-		Button jeeet = new Button();
-		
-		
-		
+	
 		
 		
 		
@@ -169,7 +140,7 @@ public class Game extends Application {
     	
 				 
 		
-				 
+				 /*
 				 
 				 
 		GridPane bGrid = new GridPane();	bGrid.setMinSize(1000, 800);		bGrid.setPadding(new Insets(5, 5, 5, 5));
@@ -180,30 +151,76 @@ public class Game extends Application {
 				 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
 				 
 				 
+		 
+				 
+*/
 				 
 				 
-/*
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 /*
+				 
+				 
+				 
 
 		EventHandler<ActionEvent> eve1 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+			
+			if (iAct == true) {
+				iAct = false;
+			} else {
+				iAct = true;
+				xyz++;
+			}
+			
 			if (board[0].active == true) {
-				board[0].active = false; downcard(); 
+				board[0].active = false; 
 				System.out.println("Wroooong");
 			} else {
-				board[0].active = true; upcard(); 
-			}						
+				board[0].active = true; 
+			}	
+			
+			System.out.println(xyz);
+			
+			switch (xyz) {
+				case 1:
+					System.out.println("ones");
+					mappin.put(1, board[0]);
+					break;
+				case 2:
+					System.out.println("twos");
+					mappin.put(2, board[0]);
+					break;
+				case 3:
+					System.out.println("threeees");
+					mappin.put(3, board[0]);
+					break;			
+					
+			}
+			
+			
+			if (xyz == 4) {
+				System.out.println("booyakashah");
+			}
+			
+			
 		}
 		};
-		EventHandler<ActionEvent> eve2 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[1].active == true) {board[1].active = false; downcard();} else {board[1].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve3 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[2].active == true) {board[2].active = false; downcard();} else {board[2].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve4 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[3].active == true) {board[3].active = false; downcard();} else {board[3].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve5 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[4].active == true) {board[4].active = false; downcard();} else {board[4].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve6 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[5].active == true) {board[5].active = false; downcard();} else {board[5].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve7 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[6].active == true) {board[6].active = false; downcard();} else {board[6].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve8 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[7].active == true) {board[7].active = false; downcard();} else {board[7].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve9 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[8].active == true) {board[8].active = false; downcard();} else {board[8].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve10 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[9].active == true) {board[9].active = false; downcard();} else {board[9].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve11 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[10].active == true) {board[10].active = false; downcard();} else {board[10].active = true; upcard();}}};
-		EventHandler<ActionEvent> eve12 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[11].active == true) {board[11].active = false; downcard();} else {board[11].active = true; upcard();}}};
+		EventHandler<ActionEvent> eve2 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[1].active == true) {board[1].active = false; } else {board[1].active = true; }}};
+		EventHandler<ActionEvent> eve3 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[2].active == true) {board[2].active = false; } else {board[2].active = true; }}};
+		EventHandler<ActionEvent> eve4 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[3].active == true) {board[3].active = false; } else {board[3].active = true; }}};
+		EventHandler<ActionEvent> eve5 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[4].active == true) {board[4].active = false; } else {board[4].active = true; }}};
+		EventHandler<ActionEvent> eve6 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[5].active == true) {board[5].active = false; } else {board[5].active = true; }}};
+		EventHandler<ActionEvent> eve7 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[6].active == true) {board[6].active = false; } else {board[6].active = true; }}};
+		EventHandler<ActionEvent> eve8 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[7].active == true) {board[7].active = false; } else {board[7].active = true; }}};
+		EventHandler<ActionEvent> eve9 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[8].active == true) {board[8].active = false; } else {board[8].active = true; }}};
+		EventHandler<ActionEvent> eve10 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[9].active == true) {board[9].active = false; } else {board[9].active = true; }}};
+		EventHandler<ActionEvent> eve11 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[10].active == true) {board[10].active = false; } else {board[10].active = true; }}};
+		EventHandler<ActionEvent> eve12 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {if (board[11].active == true) {board[11].active = false; } else {board[11].active = true; }}};
 		
 		buttons[0].setOnAction(eve1); buttons[1].setOnAction(eve2); buttons[2].setOnAction(eve3); buttons[3].setOnAction(eve4); buttons[4].setOnAction(eve5); buttons[5].setOnAction(eve6);
 		buttons[6].setOnAction(eve7); buttons[7].setOnAction(eve8); buttons[8].setOnAction(eve9); buttons[9].setOnAction(eve10); buttons[10].setOnAction(eve11); buttons[11].setOnAction(eve12);
@@ -212,15 +229,25 @@ public class Game extends Application {
 			System.out.println("Card Properties: ");
 		};
 		
-			*/	 	 
+				 	 
 				 
 				 
-				 
+				 buttons[0].setOnAction(eve1); buttons[1].setOnAction(eve2); buttons[2].setOnAction(eve3); buttons[3].setOnAction(eve4); buttons[4].setOnAction(eve5); buttons[5].setOnAction(eve6);
+					buttons[6].setOnAction(eve7); buttons[7].setOnAction(eve8); buttons[8].setOnAction(eve9); buttons[9].setOnAction(eve10); buttons[10].setOnAction(eve11); buttons[11].setOnAction(eve12);
 				 
 
-		Scene sTwo = new Scene(bGrid, 1100, 900);
+	
 					
-		Image bamboo2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg"));
+					
+		*/
+					
+					
+					
+					
+					
+		Scene sTwo = new Scene(cGrid, 1100, 900);
+					
+		Image bamboo2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//bamboo_scroll_art_2.jpg"));
 		
 		// Filepath for images on Grendel - C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg
 		// Filepath for images on Cronus - /home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg
@@ -230,7 +257,7 @@ public class Game extends Application {
 
 		Background bgImg3 = new Background(bgImg2);
 					
-		bGrid.setBackground(bgImg3);
+		cGrid.setBackground(bgImg3);
 					
 		s1.setScene(sTwo);
 

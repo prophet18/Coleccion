@@ -15,7 +15,7 @@ public class GameButton extends Button {
 	int cardA = 0;
 	Stack<Card> cards3 = new Stack<Card>();
 	CheckMatch blah;
-	Card actcard1, actcard2, actcard3;
+	Card actcard1, actcard2, actcard3, ugh;
 	
 	ArrayList<Card> toots = new ArrayList<Card>();
 	
@@ -28,6 +28,7 @@ public class GameButton extends Button {
 	public GameButton(Card c) {
 		isOn = false;
 		int cardB = 0;
+		c = ugh;
 		
 		
 		
@@ -35,17 +36,17 @@ public class GameButton extends Button {
 			
 			
 			
-			if (c.active == true) {
-				c.active = false;
+			if (ugh.active == true) {
+				ugh.active = false;
 				isOn = false;
 				cards3.pop();
 				downcard(); 
 			} else {
-				c.active = true;
+				ugh.active = true;
 				isOn = true;
-				cards3.push(c);
+				cards3.push(ugh);
 				upcard(); 
-				toots.add(c);
+				toots.add(ugh);
 				
 			}
 			
@@ -76,7 +77,13 @@ public class GameButton extends Button {
 		
 	}
 	
-	
+	public void info2() {
+		System.out.println("Card Properties: ");
+		System.out.println("	Color --> " + this.ugh.color);
+		System.out.println("	Number --> " + this.ugh.number);
+		System.out.println("	Type --> " + this.ugh.shape);
+		System.out.println("	Fill --> " + this.ugh.fill);
+	}
 
 	public void upcard () {
 		cardA = cardA + 1;		
