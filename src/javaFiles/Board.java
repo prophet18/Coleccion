@@ -3,6 +3,9 @@
 package javaFiles;
 
 import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.IntStream;
+
 import javaFiles.Card;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -10,118 +13,297 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.GridPane;
 
 import java.io.*;
 
 public class Board  {
 	
-	BooleanProperty isAct = new SimpleBooleanProperty(false);
+	ArrayList<GameButton> bor;
+	
 	Card cardactive1, cardactive2, cardactive3;	
+	
+	Random randoms = new Random(); 
+	
+	CheckMatch check, solve;
+	
+	Boolean unless = false;
+	
+	GameButton	gbu1, gbu2, gbu3, gbu4, gbu5, gbu6, gbu7, gbu8, gbu9, gbu10, gbu11, gbu12;
+
+	HashMap<Integer, GameButton> botton = new HashMap<Integer, GameButton>();
+	HashMap<Integer, Card> cardmap = new HashMap<Integer, Card>();
+	
+	int ncarda = 0; int nca = 0;
+	
+	ScorePile score;
+	
+	GameButton gbu13 = new GameButton();
 	
 	
 	public Board() throws FileNotFoundException {
 		
-		DeckV2 Deck = new DeckV2();
+		
+		bor = new ArrayList<GameButton>();
+		
+		
+		
+		
+		int rcardss = randoms.nextInt(143);
+		
+		int rcard = (int) Math.random()*100;
+		
+		
+		DeckV3 Deck = new DeckV3();
 		
 		Collections.shuffle(Deck);
 	
-		Card[] cards = new Card[12];    	
+		Card[] cards = new Card[144];   
+		
+		GameButton[] gbs = new GameButton[144];
     	
-    	for (int i = 0; i < 12; i++) {
+    	for (int i = 0; i < 143; i++) {
     		cards[i] = Deck.peek();
     		Deck.pop();    	
     	}
     	
-    	GameButton	gBone = new GameButton(	cards[0]);
-    	GameButton	gBtwo = new GameButton(	cards[1]);
-    	GameButton	gBthree = new GameButton(	cards[2]);
-    	GameButton	gBfour = new GameButton(	cards[3]);
-    	GameButton	gBfive = new GameButton(	cards[4]);
-    	GameButton	gBsix = new GameButton(	cards[5]);
-    	GameButton	gBseven = new GameButton(	cards[6]);
-    	GameButton	gBeight = new GameButton(	cards[7]);
-    	GameButton	gBnine= new GameButton(	cards[8]);
-    	GameButton	gBten = new GameButton(	cards[9]);
-    	GameButton	gBeleven= new GameButton(	cards[10]);
-    	GameButton	gBtwelve= new GameButton(	cards[11]);
+    	for (int h = 0; h < 143; h++) {
+    		gbs[h] = new GameButton(cards[h]);    	
+    		botton.put(h, gbs[h]);
+    	}
     	
-    	EventHandler<ActionEvent> 	event1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)
-    		{if (cards[0].active == true) {
-    			cards[0].active = false;
-    			} else {
-    				cards[0].active = true;
-    				
-    				System.out.println(" DPPPPNS ");
-    				}
-    			}
-    	};
+    	for (int w = 0; w < 12; w++) {
+    		bor.add(gbs[w]);
+    	}
     	
-    	EventHandler<ActionEvent> 	event2  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[1].active == true) {cards[1].active = false;} else {cards[1].active = true;}}};
-    	EventHandler<ActionEvent> 	event3  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[2].active == true) {cards[2].active = false;} else {cards[2].active = true;}}};
-    	EventHandler<ActionEvent> 	event4  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[3].active == true) {cards[3].active = false;} else {cards[3].active = true;}}};
-    	EventHandler<ActionEvent> 	event5 = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)		{if (cards[4].active == true) {cards[4].active = false;} else {cards[4].active = true;}}};
-    	EventHandler<ActionEvent> 	event6  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[5].active == true) {cards[5].active = false;} else {cards[5].active = true;}}};
-    	EventHandler<ActionEvent> 	event7  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[6].active == true) {cards[6].active = false;} else {cards[6].active = true;}}};
-    	EventHandler<ActionEvent> 	event8  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[7].active == true) {cards[7].active = false;} else {cards[7].active = true;}}};
-    	EventHandler<ActionEvent> 	event9  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[8].active == true) {cards[8].active = false;} else {cards[8].active = true;}}};
-    	EventHandler<ActionEvent> 	event10  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[9].active == true) {cards[9].active = false;} else {cards[9].active = true;}}};
-    	EventHandler<ActionEvent> 	event11  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[10].active == true) {cards[10].active = false;} else {cards[10].active = true;}}};
-    	EventHandler<ActionEvent> 	event12  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e)	{if (cards[11].active == true) {cards[11].active = false;} else {cards[11].active = true;}}};
-
-    	gBone.setOnAction	(event1);
-    	gBtwo.setOnAction	(event2);
-    	gBthree.setOnAction	(event3);
-    	gBfour.setOnAction	(event4);
-    	gBfive.setOnAction	(event5);
-    	gBsix.setOnAction	(event6);
-    	gBseven.setOnAction	(event7);
-    	gBeight.setOnAction	(event8);
-    	gBnine.setOnAction	(event9);
-    	gBten.setOnAction	(event10);
-    	gBeleven.setOnAction	(event11);
-    	gBtwelve.setOnAction	(event12);
+     	
+    	score = new ScorePile();
+  
+		
+		
+			
     	
-    	
-    	
-    	
-    	
-    	
-    	ChangeListener<Boolean> boot = new ChangeListener<Boolean>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
-				isAct.set(true);
-				System.out.println(" chacha ");
+		
+		/*
+		EventHandler<ActionEvent> ehnu2  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+			if (gbu.active == true) {
+				gbu.active = false;
+				nca--;
+				System.out.println(nca);
+				switch (nca) {
+				case 1:
+					cardmap.remove(1, gbu.card);
+					break;
+				case 2:
+					cardmap.remove(2, gbu.card);
+					break;
+				case 3:
+					cardmap.remove(3, gbu.card);
+					break;
+				}
+			} else {
+				gbu.active = true;
+				nca++;
+				System.out.println(nca);
+				switch (nca) {
+				case 1:
+					cardmap.put(1, gbu.card);
+					break;
+				case 2:
+					cardmap.put(2, gbu.card);
+					break;
+				case 3:
+					cardmap.put(3, gbu.card);
+					break;
+				}    		
 			}
+			
+			if (nca == 3) {
+				solve = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
+				solve.result();
+				
+				
+				if (solve.matchCheck == true) {
+					score.push(cardmap.get(1));
+					botton.put(place, gbs[12]);
+					score.push(cardmap.get(2));
+					botton.put(place, gbs[13]);
+					score.push(cardmap.get(3));
+					botton.put(place, gbs[14]);
+					cardmap.clear();
+					
+					System.out.println("hulk hogan");
+					nca = 0;
+					
+					
+				} else {
+					nca = 0;
+					System.out.println("shit");
+					
+				}
+			}
+			
+		}
+		
+		
+		*/
+		
+		
+		
+		
+	
+		
 
 			
-
 			
-		};
-    	
-		isAct.addListener(boot);
+		for (Entry<Integer, GameButton> entry : botton.entrySet()) {
+			
+			Integer place = entry.getKey();
+			GameButton gbu = entry.getValue();
+			
+			
+			EventHandler<ActionEvent> ehnu  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+				if (gbu.active == true) {
+					gbu.active = false;
+					nca--;
+					System.out.println(nca);
+					switch (nca) {
+					case 1:
+						cardmap.remove(1, gbu.card);
+						break;
+					case 2:
+						cardmap.remove(2, gbu.card);
+						break;
+					case 3:
+						cardmap.remove(3, gbu.card);
+						break;
+					}
+				} else {
+					gbu.active = true;
+					nca++;
+					System.out.println(nca);
+					switch (nca) {
+					case 1:
+						cardmap.put(1, gbu.card);
+						break;
+					case 2:
+						cardmap.put(2, gbu.card);
+						break;
+					case 3:
+						cardmap.put(3, gbu.card);
+						break;
+					}    		
+				}
+				
+				if (nca == 3) {
+					solve = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
+					solve.result();
+					
+					
+					if (solve.matchCheck == true) {
+						score.push(cardmap.get(1));
+						botton.put(place, gbs[12]);
+						score.push(cardmap.get(2));
+						botton.put(place, gbs[13]);
+						score.push(cardmap.get(3));
+						botton.put(place, gbs[14]);
+						cardmap.clear();
+						
+						System.out.println("hulk hogan");
+						nca = 0;
+						
+						
+					} else {
+						nca = 0;
+						System.out.println("shit");
+						
+					}
+				}
+				
+			}
+			};
+				gbu.setOnAction(ehnu);
+			}
+			
+			
+		}
+				
+				
+			
+	
+			
+			
+			
 		
 		
+	
+	
+	public GridPane goGrid() throws FileNotFoundException {	
 		
 		
-		
-		
-		
-		
-		
-		
-    	
-    	
-    	
-    	
-    	
-		
+		 GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
+		 goGrid.setVgap(10);				goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
+
+		 goGrid.add(botton.get(1), 0, 0);	goGrid.add(botton.get(2), 0, 1);	goGrid.add(botton.get(3), 0, 2);		 goGrid.add(botton.get(4), 1, 0);
+		 goGrid.add(botton.get(5), 1, 1);	goGrid.add(botton.get(6), 1, 2);	goGrid.add(botton.get(7), 2, 0);		 goGrid.add(botton.get(8), 2, 1);
+		 goGrid.add(botton.get(9), 2, 2);	goGrid.add(botton.get(10), 3, 0);	goGrid.add(botton.get(11), 3, 1);		 goGrid.add(botton.get(12), 3, 2);
+		 
+		 
+		 Image bamboo2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//bamboo_scroll_art_2.jpg"));
+		 
+		 /*
+		 Image pausebtn2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//PauseIcon.png"));
+		 Image scoreicon2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//ScoreIcon.png"));
+		 Image timericon2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//TimerIcon.png"));
+		 
+		 ImageView pausebtn = new ImageView(pausebtn2);
+		 ImageView scoreicon = new ImageView(scoreicon2);
+		 ImageView timericon = new ImageView(timericon2);
+		*/
+						
+		BackgroundImage bgImg2 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+							new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+
+		Background bgImg3 = new Background(bgImg2);
+		 
+		 
+		 
+		 goGrid.setBackground(bgImg3);
+		 
+		return goGrid;
 	}
 	
 	
 	
 	
+	
+	
+	public Boolean matching() {
+		
+		for (int w : botton.keySet()) {
+			
+					
+			
+			
+			System.out.println(w + " " + botton.get(w).card.color);
+		}
+	
+		
+		
+		unless = true;
+		return unless;
+		
+	}
 	
 	
 	
