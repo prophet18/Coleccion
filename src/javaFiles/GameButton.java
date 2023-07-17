@@ -15,21 +15,20 @@ import javafx.scene.image.ImageView;
 public class GameButton extends Button {
 	
 	boolean isOn, theTest;
-	int aa1 = 1; int aa2 = 2; int aa3 = 3; int cidnew; 
+	int aa1 = 0; 
 	
 	String color, shape, fill, path; int number; Boolean active;
 	Image image; ImageView views;
 	
 	int nca;
 	
-	CheckMatch blah;
+	CheckMatch chk1;
 	Card card, mental1, mental2, mental3;
 	
 	HashMap<Integer, Card> upcards;
 	
-	ScorePile pooped = new ScorePile();
 	
-	
+
 	
 	
 	
@@ -47,11 +46,66 @@ public class GameButton extends Button {
 		
 		color = c.color; number = c.number; shape = c.shape; fill = c.fill; 
 		
-		isOn = false; nca = 0;
+		isOn = false; nca = 1;
 		
-		this.setGraphic(c.view);	
+		this.setGraphic(c.view);
 		
+		EventHandler<ActionEvent> beh1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+			
+			
+			if (card.active == true) {
+				card.active = false;
+				System.out.println(nca);
+				nca--;
+				switch (nca) {
+				case 1:
+					upcards.remove(1, card);
+					break;
+				case 2:
+					upcards.remove(2, card);
+					break;
+				case 3:
+					upcards.remove(3, card);
+					break;
+			}    			
+				
+			} else {
+				card.active = true;	
+				System.out.println(nca);
+				nca++;
+				switch (nca) {
+				case 1:
+					upcards.put(1, card);
+					break;
+				case 2:
+					upcards.put(2, card);
+					break;
+				case 3:
+					upcards.put(3, card);
+					break;
+			}    			
+			}
+			
+			if (nca == 3) {
+				chk1 = new CheckMatch (upcards.get(1), upcards.get(2), upcards.get(3));
+				chk1.result();
+			
+			
+			
+		}
+		};
+		
+	};
+	
+	this.setOnAction(beh1);
+	
 	}
+		
+	
+		
+		
+		
+		
 	
 	public void info() {
 		System.out.println("Card Properties: ");
@@ -61,20 +115,14 @@ public class GameButton extends Button {
 		System.out.println("	Fill --> " + this.fill);
 	}
 	
-
-
-
-
-
-	public GameButton(Card c, int yupp) {
 	
-		HashMap<Integer, Card> upcards = new HashMap<Integer, Card>();
 	
-		color = c.color; number = c.number; shape = c.shape; fill = c.fill; cidnew = yupp;
-	
-		isOn = false;
-		this.setGraphic(c.view);
-	}
+
+
+
+
+
+
 }
 
 

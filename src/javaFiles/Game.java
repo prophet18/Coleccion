@@ -39,7 +39,6 @@ public class Game extends Application {
 	
 	int xyz = 0;
 	
-	BooleanProperty isAct = new SimpleBooleanProperty(false);
 	
 	Board bord;
 	
@@ -51,59 +50,10 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		DeckV3 Deck = new DeckV3();		
-		
-    	Collections.shuffle(Deck);
-    	
-    	Card[] board = new Card[12];	
-    	
-    	Button[] buttons = new Button[12];
-    	
-    	GameButton[] pooped = new GameButton[12];
-    	
-    	for (int i = 0; i < 12; i++) {
-    		board[i] = Deck.peek();
-    		Deck.pop();    	
-    		buttons[i] = new Button("", board[i].view);
-    		pooped[i] = new GameButton(board[i]);
-    		
-    	}
-    	
-    	// pooped[4].info();
-		
-		EventHandler<ActionEvent> checker = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			
-			for (int p = 0; p < 12; p++) {
-				if (board[p].active == true) {
-					board[p].active = false;  
-					System.out.println("Wroooong");
-				} else {
-					board[p].active = true;
-					xyz++;
-				}
-	    	}
-			
-			
-			}
-
-		};
-		
-		EventHandler<ActionEvent> cadd = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			for (int t = 0; t < 12; t++) {   	
-	    		if (pooped[t].isOn == true) {
-	    			System.out.println("Wroooong");
-	    		}
-	    	};
-		}
-		};
-		
-		for (int t = 0; t < 12; t++) {   	
-    		pooped[t].setOnAction(cadd);
-    	}
 		
 		
     	
-    	
+    	/*
     	GridPane cGrid = new GridPane();	cGrid.setMinSize(1000, 800);		cGrid.setPadding(new Insets(5, 5, 5, 5));
 				 cGrid.setVgap(10);			cGrid.setHgap(10);					cGrid.setAlignment(Pos.CENTER);
 				 
@@ -122,18 +72,18 @@ public class Game extends Application {
 				 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
 				 
 				 
-
+    	 */
 				 
 				 
 				 
 				 
-		Board haha1 = new Board();	
+		Board board1 = new Board();	
 		
 		
 
-		Scene sTwo = new Scene(haha1.goGrid(), 1100, 900);
+		Scene sTwo = new Scene(board1.goGrid(), 1100, 900);
 		
-		sTwo.getStylesheets().add("C://Users//deane//GitHub//Coleccion//css_styling_coleccion.css");
+		// sTwo.getStylesheets().add("C:/css_styling_coleccion.css");
 		
 		
 		
