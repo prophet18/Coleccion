@@ -40,7 +40,6 @@ public class Game extends Application {
 	int xyz = 0;
 	
 	
-	Board bord;
 	
 	
 	public static void main(String[] args) {				

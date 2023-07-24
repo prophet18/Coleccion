@@ -32,7 +32,9 @@ public class Board  {
 	
 	Boolean isOn, active;
 	
-	GameButton	gbu1, gbu2, gbu3, gbu4, gbu5, gbu6, gbu7, gbu8, gbu9, gbu10, gbu11, gbu12;
+	GameButton	gbu1, gbu2, gbu3, gbu4, gbu5, gbu6, gbu7, gbu8, gbu9, gbu10, gbu11, gbu12, tgbu;
+	
+	GameButton[] gbs;
 
 	HashMap<Integer, GameButton> bottons;
 	ArrayList<GameButton> algb;
@@ -51,7 +53,7 @@ public class Board  {
 	
 		Card[] cards = new Card[12];   
 		
-		GameButton[] gbs = new GameButton[12];
+		gbs = new GameButton[12];
     	
     	for (int i = 0; i < 12; i++) {
     		cards[i] = Deck.peek();
@@ -60,10 +62,15 @@ public class Board  {
     	
     	for (int k = 0; k < 12; k++) {
     	    gbs[k] = new GameButton(cards[k]);    	    
+    	    
+    	    
+    	    
     	    // gbs[k].info();
     	};
     	   
- 	
+    	
+			
+    		
     	
     	
     			
@@ -79,17 +86,9 @@ public class Board  {
 		
 		algb = new ArrayList<GameButton>();
 		
-		for (int y = 0; y < 12; y++) {
-    	    algb.add(gbs[y]);    	    
-    	    System.out.println(algb.get(y).card.color);
-		}
-    	
-		int a = 0;
-		
-		
 		
 		EventHandler<ActionEvent> eh1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			if (cards[0].active == true) {
+			if (cards[0].active == true || gbu1.isOn == false) {
     			cards[0].active = false;
     			--nca;
     			switch (nca) {
@@ -143,18 +142,26 @@ public class Board  {
 		
 		GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
 		 goGrid.setVgap(10);				goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
+		 
+		 
+		 /*
 
 		 goGrid.add(algb.get(0), 0, 0);	goGrid.add(algb.get(1), 0, 1);	goGrid.add(algb.get(2), 0, 2);		 goGrid.add(algb.get(3), 1, 0);
 		 goGrid.add(algb.get(4), 1, 1);	goGrid.add(algb.get(5), 1, 2);	goGrid.add(algb.get(6), 2, 0);		 goGrid.add(algb.get(7), 2, 1);
 		 goGrid.add(algb.get(8), 2, 2);	goGrid.add(algb.get(9), 3, 0);	goGrid.add(algb.get(10), 3, 1);		 goGrid.add(algb.get(11), 3, 2);
+		 
+		 */
 		
+		 
+		 
+		    goGrid.add(gbs[0], 0, 0);	goGrid.add(gbs[1], 0, 1);	goGrid.add(gbs[2], 0, 2);		 goGrid.add(gbs[3], 1, 0);
+		 	 goGrid.add(gbs[4], 1, 1);	goGrid.add(gbs[5], 1, 2);	goGrid.add(gbs[6], 2, 0);		 goGrid.add(gbs[7], 2, 1);
+		 	 goGrid.add(gbs[8], 2, 2);	goGrid.add(gbs[9], 3, 0);	goGrid.add(gbs[10], 3, 1);		 goGrid.add(gbs[11], 3, 2);
+		  
 		
 		
 		
 		/*
-		 GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
-		 goGrid.setVgap(10);				goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
-
 		 goGrid.add(bottons.get(1), 0, 0);	goGrid.add(bottons.get(2), 0, 1);	goGrid.add(bottons.get(3), 0, 2);		 goGrid.add(bottons.get(4), 1, 0);
 		 goGrid.add(bottons.get(5), 1, 1);	goGrid.add(bottons.get(6), 1, 2);	goGrid.add(bottons.get(7), 2, 0);		 goGrid.add(bottons.get(8), 2, 1);
 		 goGrid.add(bottons.get(9), 2, 2);	goGrid.add(bottons.get(10), 3, 0);	goGrid.add(bottons.get(11), 3, 1);		 goGrid.add(bottons.get(12), 3, 2);

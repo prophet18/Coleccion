@@ -20,16 +20,14 @@ public class GameButton extends Button {
 	String color, shape, fill, path; int number; Boolean active;
 	Image image; ImageView views;
 	
-	int nca;
+	int nca, nca2;
 	
 	CheckMatch chk1;
 	Card card, mental1, mental2, mental3;
 	
+	Card[] cards;
+	
 	HashMap<Integer, Card> upcards;
-	
-	
-
-	
 	
 	
 	public GameButton() {
@@ -48,57 +46,13 @@ public class GameButton extends Button {
 		
 		isOn = false; nca = 1;
 		
+		nca2 = 0;
+		
 		this.setGraphic(c.view);
 		
-		EventHandler<ActionEvent> beh1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			
-			
-			if (card.active == true) {
-				card.active = false;
-				System.out.println(nca);
-				nca--;
-				switch (nca) {
-				case 1:
-					upcards.remove(1, card);
-					break;
-				case 2:
-					upcards.remove(2, card);
-					break;
-				case 3:
-					upcards.remove(3, card);
-					break;
-			}    			
-				
-			} else {
-				card.active = true;	
-				System.out.println(nca);
-				nca++;
-				switch (nca) {
-				case 1:
-					upcards.put(1, card);
-					break;
-				case 2:
-					upcards.put(2, card);
-					break;
-				case 3:
-					upcards.put(3, card);
-					break;
-			}    			
-			}
-			
-			if (nca == 3) {
-				chk1 = new CheckMatch (upcards.get(1), upcards.get(2), upcards.get(3));
-				chk1.result();
-			
-			
-			
-		}
-		};
+		this.setOnAction(beh4);
 		
-	};
-	
-	this.setOnAction(beh1);
-	
+		
 	}
 		
 	
@@ -115,13 +69,61 @@ public class GameButton extends Button {
 		System.out.println("	Fill --> " + this.fill);
 	}
 	
+	public void makeactive() {
+		System.out.println(nca2);
+		 nca2++;
+		 isOn = true;
+		 
+		 switch (nca2) {
+		 
+		 	case 1:		 		
+		 		upcards.put(1, this.card);
+				break;
+			case 2:
+				upcards.put(2, this.card);
+				break;
+			case 3:
+				upcards.put(3, this.card);
+				break;
+		}    		
+		 
+		if (nca2 == 3) {
+			chk1 = new CheckMatch(upcards.get(1), upcards.get(2), upcards.get(3));
+			chk1.result();
+		}		 	
+		 
+	}
+	
+	public void makeinactive() {
+		System.out.println(nca2);
+		 nca2--;
+		 isOn = false;
+		 
+		 switch (nca2) {
+		 
+		 	case 1:		 		
+		 		upcards.remove(1, this.card);
+				break;
+			case 2:
+				upcards.remove(2, this.card);
+				break;
+			case 3:
+				upcards.remove(3, this.card);
+				break;
+		}    		
+	}
 	
 	
-
-
-
-
-
+	EventHandler<ActionEvent> beh4  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+		
+			makeinactive();
+		
+		
+    	
+	
+		}
+	};
+    
 
 }
 
