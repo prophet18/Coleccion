@@ -28,35 +28,32 @@ import javafx.scene.layout.GridPane;
 import java.io.*;
 
 public class Board  {
-	
-	ArrayList<GameButton> bor;
-	
-	Card cardactive1, cardactive2, cardactive3;	
+		
 	
 	Random randoms = new Random(); 
 	
-	CheckMatch check, solve;
-	
-	Boolean unless = false;
+	CheckMatch solve;
 	
 	GameButton	gbu1, gbu2, gbu3, gbu4, gbu5, gbu6, gbu7, gbu8, gbu9, gbu10, gbu11, gbu12;
 
-	HashMap<Integer, GameButton> botton = new HashMap<Integer, GameButton>();
-	HashMap<Integer, Card> cardmap = new HashMap<Integer, Card>();
+	HashMap<Integer, Card> cardmap;
+	HashMap<Integer, Integer> indexmap;
 	
 	int ncarda = 0; int nca = 0;
 	
+	int u = 13;
+	
 	ScorePile score;
 	
-	GameButton gbu13 = new GameButton();
-	
+	GameButton[] gbs;
+		
 	
 	public Board() throws FileNotFoundException {
 		
+	
 		
-		bor = new ArrayList<GameButton>();
-		
-		
+		cardmap = new HashMap<Integer, Card>();
+		indexmap = new HashMap<Integer, Integer>();
 		
 		
 		int rcardss = randoms.nextInt(143);
@@ -64,184 +61,105 @@ public class Board  {
 		int rcard = (int) Math.random()*100;
 		
 		
-		DeckV3 Deck = new DeckV3();
+		DeckV2 Deck = new DeckV2();
 		
 		Collections.shuffle(Deck);
 	
 		Card[] cards = new Card[144];   
 		
-		GameButton[] gbs = new GameButton[144];
+		gbs = new GameButton[12];
     	
     	for (int i = 0; i < 143; i++) {
     		cards[i] = Deck.peek();
     		Deck.pop();    	
     	}
     	
-    	for (int h = 0; h < 143; h++) {
-    		gbs[h] = new GameButton(cards[h]);    	
-    		botton.put(h, gbs[h]);
+    	for (int h = 0; h < 12; h++) {
+    		gbs[h] = new GameButton(h, cards[h]);  
     	}
     	
-    	for (int w = 0; w < 12; w++) {
-    		bor.add(gbs[w]);
+    	for (GameButton j : gbs) {
+    		EventHandler<ActionEvent> eh1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
+    			actions();
+    		}
+    		
+    		public void actions() {
+    			if (j.active == true) {
+    				j.active = false;	
+    				--nca;
+    				switch (nca) {
+    				case 1:
+    					cardmap.remove(1, j.card);
+    					indexmap.remove(1, j.index);
+    					break;
+    				case 2:
+    					cardmap.remove(2, j.card);
+    					indexmap.remove(2, j.index);
+    					break;
+    				case 3:
+    					cardmap.remove(3, j.card);
+    					indexmap.remove(3, j.index);
+    					break;
+    			}    			
+    				
+    			} else {
+    				j.active = true;
+    				nca++;
+    				switch (nca) {
+    				case 1:
+    					cardmap.put(1, j.card);
+    					indexmap.put(1, j.index);
+    					break;
+    				case 2:
+    					cardmap.put(2, j.card);
+    					indexmap.put(2, j.index);
+    					break;
+    				case 3:
+    					cardmap.put(3, j.card);
+    					indexmap.put(3, j.index);
+    					break;
+    			}    			
+    				System.out.println(j.index);
+    				j.info();
+    			}
+    			
+    			if (nca == 3) {
+    				solve = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
+    				solve.result();
+    				
+    				if(solve.matchCheck == true) {
+    					j.setCard(indexmap.get(1), cards[u]);
+    					j.setCard(indexmap.get(2), cards[u+1]);
+    					j.setCard(indexmap.get(3), cards[u+2]);
+    					u = u + 3;
+    				} else {
+    					System.out.println("Wrong" + u);
+    				}
+    				
+    				cardmap.clear();
+    				indexmap.clear();
+    				nca = 0;
+    				
+    				
+    				
+    			}	
+    			
+    		}
+
+    		
+    		};
+    		
+    		j.setOnAction(eh1);
     	}
+    
     	
      	
     	score = new ScorePile();
+    	
+	}
   
 		
-		
-			
-    	
-		
-		/*
-		EventHandler<ActionEvent> ehnu2  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-			if (gbu.active == true) {
-				gbu.active = false;
-				nca--;
-				System.out.println(nca);
-				switch (nca) {
-				case 1:
-					cardmap.remove(1, gbu.card);
-					break;
-				case 2:
-					cardmap.remove(2, gbu.card);
-					break;
-				case 3:
-					cardmap.remove(3, gbu.card);
-					break;
-				}
-			} else {
-				gbu.active = true;
-				nca++;
-				System.out.println(nca);
-				switch (nca) {
-				case 1:
-					cardmap.put(1, gbu.card);
-					break;
-				case 2:
-					cardmap.put(2, gbu.card);
-					break;
-				case 3:
-					cardmap.put(3, gbu.card);
-					break;
-				}    		
-			}
-			
-			if (nca == 3) {
-				solve = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
-				solve.result();
-				
-				
-				if (solve.matchCheck == true) {
-					score.push(cardmap.get(1));
-					botton.put(place, gbs[12]);
-					score.push(cardmap.get(2));
-					botton.put(place, gbs[13]);
-					score.push(cardmap.get(3));
-					botton.put(place, gbs[14]);
-					cardmap.clear();
-					
-					System.out.println("hulk hogan");
-					nca = 0;
-					
-					
-				} else {
-					nca = 0;
-					System.out.println("shit");
-					
-				}
-			}
-			
-		}
-		
-		
-		*/
-		
-		
-		
-		
 	
-		
-
-			
-			
-		for (Entry<Integer, GameButton> entry : botton.entrySet()) {
-			
-			Integer place = entry.getKey();
-			GameButton gbu = entry.getValue();
-			
-			
-			EventHandler<ActionEvent> ehnu  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
-				if (gbu.active == true) {
-					gbu.active = false;
-					nca--;
-					System.out.println(nca);
-					switch (nca) {
-					case 1:
-						cardmap.remove(1, gbu.card);
-						break;
-					case 2:
-						cardmap.remove(2, gbu.card);
-						break;
-					case 3:
-						cardmap.remove(3, gbu.card);
-						break;
-					}
-				} else {
-					gbu.active = true;
-					nca++;
-					System.out.println(nca);
-					switch (nca) {
-					case 1:
-						cardmap.put(1, gbu.card);
-						break;
-					case 2:
-						cardmap.put(2, gbu.card);
-						break;
-					case 3:
-						cardmap.put(3, gbu.card);
-						break;
-					}    		
-				}
-				
-				if (nca == 3) {
-					solve = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
-					solve.result();
-					
-					
-					if (solve.matchCheck == true) {
-						score.push(cardmap.get(1));
-						botton.put(place, gbs[12]);
-						score.push(cardmap.get(2));
-						botton.put(place, gbs[13]);
-						score.push(cardmap.get(3));
-						botton.put(place, gbs[14]);
-						cardmap.clear();
-						
-						System.out.println("hulk hogan");
-						nca = 0;
-						
-						
-					} else {
-						nca = 0;
-						System.out.println("shit");
-						
-					}
-				}
-				
-			}
-			};
-				gbu.setOnAction(ehnu);
-			}
-			
-			
-		}
-				
-				
-			
-	
-			
 			
 			
 		
@@ -254,12 +172,12 @@ public class Board  {
 		 GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
 		 goGrid.setVgap(10);				goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
 
-		 goGrid.add(botton.get(1), 0, 0);	goGrid.add(botton.get(2), 0, 1);	goGrid.add(botton.get(3), 0, 2);		 goGrid.add(botton.get(4), 1, 0);
-		 goGrid.add(botton.get(5), 1, 1);	goGrid.add(botton.get(6), 1, 2);	goGrid.add(botton.get(7), 2, 0);		 goGrid.add(botton.get(8), 2, 1);
-		 goGrid.add(botton.get(9), 2, 2);	goGrid.add(botton.get(10), 3, 0);	goGrid.add(botton.get(11), 3, 1);		 goGrid.add(botton.get(12), 3, 2);
+		 goGrid.add(gbs[0], 0, 0);	goGrid.add(gbs[1], 0, 1);	goGrid.add(gbs[2], 0, 2);		 goGrid.add(gbs[3], 1, 0);
+		 goGrid.add(gbs[4], 1, 1);	goGrid.add(gbs[5], 1, 2);	goGrid.add(gbs[6], 2, 0);		 goGrid.add(gbs[7], 2, 1);
+		 goGrid.add(gbs[8], 2, 2);	goGrid.add(gbs[9], 3, 0);	goGrid.add(gbs[10], 3, 1);		 goGrid.add(gbs[11], 3, 2);
 		 
 		 
-		 Image bamboo2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//bamboo_scroll_art_2.jpg"));
+		 Image bamboo2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg"));
 		 
 		 /*
 		 Image pausebtn2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//Draw_Build_Files//PauseIcon.png"));
@@ -276,36 +194,68 @@ public class Board  {
 
 		Background bgImg3 = new Background(bgImg2);
 		 
-		 
-		 
-		 goGrid.setBackground(bgImg3);
+		goGrid.setBackground(bgImg3);
 		 
 		return goGrid;
 	}
 	
+	/*
 	
-	
-	
-	
-	
-	public Boolean matching() {
-		
-		for (int w : botton.keySet()) {
+	public void actions() {
+		if (gbu1.active == true && botton.get(1).isOn == true) {
+			gbu1.active = false;	botton.get(1).isOn = false;
+			--ncarda;
+			switch (ncarda) {
+			case 1:
+				cardmap.remove(1, cards[0]);
+				break;
+			case 2:
+				cardmap.remove(2, cards[0]);
+				break;
+			case 3:
+				cardmap.remove(3, cards[0]);
+				break;
+		}    			
 			
-					
-			
-			
-			System.out.println(w + " " + botton.get(w).card.color);
+		} else {
+			cards[0].active = true;	botton.get(1).isOn = true;
+			ncarda++;
+			switch (ncarda) {
+			case 1:
+				cardmap.put(1, cards[0]);
+				break;
+			case 2:
+				cardmap.put(2, cards[0]);
+				break;
+			case 3:
+				cardmap.put(3, cards[0]);
+				break;
+		}    			
+			gbu1.info();
 		}
-	
 		
-		
-		unless = true;
-		return unless;
-		
+		if (ncarda == 3) {
+			bobo = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
+			bobo.result();
+		}			
 	}
 	
 	
+	
+	/*
+	public class cardAdd implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent eon) {
+			if (eon.getSource() == gbu1) {
+				
+			}
+			
+		}
+		
+	}
+	
+	*/
 	
 	
 
@@ -315,6 +265,33 @@ public class Board  {
 
 
 /*
+ * Hi wonderful members of Stack Overflow!
 
+I am designing and coding a game similar to set (https://en.wikipedia.org/wiki/Set_(card_game)).
+My goal is to keep the game dynamics generally intact, but I've made new card types and designs.
 
-*/
+Basically, I've made a Card class that will create a Card object to track the cards' properties (Color, Number, Shape, and Fill), and a stack of cards to make the deck. I've made imageviews to place the card image onto a button (I am playing around with a separate button class, specific to my cards). My issue is I can't track what buttons / cards are being selected, and I'm not sure how to trigger the analysis once 3 cards are selected (the matching algorithm class does work, thankfully).
+
+So I would say I need help with something to track whether a card is selected or not, store which cards is selected, and after 3 cards are selected, run the analysis method / class. Ideally, the tracking mechanism would allow players to deselect a card, and remove that from the active / stored cards.
+
+Any suggestions or input would be greatly appreciated!
+ * 
+ * I've created a class called "board" that will take the deck (stack with card objects), and deal cards which are matched to buttons in a gridpane. I can't figure out how to track selection of 3 cards, analyze if it's a match, and if it is, move the correct set of cards to a score pile, and activate a method / event to deal 3 more cards onto the board (the board, at this point, has 12 buttons / cards). Another class I've made is called "game" that is the launcher class for JavaFX, for this project setup. 
+
+Most of the mechanics otherwise are working, visual aspects, card paths, etc.
+
+Thanks again!
+
+ * 
+ * 
+ * 
+
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+

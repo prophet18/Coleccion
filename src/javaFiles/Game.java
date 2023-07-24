@@ -41,7 +41,7 @@ import javafx.stage.Stage;
 
 public class Game extends Application {	
 	
-	Board bord;	
+	Board gboard;	
 	
 	GridPane cGrid;
 	
@@ -52,16 +52,16 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		bord = new Board();
+		gboard = new Board();
 		
-		cGrid = bord.goGrid();
+		cGrid = gboard.goGrid();
     	
     	
     	
 					
 		Scene sTwo = new Scene(cGrid, 1100, 900);
 					
-		Image bamboo2 = new Image(new FileInputStream("C://Users//deane//GitHub//Coleccion//bamboo_scroll_art_2.jpg"));
+		Image bamboo2 = new Image(new FileInputStream("/home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg"));
 		
 		// Filepath for images on Grendel - C://Users//deane//MEGAsync//Colección//bamboo_scroll_art_2.jpg
 		// Filepath for images on Cronus - /home/cronus/GitHub/Coleccion/bamboo_scroll_art_2.jpg

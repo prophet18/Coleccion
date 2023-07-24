@@ -2,12 +2,6 @@ NewNotes
 
 
 
-
-
-
-
-
-
 		EventHandler<ActionEvent> eh1  = new EventHandler<ActionEvent>() {public void handle(ActionEvent e) {
 			if (cards[0].active == true && botton.get(1).isOn == true) {
     			cards[0].active = false;	botton.get(1).isOn = false;
