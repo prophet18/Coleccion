@@ -39,6 +39,7 @@ public class Game extends Application {
 	
 	int xyz = 0;
 	
+	Stage s2 = new Stage();
 	
 	
 	
@@ -51,48 +52,35 @@ public class Game extends Application {
 		
 		
 		
-    	
-    	/*
-    	GridPane cGrid = new GridPane();	cGrid.setMinSize(1000, 800);		cGrid.setPadding(new Insets(5, 5, 5, 5));
-				 cGrid.setVgap(10);			cGrid.setHgap(10);					cGrid.setAlignment(Pos.CENTER);
-				 
-				 cGrid.add(buttons[0], 0, 0);		cGrid.add(buttons[1], 0, 1);		cGrid.add(buttons[2], 0, 2);		 cGrid.add(buttons[3], 1, 0);
-				 cGrid.add(buttons[4], 1, 1);		cGrid.add(buttons[5], 1, 2);		cGrid.add(buttons[6], 2, 0);		 cGrid.add(buttons[7], 2, 1);
-				 cGrid.add(buttons[8], 2, 2);		cGrid.add(buttons[9], 3, 0);		cGrid.add(buttons[10], 3, 1);		 cGrid.add(buttons[11], 3, 2);
-    	
-    	
+
 				 
 				 
-		GridPane bGrid = new GridPane();	bGrid.setMinSize(1000, 800);		bGrid.setPadding(new Insets(5, 5, 5, 5));
-				 bGrid.setVgap(10);			bGrid.setHgap(10);					bGrid.setAlignment(Pos.CENTER);
-				 
-				 bGrid.add(pooped[0], 0, 0);		bGrid.add(pooped[1], 0, 1);		bGrid.add(pooped[2], 0, 2);		 bGrid.add(pooped[3], 1, 0);
-				 bGrid.add(pooped[4], 1, 1);		bGrid.add(pooped[5], 1, 2);		bGrid.add(pooped[6], 2, 0);		 bGrid.add(pooped[7], 2, 1);
-				 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
-				 
-				 
-    	 */
-				 
-				 
-				 
+		HomeScreen home1 = new HomeScreen();		 
 				 
 		Board board1 = new Board();	
 		
-		
+		Scene sOne = new Scene(home1.gridGo(), 1100, 900);		
 
-		Scene sTwo = new Scene(board1.goGrid(), 1100, 900);
+		Scene sTwo = new Scene(board1.goGrid(), 1400, 900);
 		
-		// sTwo.getStylesheets().add("C:/css_styling_coleccion.css");
+		sTwo.getStylesheets().add("file:css_styling_coleccion.css");
 		
 		
 		
-		s1.setScene(sTwo);
-
+		/*
+		s1.setScene(sOne);
 		s1.setTitle("Colección");
 		s1.show();
+		*/
+		
+		
+		s2.setScene(sTwo);
+		s2.setTitle("Colección");
+		
+		s2.show();
+		
 		
 	}
-
 	
 	
 
@@ -109,6 +97,24 @@ public class Game extends Application {
 
 
 
-/*
+	/*
+GridPane cGrid = new GridPane();	cGrid.setMinSize(1000, 800);		cGrid.setPadding(new Insets(5, 5, 5, 5));
+		 cGrid.setVgap(10);			cGrid.setHgap(10);					cGrid.setAlignment(Pos.CENTER);
+		 
+		 cGrid.add(buttons[0], 0, 0);		cGrid.add(buttons[1], 0, 1);		cGrid.add(buttons[2], 0, 2);		 cGrid.add(buttons[3], 1, 0);
+		 cGrid.add(buttons[4], 1, 1);		cGrid.add(buttons[5], 1, 2);		cGrid.add(buttons[6], 2, 0);		 cGrid.add(buttons[7], 2, 1);
+		 cGrid.add(buttons[8], 2, 2);		cGrid.add(buttons[9], 3, 0);		cGrid.add(buttons[10], 3, 1);		 cGrid.add(buttons[11], 3, 2);
 
-*/
+
+		 
+		 
+GridPane bGrid = new GridPane();	bGrid.setMinSize(1000, 800);		bGrid.setPadding(new Insets(5, 5, 5, 5));
+		 bGrid.setVgap(10);			bGrid.setHgap(10);					bGrid.setAlignment(Pos.CENTER);
+		 
+		 bGrid.add(pooped[0], 0, 0);		bGrid.add(pooped[1], 0, 1);		bGrid.add(pooped[2], 0, 2);		 bGrid.add(pooped[3], 1, 0);
+		 bGrid.add(pooped[4], 1, 1);		bGrid.add(pooped[5], 1, 2);		bGrid.add(pooped[6], 2, 0);		 bGrid.add(pooped[7], 2, 1);
+		 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
+		 
+		 
+ */
+
