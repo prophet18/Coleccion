@@ -36,9 +36,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Game extends Application {	
-	
-	int xyz = 0;
-	
+		
 	Stage s2 = new Stage();
 	
 	
@@ -53,31 +51,42 @@ public class Game extends Application {
 		
 		
 
+		EntryScreen home = new EntryScreen();	 
 				 
+		// HomeScreen home1 = new HomeScreen();		 
 				 
-		HomeScreen home1 = new HomeScreen();		 
-				 
-		Board board1 = new Board();	
+		Board board = new Board();	
 		
-		Scene sOne = new Scene(home1.gridGo(), 1100, 900);		
+		Scene sOne = new Scene(home.gridGo(), 1100, 900);		
 
-		Scene sTwo = new Scene(board1.goGrid(), 1400, 900);
+		Scene sTwo = new Scene(board.goGrid(), 1400, 900);
 		
 		sTwo.getStylesheets().add("file:css_styling_coleccion.css");
 		
+		EventHandler<ActionEvent> newGame = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				s2.setScene(sTwo);
+				s2.setTitle("Colección");			
+				s2.show();
+				s1.close();
+			}
+		};
 		
 		
-		/*
+		
+		
+		home.button1.setOnAction(newGame);
+		
+		
+		
+		
 		s1.setScene(sOne);
 		s1.setTitle("Colección");
 		s1.show();
-		*/
 		
 		
-		s2.setScene(sTwo);
-		s2.setTitle("Colección");
 		
-		s2.show();
+		
 		
 		
 	}

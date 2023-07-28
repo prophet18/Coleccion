@@ -22,7 +22,6 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
-
 import java.io.*;
 
 public class Board  {
@@ -55,7 +54,7 @@ public class Board  {
 	
 	public Board() throws FileNotFoundException {
 		
-		DeckV3 Deck = new DeckV3();
+		DeckV2 Deck = new DeckV2();
 		
 		Collections.shuffle(Deck);
 	
