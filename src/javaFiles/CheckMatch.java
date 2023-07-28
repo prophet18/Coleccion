@@ -131,6 +131,13 @@ public class CheckMatch {
 	public void listCards() {
 		first.info();
 		second.info();
+<<<<<<< HEAD
 		third.info();		
 	}
+=======
+		third.info();
+		
+	}
+	
+>>>>>>> main
 }
