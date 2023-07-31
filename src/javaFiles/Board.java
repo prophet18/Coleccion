@@ -54,7 +54,7 @@ public class Board  {
 	
 	public Board() throws FileNotFoundException {
 		
-		DeckV2 Deck = new DeckV2();
+		Deck Deck = new Deck();
 		
 		Collections.shuffle(Deck);
 	

@@ -45,10 +45,10 @@ public class EntryScreen {
 		ImageView sI = new ImageView(sButtonImg);
 		ImageView hI = new ImageView(hButtonImg);		
 		
-		ngI.setFitWidth(160);
+		ngI.setFitWidth(660);
 		ngI.setFitHeight(160);
 		
-		button1 = new Button ("", ngI);	button1.setFocusTraversable(false);
+		button1 = new Button ("", ngI);
 		button2 = new Button ("", cI);
 		button3 = new Button ("", sI);
 		button4 = new Button ("", hI);
