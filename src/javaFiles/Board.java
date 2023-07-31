@@ -4,6 +4,8 @@ package javaFiles;
 
 import java.util.*;
 import javaFiles.Card;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -22,35 +24,34 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
+
 import java.io.*;
 
-public class Board  {
+public class Board  {		
 	
-	Card card, cardactive1, cardactive2, cardactive3;	
-	
-	String scoreLabel;
+	String scoreLabel, timerLabel;
 	
 	CheckMatch check;
 	
 	ScorePile score;
 	
-	Boolean isOn, active;
-	
-	GameButton	gbu1, gbu2, gbu3, gbu4, gbu5, gbu6, gbu7, gbu8, gbu9, gbu10, gbu11, gbu12, tgbu;
-	
+	Boolean active;
+		
 	GameButton[] gbs;
 	
-	Label scoreKeep;
+	Label scoreKeep, timerKeep;
+	
+	Timeline timeline;
 
 	HashMap<Integer, GameButton> buttons;
 	ArrayList<GameButton> algb;
-	HashMap<Integer, Card> upcards = new HashMap<Integer, Card>();
 	HashMap<Integer, Card> cardmap;
 	HashMap<Integer, Integer> indexmap;
 	
 	int nca = 0, u = 13, c = 1;
 	
-	
+	TimeKeeper timekeeper;
 	
 	public Board() throws FileNotFoundException {
 		
@@ -72,9 +73,15 @@ public class Board  {
 		
 		indexmap = new HashMap<Integer, Integer>();
 		
+		timekeeper = new TimeKeeper();
+		
 		scoreLabel = new String("0");
 		
 		scoreKeep = new Label(scoreLabel);
+		scoreKeep.getStyleClass().add("ScoreLabel");
+		
+		timerKeep = new Label();	
+		
 		
 		
     	
@@ -92,21 +99,15 @@ public class Board  {
     	    
     	    
     	    
-    	    // gbs[k].info();
     	};
+    	
+    	
+    	
+    	
+    	
+    	
     	   
     	
-			
-    		
-    	
-    	
-    			
-		
-		gbu1	=	new	GameButton(cards[13]);		gbu2	=	new	GameButton(cards[1]);		gbu3	=	new	GameButton(cards[2]);		gbu4	=	new	GameButton(cards[3]);
-		gbu5	=	new	GameButton(cards[4]);		gbu6	=	new	GameButton(cards[5]);		gbu7	=	new	GameButton(cards[6]);		gbu8	=	new	GameButton(cards[7]);
-		gbu9	=	new	GameButton(cards[8]);		gbu10	=	new	GameButton(cards[9]);		gbu11	=	new	GameButton(cards[10]);		gbu12	=	new	GameButton(cards[11]);
-
-		
 		for (GameButton btn : algb) {
 			
 			
@@ -170,17 +171,7 @@ public class Board  {
 						
 						
 						
-						
-						
-						/*
-						switch (c) {
-						case 1:
-						}
-						
-						btn.replace(indexmap.get(1), cards[u]);
-						btn.replace(indexmap.get(2), cards[u+1]);
-						btn.replace(indexmap.get(3), cards[u+2]);
-						*/
+					
 						
 						
 						u = u + 3;
@@ -235,17 +226,7 @@ public class Board  {
 	public GridPane goGrid() throws FileNotFoundException {
 		
 		 
-		 
-		 
-		
-		 /*
-		 
-		    goGrid.add(gbs[0], 0, 0);	goGrid.add(gbs[1], 0, 1);	goGrid.add(gbs[2], 0, 2);		 goGrid.add(gbs[3], 1, 0);
-		 	 goGrid.add(gbs[4], 1, 1);	goGrid.add(gbs[5], 1, 2);	goGrid.add(gbs[6], 2, 0);		 goGrid.add(gbs[7], 2, 1);
-		 	 goGrid.add(gbs[8], 2, 2);	goGrid.add(gbs[9], 3, 0);	goGrid.add(gbs[10], 3, 1);		 goGrid.add(gbs[11], 3, 2);
-		  
-		
-		*/
+
 		
 		/*
 		 goGrid.add(bottons.get(1), 0, 0);	goGrid.add(bottons.get(2), 0, 1);	goGrid.add(bottons.get(3), 0, 2);		 goGrid.add(bottons.get(4), 1, 0);
@@ -277,7 +258,7 @@ public class Board  {
 		  goGrid.add(algb.get(0), 0, 0);	goGrid.add(algb.get(1), 0, 1);	goGrid.add(algb.get(2), 0, 2);		 goGrid.add(algb.get(3), 1, 0);
 		  goGrid.add(algb.get(4), 1, 1);	goGrid.add(algb.get(5), 1, 2);	goGrid.add(algb.get(6), 2, 0);		 goGrid.add(algb.get(7), 2, 1);
 		  goGrid.add(algb.get(8), 2, 2);	goGrid.add(algb.get(9), 3, 0);	goGrid.add(algb.get(10), 3, 1);		 goGrid.add(algb.get(11), 3, 2);
-		  goGrid.add(scoreicon, 4, 0);		goGrid.add(timericon, 4, 1);	goGrid.add(scoreKeep, 4, 2);
+		  goGrid.add(scoreicon, 4, 0);		goGrid.add(timericon, 4, 1);	goGrid.add(scoreKeep, 4, 2);		 goGrid.add(timekeeper.text, 5, 0);
 		 
 		goGrid.setBackground(bgImg3);
 		 

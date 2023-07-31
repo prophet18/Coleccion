@@ -40,7 +40,6 @@ public class Game extends Application {
 	Stage s2 = new Stage();
 	
 	
-	
 	public static void main(String[] args) {				
         launch(args);
     }
@@ -48,6 +47,11 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
+    	
+    	 	
+					
+					
+		Image bamboo2 = new Image(new FileInputStream("bamboo_scroll_art_2.jpg"));
 		
 		
 
@@ -60,6 +64,8 @@ public class Game extends Application {
 		Scene sOne = new Scene(home.gridGo(), 1100, 900);		
 
 		Scene sTwo = new Scene(board.goGrid(), 1400, 900);
+		
+		sOne.getStylesheets().add("file:css_styling_coleccion.css");
 		
 		sTwo.getStylesheets().add("file:css_styling_coleccion.css");
 		
@@ -89,6 +95,7 @@ public class Game extends Application {
 		
 		
 		
+	
 	}
 	
 	
@@ -104,26 +111,4 @@ public class Game extends Application {
 
 */
 
-
-
-	/*
-GridPane cGrid = new GridPane();	cGrid.setMinSize(1000, 800);		cGrid.setPadding(new Insets(5, 5, 5, 5));
-		 cGrid.setVgap(10);			cGrid.setHgap(10);					cGrid.setAlignment(Pos.CENTER);
-		 
-		 cGrid.add(buttons[0], 0, 0);		cGrid.add(buttons[1], 0, 1);		cGrid.add(buttons[2], 0, 2);		 cGrid.add(buttons[3], 1, 0);
-		 cGrid.add(buttons[4], 1, 1);		cGrid.add(buttons[5], 1, 2);		cGrid.add(buttons[6], 2, 0);		 cGrid.add(buttons[7], 2, 1);
-		 cGrid.add(buttons[8], 2, 2);		cGrid.add(buttons[9], 3, 0);		cGrid.add(buttons[10], 3, 1);		 cGrid.add(buttons[11], 3, 2);
-
-
-		 
-		 
-GridPane bGrid = new GridPane();	bGrid.setMinSize(1000, 800);		bGrid.setPadding(new Insets(5, 5, 5, 5));
-		 bGrid.setVgap(10);			bGrid.setHgap(10);					bGrid.setAlignment(Pos.CENTER);
-		 
-		 bGrid.add(pooped[0], 0, 0);		bGrid.add(pooped[1], 0, 1);		bGrid.add(pooped[2], 0, 2);		 bGrid.add(pooped[3], 1, 0);
-		 bGrid.add(pooped[4], 1, 1);		bGrid.add(pooped[5], 1, 2);		bGrid.add(pooped[6], 2, 0);		 bGrid.add(pooped[7], 2, 1);
-		 bGrid.add(pooped[8], 2, 2);		bGrid.add(pooped[9], 3, 0);		bGrid.add(pooped[10], 3, 1);		 bGrid.add(pooped[11], 3, 2);		 
-		 
-		 
- */
 

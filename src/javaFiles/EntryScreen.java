@@ -48,22 +48,11 @@ public class EntryScreen {
 		ngI.setFitWidth(660);
 		ngI.setFitHeight(160);
 		
-		button1 = new Button ("", ngI);
-		button2 = new Button ("", cI);
-		button3 = new Button ("", sI);
-		button4 = new Button ("", hI);
+		button1 = new Button ("", ngI);		button1.setId("NewGame");
+		button2 = new Button ("", cI);		button2.setId("NewGame");
+		button3 = new Button ("", sI);		button3.setId("NewGame");
+		button4 = new Button ("", hI);		button4.setId("NewGame");
 		
-		HBox row1, row2, row3, row4, row5;
-		
-		VBox col1;
-		
-		row1 = new HBox(10);	row1.getChildren().addAll(logoI); 
-		row2 = new HBox(10);	row2.getChildren().addAll(button1);
-		row3 = new HBox(10);	row3.getChildren().addAll(button2);
-		row4 = new HBox(10);	row4.getChildren().addAll(button3);
-		row5 = new HBox(10);	row5.getChildren().addAll(button4);
-		
-		col1 = new VBox(5);		col1.getChildren().addAll(row1, row2, row3, row4, row5);
 		
 		
 	}
