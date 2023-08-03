@@ -37,7 +37,10 @@ import javafx.stage.Stage;
 
 public class Game extends Application {	
 		
+	Stage s1 = new Stage();
 	Stage s2 = new Stage();
+	Stage s3 = new Stage();
+	Board board;	
 	
 	
 	public static void main(String[] args) {				
@@ -47,48 +50,44 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
+		board = new Board();
     	
-    	 	
-					
-					
-		Image bamboo2 = new Image(new FileInputStream("bamboo_scroll_art_2.jpg"));
 		
-		
+		GameHelp help2 = new GameHelp();
 
-		EntryScreen home = new EntryScreen();	 
+		EntryScreen home = new EntryScreen();	 	 
 				 
-		// HomeScreen home1 = new HomeScreen();		 
-				 
-		Board board = new Board();	
+			
+	
 		
-		Scene sOne = new Scene(home.gridGo(), 1100, 900);		
-
-		Scene sTwo = new Scene(board.goGrid(), 1400, 900);
 		
-		sOne.getStylesheets().add("file:css_styling_coleccion.css");
+	
 		
-		sTwo.getStylesheets().add("file:css_styling_coleccion.css");
+		
+		
+		
+		
 		
 		EventHandler<ActionEvent> newGame = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				s2.setScene(sTwo);
-				s2.setTitle("Colección");			
-				s2.show();
-				s1.close();
+			public void handle(ActionEvent e) {			
+				board.age3.show();
+				// s1.close();
 			}
-		};
-		
-		
+		};		
 		
 		
 		home.button1.setOnAction(newGame);
 		
+		EventHandler<ActionEvent> helpButton = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				help2.age1.show();				
+			}
+		};
+		
+		home.button4.setOnAction(helpButton);
 		
 		
-		
-		s1.setScene(sOne);
-		s1.setTitle("Colección");
-		s1.show();
+		home.age4.show();
 		
 		
 		
@@ -98,6 +97,8 @@ public class Game extends Application {
 	
 	}
 	
+	
+
 	
 
 }

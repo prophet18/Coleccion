@@ -12,8 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class GameButton extends Button {
-	 
+public class GameButton extends Button {	 
 	
 	Boolean active;
 	Image images; ImageView views;
@@ -24,13 +23,11 @@ public class GameButton extends Button {
 	
 	Card[] cards;
 	
-	HashMap<Integer, Card> upcards;
-	
+	HashMap<Integer, Card> upcards;	
 	
 	public GameButton() {
 		active = false; 
-	}
-	
+	}	
 	
 	
 	public GameButton(Card c) {
@@ -42,8 +39,7 @@ public class GameButton extends Button {
 		upcards = new HashMap<Integer, Card>();
 		
 		this.setGraphic(views);
-				
-		
+						
 	}
 	
 	public GameButton(int t, Card c) {
@@ -56,8 +52,7 @@ public class GameButton extends Button {
 		
 		upcards = new HashMap<Integer, Card>();
 		
-		this.setGraphic(views);
-				
+		this.setGraphic(views);				
 		
 	}
 	
@@ -78,13 +73,7 @@ public class GameButton extends Button {
 		this.setGraphic(views);
 		
 	}
-		
-	
-		
-		
-		
-		
-	
+			
 	public void info() {
 		System.out.println("Card Properties: ");
 		System.out.println("	Color --> " + this.card.color);
@@ -92,12 +81,8 @@ public class GameButton extends Button {
 		System.out.println("	Type --> " + this.card.shape);
 		System.out.println("	Fill --> " + this.card.fill);
 	}
-	
-	
-	
-	
+
     
 
 }
-
 

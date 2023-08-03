@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 
 public class Card {
 	
-	String color, shape, fill, path; int number; Boolean active2;
+	String color, shape, fill, path; int number;
 	Image image; ImageView view;
 	
 	public Card (String sColor, int sNumber, String sType, String sFill, String pathFile) {
@@ -22,7 +22,6 @@ public class Card {
 		path = pathFile;
 		image = null;
 		view = null;
-		active2 = false;
 	}
 	
 	public void imgAdd (Image cImg) {
@@ -31,11 +30,7 @@ public class Card {
 		view.setFitWidth(160);
 		view.setFitHeight(251);
 	}
-	
-	public boolean isActive2 () {
-		return active2;
-	}
-	
+		
 	public void info() {
 		System.out.println("Card Properties: ");
 		System.out.println("	Color --> " + this.color);

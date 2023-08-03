@@ -1,3 +1,5 @@
+
+
 /*
     Elliot Dean
     Styling for Coleccion
@@ -71,4 +73,34 @@
 
 
 
+#HsTitle {
+  -fx-font-family: Didac Gothic;
+  -fx-background-color: black;
+  -fx-font-size: 35px;
+  -fx-font-weight: bold;
+  -fx-text-fill: white;
+}
 
+#HsIntro {
+  -fx-background-color: white;
+  -fx-font-size: 20px;
+  -fx-font-weight: bold;
+  -fx-text-fill: black;
+}
+
+#HsProps {
+  -fx-font-size: 20px;
+  -fx-font-weight: bold;
+  -fx-text-fill: black;
+}
+
+#HsExamples {
+  -fx-font-size: 25px;
+  -fx-font-weight: bold;
+  -fx-text-fill: black;
+}
+
+/*
+
+
+*/
