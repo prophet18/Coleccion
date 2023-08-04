@@ -10,6 +10,7 @@ package javaFiles;
 import java.io.FileInputStream;
 import java.util.Collections;
 import java.util.EventListener;
+import java.util.Scanner;
 import java.util.Stack;
 import javax.swing.JCheckBox;
 import frameworks.CardInfo;
@@ -52,18 +53,21 @@ public class Game extends Application {
 		
 		board = new Board();
     	
+		HighScoreScreen allScores = new HighScoreScreen();
 		
 		GameHelp help2 = new GameHelp();
 
 		EntryScreen home = new EntryScreen();	 	 
 				 
-			
+		EventHandler<ActionEvent> pauseExit = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {	
+				board.psnu.pausing.close();
+				board.age3.close();
+				home.age4.show();
+			}
+		};	
+		board.psnu.pauseQuit.setOnAction(pauseExit);	
 	
-		
-		
-	
-		
-		
 		
 		
 		
@@ -71,12 +75,24 @@ public class Game extends Application {
 		EventHandler<ActionEvent> newGame = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
 				board.age3.show();
-				// s1.close();
+				board.timer.schedule(board.task, 1000, 1000);
+				home.age4.close();
 			}
 		};		
 		
 		
 		home.button1.setOnAction(newGame);
+		
+		
+		EventHandler<ActionEvent> hScores = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {			
+				allScores.scoring.show();
+				home.age4.close();
+			}
+		};	
+		
+		home.button2.setOnAction(hScores);
+		
 		
 		EventHandler<ActionEvent> helpButton = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
