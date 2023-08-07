@@ -20,8 +20,7 @@ public class ScorePile extends Stack<Card> {
 		
 		numMatch = (int) Math.floor(numCard/3);		
 		
-		return numMatch;
-		
+		return numMatch;		
 	}
 	
 	public String scoreFinal() {
@@ -32,7 +31,6 @@ public class ScorePile extends Stack<Card> {
 		
 		numMatching =  Integer.toString(numMatch);
 		
-		return numMatching;
-		
+		return numMatching;		
 	}
 }

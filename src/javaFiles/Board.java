@@ -35,12 +35,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 
 public class Board {			
 	
 	CardArea allcard;	Boolean active;		PauseScreen psnu;		Text ulose;		Label timerKeep;	File highScores;
 	
-	TimerTask task;		Timer timer;
+	TimerTask task;		Timer timer;	Date date;		SimpleDateFormat dateFormat;
 	
 	Stage age3 = new Stage();		Scene bscene, ending;		VBox scored1;	VBox timed1;		HBox uuugh = new HBox(5);
 	
@@ -51,7 +52,7 @@ public class Board {
 		
 		active = false;		psnu = new PauseScreen();		ulose = new Text("You are a loser!"); 	uuugh.getChildren().addAll(ulose);
 		
-		allcard = new CardArea();
+		allcard = new CardArea();		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");
 		
 		task = new GameTime();
 		
@@ -162,8 +163,7 @@ public class Board {
 			
 		timer.schedule(task, 1000, 1000);	
 		
-		psnu.pausing.close();
-			
+		psnu.pausing.close();			
 	}
 
 	public void CreateFile() {
@@ -184,7 +184,7 @@ public class Board {
 		try {
 		      FileWriter addHS1 = new FileWriter("./Draw_Build_Files/HighScores.txt", true);
 		      BufferedWriter addHS = new BufferedWriter(addHS1);
-		      addHS.write("Score last game: " + allcard.score.scoreTotal());	addHS.newLine();	addHS.close();		      
+		      addHS.write("Score: " + allcard.score.scoreTotal() + " on " + dateFormat.format(date));	addHS.newLine();	addHS.close();		      
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
 		      System.out.println("An error occurred.");
