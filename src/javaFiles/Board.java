@@ -39,15 +39,19 @@ import java.text.SimpleDateFormat;
 
 public class Board {			
 	
+	SettingsMenu smnu;
+	
 	CardArea allcard;	Boolean active;		PauseScreen psnu;		Text ulose;		Label timerKeep;	File highScores;
 	
 	TimerTask task;		Timer timer;	Date date;		SimpleDateFormat dateFormat;
 	
 	Stage age3 = new Stage();		Scene bscene, ending;		VBox scored1;	VBox timed1;		HBox uuugh = new HBox(5);
 	
-	ProgressBar timebar = new ProgressBar();	Button doPause;		 int f = 70;	int h;
+	ProgressBar timebar = new ProgressBar();	Button doPause, hintButton;			int h;	FindHint fh1;
 	
 	public Board() throws FileNotFoundException {
+		
+		smnu = new SettingsMenu();
 		
 		
 		active = false;		psnu = new PauseScreen();		ulose = new Text("You are a loser!"); 	uuugh.getChildren().addAll(ulose);
@@ -99,7 +103,7 @@ public class Board {
 		
 		scored1 = new VBox(5);		timed1 = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);
 		
-		scored1.getChildren().addAll(scoreicon, allcard.scoreKeep);
+		scored1.getChildren().addAll(scoreicon, allcard.scoreKeep, allcard.setResult);
 		
 		timed1.getChildren().addAll(timericon, timerKeep);
 		 
@@ -109,7 +113,7 @@ public class Board {
 		  goGrid.add(allcard.algb.get(0), 0, 0);	goGrid.add(allcard.algb.get(1), 0, 1);	goGrid.add(allcard.algb.get(2), 0, 2);		 goGrid.add(allcard.algb.get(3), 1, 0);
 		  goGrid.add(allcard.algb.get(4), 1, 1);	goGrid.add(allcard.algb.get(5), 1, 2);	goGrid.add(allcard.algb.get(6), 2, 0);		 goGrid.add(allcard.algb.get(7), 2, 1);
 		  goGrid.add(allcard.algb.get(8), 2, 2);	goGrid.add(allcard.algb.get(9), 3, 0);	goGrid.add(allcard.algb.get(10), 3, 1);		 goGrid.add(allcard.algb.get(11), 3, 2);
-		  goGrid.add(scored1, 4, 0);				goGrid.add(doPause, 4, 1);				goGrid.add(timed1, 4, 2);		 
+		  goGrid.add(scored1, 4, 0);				goGrid.add(doPause, 4, 1);				goGrid.add(timed1, 4, 2);					// goGrid.add(hintButton, 5, 2);		 
 		 
 		goGrid.setBackground(bamboo5);
 		
@@ -118,7 +122,11 @@ public class Board {
 		age3.setScene(bscene);
 		age3.setTitle("Colección!");
 		
-		this.CreateFile();
+		CreateFile();
+		
+		hintButton = new Button("Hint");
+		
+		fh1 = new FindHint();
 		
 	}
 	
@@ -131,9 +139,9 @@ public class Board {
 	    	
 	    	Platform.runLater(() -> {
 	    		 
-	        timerKeep.setText(--f + " Seconds Left");
+	        timerKeep.setText(--smnu.timeLimit + " Seconds Left");
 	        
-	        if (f == 0) {
+	        if (smnu.timeLimit == 0) {
 	        	AddHighScore();
 	        	timer.cancel();
 	        	age3.setScene(ending);
@@ -145,7 +153,7 @@ public class Board {
 	public void StopGame() {
 		
 		active = true;
-		h = f;
+		h = smnu.timeLimit;
 		timer.cancel();
 		
 		psnu.pausing.show();		
@@ -155,7 +163,7 @@ public class Board {
 		
 		active = false;
 		
-		f = h;
+		smnu.timeLimit = h;
 		
 		timer = new Timer();
 		

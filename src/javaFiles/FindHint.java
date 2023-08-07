@@ -21,7 +21,9 @@ public class FindHint {
 					
 					} while (chk.matchCheck = false);
 					if (chk.matchCheck == true) {
-						System.out.println(ca.gbs[]
+						ca.gbs[c].info();
+						ca.gbs[d].info();
+						ca.gbs[e].info();
 					}
 				}
 			}

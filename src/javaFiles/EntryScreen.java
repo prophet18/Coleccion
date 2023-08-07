@@ -30,28 +30,21 @@ public class EntryScreen {
 	public EntryScreen() throws FileNotFoundException {		
 
 		Image logoImg = new Image(new FileInputStream("./Draw_Build_Files/Collection_Logo_2.png"));
-		Image ngButtonImg = new Image(new FileInputStream("./Draw_Build_Files/StartGameButton.png"));	
-		Image cButtonImg = new Image(new FileInputStream("./Draw_Build_Files/ContinueGameButton.png"));
-		Image sButtonImg = new Image(new FileInputStream("./Draw_Build_Files/SettingsButton.png"));
-		Image hButtonImg = new Image(new FileInputStream("./Draw_Build_Files/HelpButton.png"));
+		Image ngButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/NewGameBtn2.png"));	
+		Image cButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/HighScoreBtn2.png"));		
+		Image sButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/SettingsBtn2.png"));
+		Image hButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/HelpBtn2.png"));		
 		
-		
-		ImageView logoI = new ImageView(logoImg);		
-		ImageView ngI = new ImageView(ngButtonImg);
-		ImageView cI = new ImageView(cButtonImg);
-		ImageView sI = new ImageView(sButtonImg);
-		ImageView hI = new ImageView(hButtonImg);
-		
-		ngI.setFitWidth(660);
-		ngI.setFitHeight(160);
+		ImageView logoI = new ImageView(logoImg);		logoI.setFitWidth(600);		logoI.setFitHeight(150);
+		ImageView ngI = new ImageView(ngButtonImg);		ngI.setFitWidth(600);	ngI.setFitHeight(150);
+		ImageView cI = new ImageView(cButtonImg);		cI.setFitWidth(600);	cI.setFitHeight(150);
+		ImageView sI = new ImageView(sButtonImg);		sI.setFitWidth(600);	sI.setFitHeight(150);
+		ImageView hI = new ImageView(hButtonImg);		hI.setFitWidth(600);	hI.setFitHeight(150);				
 		
 		button1 = new Button ("", ngI);		button1.setId("NewGame");	
 		button2 = new Button ("", cI);		button2.setId("NewGame");
 		button3 = new Button ("", sI);		button3.setId("NewGame");
-		button4 = new Button ("", hI);		button4.setId("NewGame");
-		
-		
-		
+		button4 = new Button ("", hI);		button4.setId("NewGame");	
 		
 		
 

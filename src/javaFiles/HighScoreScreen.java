@@ -23,17 +23,14 @@ public class HighScoreScreen {
 	
 	public HighScoreScreen() throws FileNotFoundException {
 		
-		tahs = new TextArea("Colección Results! \n");	board = new Board();
-		
+		tahs = new TextArea("Colección Results! \n");	board = new Board();		
 		
 		Scanner fileRead = new Scanner(board.highScores);
 		while (fileRead.hasNextLine()) {
 			String data = fileRead.nextLine();
-			System.out.println(data);
 			tahs.appendText(data + "\n");
 		}
-		fileRead.close();	
-		
+		fileRead.close();			
 		
 		scoring5 = new VBox(10);
 		scoring5.getChildren().addAll(tahs);
@@ -43,8 +40,6 @@ public class HighScoreScreen {
 		scoring.setTitle("High Scores!");
 		
 	}
-	
-	
 	
 	
 

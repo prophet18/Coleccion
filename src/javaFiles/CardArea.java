@@ -29,7 +29,7 @@ public class CardArea {
 	
 	int nca = 0, u = 13, c = 1;
 	
-	Label scoreKeep;
+	Label scoreKeep, setResult;
 	
 	String scoreLabel;
 		
@@ -56,6 +56,7 @@ public class CardArea {
 		scoreLabel = new String("0");
 		
 		scoreKeep = new Label(scoreLabel);
+		setResult = new Label("");
 		scoreKeep.getStyleClass().add("ScoreLabel");
 		
 		
@@ -92,12 +93,10 @@ public class CardArea {
 						buttons.remove(2);
 						indexmap.remove(2);
 						break;
-				}    System.out.println(indexmap.get(1) + " " + indexmap.get(2) + " " + indexmap.get(3) + "     " + nca);			
-	    			
+	    			}  	    			
 	    		} else {
 	    			btn.active = true;
-	    			nca++;
-	    			
+	    			nca++;	    			
 	    			btn.getStyleClass().add("ActiveButton");
 	    			switch (nca) {
 					case 1:
@@ -115,13 +114,10 @@ public class CardArea {
 						buttons.put(3, btn);
 						indexmap.put(3, btn.index);
 						break;
-				}    			
-	    			System.out.println(indexmap.get(1) + " " + indexmap.get(2) + " " + indexmap.get(3) + "     " + nca);	    			
-	    		}
-				
+	    			}    				    			
+	    		}				
 				if (nca == 3) {
 					check = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
-					check.result();
 					
 					if (check.matchCheck == true) {
 						
@@ -129,16 +125,13 @@ public class CardArea {
 						
 						buttons.get(1).replace(cards[u]);		buttons.get(2).replace(cards[u+1]);		buttons.get(3).replace(cards[u+2]);
 						
-						u = u + 3;						
-						
-						System.out.println(u + "     " + score.scoreTotal());
-						System.out.println(score.scoreFinal());
+						u = u + 3;											
 						scoreLabel = score.scoreFinal();						
+						setResult.setText("Correct!");
 						
 					} else {
 						System.out.println("Wrong");
-						
-						System.out.println(u);
+						setResult.setText("Wrong...");
 						btn.getStyleClass().remove("ActiveButton");
 						btn.getStyleClass().add("GameButton");
 					}

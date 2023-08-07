@@ -1,3 +1,5 @@
+// Code for pause screen of the game
+
 package javaFiles;
 
 import java.io.FileInputStream;
@@ -21,8 +23,7 @@ public class PauseScreen {
 	
 	Button returned, helpings, pauseQuit;		
 	
-	public PauseScreen() throws FileNotFoundException {
-		
+	public PauseScreen() throws FileNotFoundException {		
 		
 		
 		Image resumed1 = new Image(new FileInputStream("./Draw_Build_Files/ResumeButton.png"));
