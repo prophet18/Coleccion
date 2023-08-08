@@ -5,8 +5,14 @@ package javaFiles;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -16,23 +22,27 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SettingsMenu {
 	
 	Stage age6 = new Stage();
-	Scene settngs2;
+	Scene settings2;
+	VBox smvbox;
+	Button timeSelect;
+	MenuButton mb;
+	MenuItem mi1, mi2, mi3, mi4, mi5, mi6;
 	
-	Label limTime = new Label("Enter Time Limit: ");
-	TextField timLim = new TextField("Default = 120 Seconds");
+	Label limTime, bgOpt;
+	TextField timLim;
 	
-	int timeLimit; String tLimit;
-	
-	RadioButton rb1, rb2, rb3, rb4, rb5, rb6;
+	int timeLimit;
 	
 	Image aurora1, boston1, rho1, sunset1, train1, trees1;
 	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2;
-	Background aurora, boston, rho, sunset, train, trees;
+	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Choice;
+	String bgSetter;
 	
 	
 	
@@ -40,6 +50,22 @@ public class SettingsMenu {
 	
 	
 	public SettingsMenu() throws FileNotFoundException {
+		
+		limTime = new Label("Enter Time Limit (in Seconds): ");
+		bgOpt  = new Label("Default Background Selected");
+		
+		timLim = new TextField();
+		
+		mb = new MenuButton("Choose Your Background!");
+		mi1 = new MenuItem("Aurora");		mi2 = new MenuItem("Boston");		mi3 = new MenuItem("Space");
+		mi4 = new MenuItem("Sunset");		mi5 = new MenuItem("Mountains");	mi6 = new MenuItem("Forest");
+		mb.getItems().addAll(mi1, mi2, mi3, mi4, mi5, mi6);
+		
+		smvbox = new VBox(15);	smvbox.setAlignment(Pos.CENTER);
+		
+		timeSelect = new Button("Confirm Time Limit");
+		
+		
 		
 		
 		aurora1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/aurora_over_Canada_2016.jpg"));
@@ -61,14 +87,63 @@ public class SettingsMenu {
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 		trees2 = new BackgroundImage(trees1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
-		aurora = new Background(aurora2);
-		boston = new Background(boston2);
-		rho = new Background(rho2);
-		sunset = new Background(sunset2);
-		train = new Background(train2);
-		trees = new Background(trees2);
+		Aurora = new Background(aurora2);
+		Boston = new Background(boston2);
+		Space = new Background(rho2);
+		Sunset = new Background(sunset2);
+		Mountains = new Background(train2);
+		Forest = new Background(trees2);
 		
-		tLimit = timLim.getText();		timeLimit = Integer.parseInt(tLimit);
+		EventHandler<ActionEvent> timeConfirm = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+            	String keeping = timLim.getText();
+            	timeLimit = Integer.parseInt(keeping);
+            	
+            	
+            }
+		};
+		
+		timeSelect.setOnAction(timeConfirm);
+		
+		
+		EventHandler<ActionEvent> menuItems = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                bgOpt.setText(((MenuItem)e.getSource()).getText() + " selected for background.");
+                                
+                String again = ((MenuItem)e.getSource()).getText(); 
+                
+                switch(again) {
+                	case "Aurora":
+                		Choice = Aurora;
+                		break;
+                	case "Boston":
+                		Choice = Boston;
+                		break;
+                	case "Space":
+                		Choice = Space;
+                		break;
+                	case "Sunset":
+                		Choice = Sunset;
+                		break;
+                	case "Mountains":
+                		Choice = Mountains;
+                		break;
+                	case "Forest":
+                		Choice = Forest;
+                		break;
+                }
+            }
+        };
+        mi1.setOnAction(menuItems);		mi2.setOnAction(menuItems);		mi3.setOnAction(menuItems);
+        mi4.setOnAction(menuItems);		mi5.setOnAction(menuItems);		mi6.setOnAction(menuItems);
+        
+        smvbox.getChildren().addAll(mb, bgOpt, limTime, timLim, timeSelect);
+        
+        settings2 = new Scene(smvbox, 800, 600);
+        settings2.getStylesheets().add("file:Coleccion_Styling.css");	
+		age6.setScene(settings2);
+		age6.setTitle("Colección Settings");
+		
 		
 	}
 	

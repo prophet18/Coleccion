@@ -39,30 +39,33 @@ import java.text.SimpleDateFormat;
 
 public class Board {			
 	
-	SettingsMenu smnu;
+	// Line 43		Instantiate custom game classes/objects	
+	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;			FindHint fh1;
 	
-	CardArea allcard;	Boolean active;		PauseScreen psnu;		Text ulose;		Label timerKeep;	File highScores;
+	// Line 46		Instantiate regular data types
+	Boolean active;		int h;		int f = 60;		Date date;		SimpleDateFormat dateFormat;
+
+	// Line 49		Instantiate objects for display/organization
+	Stage age3 = new Stage();		Scene bscene, ending;		VBox scored1, timed1;		HBox uuugh = new HBox(5);
+	Button doPause, hintButton, rButton;		Label timerKeep;			GridPane goGrid;
 	
-	TimerTask task;		Timer timer;	Date date;		SimpleDateFormat dateFormat;
+	// Line 53		Other instantiated objects
+	Text ulose;			File highScores;		TimerTask task;		Timer timer;
 	
-	Stage age3 = new Stage();		Scene bscene, ending;		VBox scored1;	VBox timed1;		HBox uuugh = new HBox(5);
-	
-	ProgressBar timebar = new ProgressBar();	Button doPause, hintButton;			int h;	FindHint fh1;
 	
 	public Board() throws FileNotFoundException {
 		
-		smnu = new SettingsMenu();
+		// Create basic values from above, to set up basic conditions for Board object constructor
 		
+		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();
 		
-		active = false;		psnu = new PauseScreen();		ulose = new Text("You are a loser!"); 	uuugh.getChildren().addAll(ulose);
+		active = false;		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");				
 		
-		allcard = new CardArea();		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");
+		ulose = new Text("You are a loser!"); 	uuugh.getChildren().addAll(ulose);
 		
-		task = new GameTime();
+				
 		
-		timer = new Timer();	
-		
-		timerKeep = new Label();	timerKeep.getStyleClass().add("TimerLabel");
+		task = new GameTime();		timer = new Timer();		timerKeep = new Label();	timerKeep.getStyleClass().add("TimerLabel");
 		
 		Image bamboo2 = new Image(new FileInputStream("./bamboo_scroll_art_2.jpg"));
 		 
@@ -76,9 +79,8 @@ public class Board {
 		 
 		 doPause = new Button("", pausebtn);
 		 
-		 EventHandler<ActionEvent> pauseNow = new EventHandler<ActionEvent>() {
-				public void handle(ActionEvent e) {				
-					
+		EventHandler<ActionEvent> pauseNow = new EventHandler<ActionEvent>() {
+				public void handle(ActionEvent e) {							
 					if (active == true) {
 						ResumeGame();
 					} else {						
@@ -86,16 +88,9 @@ public class Board {
 					}
 				}				
 			};
+		doPause.setOnAction(pauseNow);		doPause.getStyleClass().add("GameButton");		psnu.returned.setOnAction(pauseNow);
 		 
-			doPause.setOnAction(pauseNow);			 doPause.getStyleClass().add("GameButton");			
-			psnu.returned.setOnAction(pauseNow);
-		 
-		 
-		 
-		 
-		 
-		 
-						
+		 				
 		BackgroundImage bamboo4 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 							new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
@@ -107,15 +102,17 @@ public class Board {
 		
 		timed1.getChildren().addAll(timericon, timerKeep);
 		 
-		GridPane goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
+		rButton = new Button("Lost? \nRandomize Cards");
+		
+		  goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
 		  goGrid.setVgap(10);		goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
 
 		  goGrid.add(allcard.algb.get(0), 0, 0);	goGrid.add(allcard.algb.get(1), 0, 1);	goGrid.add(allcard.algb.get(2), 0, 2);		 goGrid.add(allcard.algb.get(3), 1, 0);
 		  goGrid.add(allcard.algb.get(4), 1, 1);	goGrid.add(allcard.algb.get(5), 1, 2);	goGrid.add(allcard.algb.get(6), 2, 0);		 goGrid.add(allcard.algb.get(7), 2, 1);
 		  goGrid.add(allcard.algb.get(8), 2, 2);	goGrid.add(allcard.algb.get(9), 3, 0);	goGrid.add(allcard.algb.get(10), 3, 1);		 goGrid.add(allcard.algb.get(11), 3, 2);
-		  goGrid.add(scored1, 4, 0);				goGrid.add(doPause, 4, 1);				goGrid.add(timed1, 4, 2);					// goGrid.add(hintButton, 5, 2);		 
+		  goGrid.add(scored1, 4, 0);				goGrid.add(doPause, 4, 1);				goGrid.add(timed1, 4, 2);					goGrid.add(rButton, 5, 2);		 
 		 
-		goGrid.setBackground(bamboo5);
+		
 		
 		bscene = new Scene(goGrid, 1200, 800);							ending = new Scene(uuugh, 900, 500);
 		bscene.getStylesheets().add("file:Coleccion_Styling.css");	
@@ -124,10 +121,17 @@ public class Board {
 		
 		CreateFile();
 		
-		hintButton = new Button("Hint");
-		
-		fh1 = new FindHint();
-		
+		EventHandler<ActionEvent> rBevent = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				try {
+					allcard.newCards();
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}
+			}
+		};
+				rButton.setOnAction(rBevent);
+				
 	}
 	
 	
@@ -138,10 +142,11 @@ public class Board {
 	    public void run() {
 	    	
 	    	Platform.runLater(() -> {
-	    		 
-	        timerKeep.setText(--smnu.timeLimit + " Seconds Left");
+	    		
+	    			    		 
+	        timerKeep.setText(--f + " Seconds Left");
 	        
-	        if (smnu.timeLimit == 0) {
+	        if (f == 0) {
 	        	AddHighScore();
 	        	timer.cancel();
 	        	age3.setScene(ending);
@@ -153,7 +158,7 @@ public class Board {
 	public void StopGame() {
 		
 		active = true;
-		h = smnu.timeLimit;
+		h = f;
 		timer.cancel();
 		
 		psnu.pausing.show();		
@@ -163,7 +168,7 @@ public class Board {
 		
 		active = false;
 		
-		smnu.timeLimit = h;
+		f = h;
 		
 		timer = new Timer();
 		

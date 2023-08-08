@@ -16,10 +16,8 @@ public class FindHint {
 			for (int d = 0; d < 12; d++) {
 				for (int e = 0; e < 12; e++) {
 					
-					do {
 					chk = new CheckMatch(ca.gbs[c].card, ca.gbs[d].card, ca.gbs[e].card);
 					
-					} while (chk.matchCheck = false);
 					if (chk.matchCheck == true) {
 						ca.gbs[c].info();
 						ca.gbs[d].info();

@@ -22,11 +22,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class EntryScreen {
-		
+	
+	// Line 27		Instantiate buttons for main actions on entry screen	
 	Button button1, button2, button3, button4;
 	
 	Stage age4 = new Stage();		Scene escene;
 	
+	// Constructor for main screen object
 	public EntryScreen() throws FileNotFoundException {		
 
 		Image logoImg = new Image(new FileInputStream("./Draw_Build_Files/Collection_Logo_2.png"));
@@ -35,24 +37,22 @@ public class EntryScreen {
 		Image sButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/SettingsBtn2.png"));
 		Image hButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/HelpBtn2.png"));		
 		
-		ImageView logoI = new ImageView(logoImg);		logoI.setFitWidth(600);		logoI.setFitHeight(150);
-		ImageView ngI = new ImageView(ngButtonImg);		ngI.setFitWidth(600);	ngI.setFitHeight(150);
-		ImageView cI = new ImageView(cButtonImg);		cI.setFitWidth(600);	cI.setFitHeight(150);
-		ImageView sI = new ImageView(sButtonImg);		sI.setFitWidth(600);	sI.setFitHeight(150);
-		ImageView hI = new ImageView(hButtonImg);		hI.setFitWidth(600);	hI.setFitHeight(150);				
+		ImageView logoI = new ImageView(logoImg);		logoI.setFitWidth(1000);		logoI.setFitHeight(150);
+		ImageView ngI = new ImageView(ngButtonImg);		ngI.setFitWidth(500);	ngI.setFitHeight(125);
+		ImageView cI = new ImageView(cButtonImg);		cI.setFitWidth(500);	cI.setFitHeight(125);
+		ImageView sI = new ImageView(sButtonImg);		sI.setFitWidth(500);	sI.setFitHeight(125);
+		ImageView hI = new ImageView(hButtonImg);		hI.setFitWidth(300);	hI.setFitHeight(125);				
 		
 		button1 = new Button ("", ngI);		button1.setId("NewGame");	
 		button2 = new Button ("", cI);		button2.setId("NewGame");
 		button3 = new Button ("", sI);		button3.setId("NewGame");
-		button4 = new Button ("", hI);		button4.setId("NewGame");	
-		
-		
+		button4 = new Button ("", hI);		button4.setId("NewGame");			
 
-		GridPane container = new GridPane();	container.setMinSize(1000, 800);		container.setPadding(new Insets(15, 15, 15, 15));
-		 container.setVgap(20);			container.setHgap(20);					container.setAlignment(Pos.CENTER);
+		GridPane container = new GridPane();			container.setMinSize(1000, 800);		container.setPadding(new Insets(15, 15, 15, 15));
+				 container.setVgap(20);					container.setHgap(20);					container.setAlignment(Pos.CENTER);
 
-		 container.add(logoI, 0, 0);	container.add(button1, 0, 1);			container.add(button2, 0, 2);
-		 container.add(button3, 0, 3);	container.add(button4, 0, 4);
+				 container.add(logoI, 0, 0, 2, 1);		container.add(button1, 0, 1, 1, 1);		container.add(button2, 1, 2, 1, 1);
+				 container.add(button3, 0, 3, 1, 1);	container.add(button4, 1, 4, 1, 1);
 	
 
 		 Image swan2 = new Image(new FileInputStream("./swan_scroll_art_1.jpg"));
@@ -61,19 +61,14 @@ public class EntryScreen {
 
 		 Background bgSwan = new Background(bgImg3);
 
-		 container.setBackground(bgSwan);
-		
+		 container.setBackground(bgSwan);		
 				
 		 escene = new Scene(container, 1200, 800);
 			escene.getStylesheets().add("file:Coleccion_Styling.css");		
 			age4.setScene(escene);
 			age4.setTitle("Welcome to Colección!");
-		
-		
-		
-		
+							
 	}
 	
 	
-
 }

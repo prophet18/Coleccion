@@ -38,11 +38,7 @@ import javafx.stage.Stage;
 
 public class Game extends Application {	
 		
-	Stage s1 = new Stage();
-	Stage s2 = new Stage();
-	Stage s3 = new Stage();
-	Board board;	
-	
+	Stage s1 = new Stage();		
 	
 	public static void main(String[] args) {				
         launch(args);
@@ -51,13 +47,19 @@ public class Game extends Application {
 	@Override
 	public void start(Stage s1) throws Exception {
 		
-		board = new Board();
+		// Lines 52 --> 60		Instantiate the core classes (objects) used for the game
+		
+		Board board = new Board();
     	
 		HighScoreScreen allScores = new HighScoreScreen();
 		
 		GameHelp help2 = new GameHelp();
 
-		EntryScreen home = new EntryScreen();	 	 
+		EntryScreen home = new EntryScreen();
+		
+		SettingsMenu setMenu = new SettingsMenu();
+		
+		// Lines 64 --> 102		Setting up the action events for the major buttons in the game
 				 
 		EventHandler<ActionEvent> pauseExit = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {	
@@ -68,41 +70,40 @@ public class Game extends Application {
 		};	
 		board.psnu.pauseQuit.setOnAction(pauseExit);	
 	
-		
-		
-		
-		
 		EventHandler<ActionEvent> newGame = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
+				board.goGrid.setBackground(setMenu.Choice);
 				board.age3.show();
 				board.timer.schedule(board.task, 1000, 1000);
+				board.f = setMenu.timeLimit;
 				home.age4.close();
 			}
-		};		
-		
-		
-		home.button1.setOnAction(newGame);
-		
+		};					
+		home.button1.setOnAction(newGame);		
 		
 		EventHandler<ActionEvent> hScores = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
 				allScores.scoring.show();
 				home.age4.close();
 			}
-		};	
-		
+		};			
 		home.button2.setOnAction(hScores);
 		
+		EventHandler<ActionEvent> settingsButton = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				setMenu.age6.show();				
+			}
+		};		
+		home.button3.setOnAction(settingsButton);		
 		
 		EventHandler<ActionEvent> helpButton = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				help2.age1.show();				
 			}
-		};
+		};		
+		home.button4.setOnAction(helpButton);		
 		
-		home.button4.setOnAction(helpButton);
-		
-		
+		// Display the entry screen to start the program
 		home.age4.show();
 		
 		

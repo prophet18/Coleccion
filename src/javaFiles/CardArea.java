@@ -10,59 +10,42 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 
 public class CardArea {
-		
-	CheckMatch check;
 	
-	ScorePile score;
+	// Lines 15 --> 19		Instantiate custom game classes/objects		
+	CheckMatch check, chk;		ScorePile score;		Boolean active, randomizeCards;			GameButton[] gbs;		Card card1, card2, card3;		Card[] cards;	Deck Deck;
 	
-	Boolean active;
-		
-	GameButton[] gbs;
+	HashMap<Integer, GameButton> buttons;			ArrayList<GameButton> algb;
 	
-	HashMap<Integer, GameButton> buttons;
+	HashMap<Integer, Card> cardmap;					HashMap<Integer, Integer> indexmap;
 	
-	ArrayList<GameButton> algb;
+	// Line 22		Instantiate regular data types	
+	int nca = 0, u = 13, c = 1, u2 = 13;						String scoreLabel;		Label scoreKeep, setResult;	
 	
-	HashMap<Integer, Card> cardmap;
-	
-	HashMap<Integer, Integer> indexmap;
-	
-	int nca = 0, u = 13, c = 1;
-	
-	Label scoreKeep, setResult;
-	
-	String scoreLabel;
-		
+	// Constructor for main components of Board object	
 	public CardArea() throws FileNotFoundException {		
 		
-		Deck Deck = new Deck();
+		Deck = new Deck();		Collections.shuffle(Deck);				cards = new Card[144];   
 		
-		Collections.shuffle(Deck);
-	
-		Card[] cards = new Card[144];   
+		gbs = new GameButton[12];										algb = new ArrayList<GameButton>();
 		
-		gbs = new GameButton[12];
+		cardmap = new HashMap<Integer, Card>();							score = new ScorePile();
 		
-		algb = new ArrayList<GameButton>();
+		buttons = new HashMap<Integer, GameButton>();					indexmap = new HashMap<Integer, Integer>();
 		
-		cardmap = new HashMap<Integer, Card>();
+		scoreLabel = new String("0");									scoreKeep = new Label(scoreLabel);
 		
-		score = new ScorePile();
-		
-		buttons = new HashMap<Integer, GameButton>();
-		
-		indexmap = new HashMap<Integer, Integer>();
-		
-		scoreLabel = new String("0");
-		
-		scoreKeep = new Label(scoreLabel);
-		setResult = new Label("");
-		scoreKeep.getStyleClass().add("ScoreLabel");
-		
+		setResult = new Label("");										scoreKeep.getStyleClass().add("ScoreLabel");		
 		
     	for (int i = 0; i < 144; i++) {
     		cards[i] = Deck.peek();
-    		Deck.pop();    	
+    		Deck.pop();  
+    		
+    		if (Deck.size() == 0) {
+    			Deck = new Deck();
+    			Collections.shuffle(Deck);
+    			cards[i] = Deck.peek();
+        		Deck.pop();    			
+    		}
     	}
     	
     	for (int k = 0; k < 12; k++) {
@@ -119,9 +102,8 @@ public class CardArea {
 				if (nca == 3) {
 					check = new CheckMatch (cardmap.get(1), cardmap.get(2), cardmap.get(3));
 					
-					if (check.matchCheck == true) {
-						
-						score.push(cardmap.get(1));		score.push(cardmap.get(2));		score.push(cardmap.get(3));
+					if (check.matchCheck == true) {						
+						score.push(cardmap.get(1));				score.push(cardmap.get(2));				score.push(cardmap.get(3));
 						
 						buttons.get(1).replace(cards[u]);		buttons.get(2).replace(cards[u+1]);		buttons.get(3).replace(cards[u+2]);
 						
@@ -152,5 +134,77 @@ public class CardArea {
 	    	
 	    	btn.setOnAction(handler1);			
 		};				
-	}		
+	}
+	
+	public void newCards() throws FileNotFoundException {
+		
+		if (u >= 130) {
+			u = 13;
+			Collections.shuffle(Deck);
+		}
+		
+		for (GameButton btn : algb) {
+			for (int r = 0; r < 12; r++) {
+				algb.get(r).replace(cards[u + r]);
+				
+				
+			}
+		}
+		u = u + 12;
+		setResult.setText("Active Cards Were Randomized!");
+	}
+	
+	
+	
+	
+	
+	public void giveHint() {
+		for (GameButton btn : algb) {
+			
+			
+			for (int y = 0; y < 10; y++) {
+				card1 = algb.get(y).card;
+				card2 = algb.get(y + 1).card;
+				card3 = algb.get(y + 2).card;
+				
+				chk = new CheckMatch(card1, card2, card3);
+				
+				if (chk.matchCheck == true) {
+					card1.info();
+					card2.info();
+					card3.info();
+				}
+				
+			}
+			
+			
+			/*
+					chk = new CheckMatch(gbs[c].card, gbs[d].card, gbs[e].card);
+					
+					if (chk.matchCheck == true) {
+						gbs[c].info();
+						gbs[d].info();
+						gbs[e].info();
+					}
+				*/
+		}
+	}
+	
+	public void reShuffle() throws FileNotFoundException {
+		
+		 
+    		
+    		if (Deck.size() <= 14) {
+    			Deck = new Deck();
+    			Collections.shuffle(Deck);
+    			for (int i = 0; i < 144; i++) {
+    	    		cards[i] = Deck.peek();
+    	    		Deck.pop();     			
+    		}
+    			u = 13;
+    	}    
+	}
+		
+	
 }
+
