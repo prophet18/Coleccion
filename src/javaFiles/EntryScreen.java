@@ -55,7 +55,7 @@ public class EntryScreen {
 				 container.add(button3, 0, 3, 1, 1);	container.add(button4, 1, 4, 1, 1);
 	
 
-		 Image swan2 = new Image(new FileInputStream("./swan_scroll_art_1.jpg"));
+		 Image swan2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/swan_scroll_art_1.jpg"));
 		 BackgroundImage bgImg3 = new BackgroundImage(swan2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 					new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 

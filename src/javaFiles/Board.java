@@ -40,10 +40,10 @@ import java.text.SimpleDateFormat;
 public class Board {			
 	
 	// Line 43		Instantiate custom game classes/objects	
-	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;			FindHint fh1;		GameOverScreen gos;
+	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;			FindHint fh1;		GameOverScreen gos;		HighScoreScreen hss, highS;
 	
 	// Line 46		Instantiate regular data types
-	Boolean active;		int h;		int f = 60;		Date date;		SimpleDateFormat dateFormat;
+	Boolean active;		int h, f;		Date date;		SimpleDateFormat dateFormat;
 
 	// Line 49		Instantiate objects for display/organization
 	Stage age3 = new Stage();		Scene bscene;		VBox scored1, timed1, rBox;		
@@ -57,15 +57,12 @@ public class Board {
 		
 		// Create basic values from above, to set up basic conditions for Board object constructor
 		
-		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();
+		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();		highS = new HighScoreScreen();	
 		
 		active = false;		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");				
-			
 		
 		task = new GameTime();		timer = new Timer();		timerKeep = new Label();	timerKeep.getStyleClass().add("TimerLabel");
-		
-		Image bamboo2 = new Image(new FileInputStream("./bamboo_scroll_art_2.jpg"));
-		 
+	 
 		 Image pausebtn2 = new Image(new FileInputStream("./Draw_Build_Files/PauseIcon.png"));
 		 Image scoreicon2 = new Image(new FileInputStream("./Draw_Build_Files/ScoreIcon.png"));
 		 Image timericon2 = new Image(new FileInputStream("./Draw_Build_Files/TimerIcon.png"));
@@ -87,12 +84,6 @@ public class Board {
 			};
 		doPause.setOnAction(pauseNow);		doPause.getStyleClass().add("GameButton");		psnu.returned.setOnAction(pauseNow);
 		 
-		 				
-		BackgroundImage bamboo4 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-							new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
-
-		Background bamboo5 = new Background(bamboo4);
-		
 		scored1 = new VBox(5);		timed1 = new VBox(5);	rBox = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);	rBox.setAlignment(Pos.CENTER);
 		
 		scored1.getChildren().addAll(scoreicon, allcard.scoreKeep, allcard.setResult);
@@ -195,15 +186,18 @@ public class Board {
 	
 	public void AddHighScore() {
 		try {
-			
-			// HighScoreScreen addingScore = new HighScoreScreen(allcard.score.scoreTotal(), )
-			
+						
 		      FileWriter addHS1 = new FileWriter("./Draw_Build_Files/HighScores.txt", true);
 		      FileWriter csvHS1 = new FileWriter("./Draw_Build_Files/csvHighScores.csv", true);
 		      BufferedWriter addHS = new BufferedWriter(addHS1);
 		      BufferedWriter csvHS = new BufferedWriter(csvHS1);
 		      addHS.write("Score: ;" + allcard.score.scoreTotal() + ";" + " on " + dateFormat.format(date));	addHS.newLine();	addHS.close();	
 		      csvHS.write("Score: " + allcard.score.scoreTotal() + " on " + dateFormat.format(date));	csvHS.newLine();	csvHS.close();
+		      
+		      hss = new HighScoreScreen(allcard.score.scoreTotal(), smnu.timeLimit, dateFormat.format(date));
+		      
+		      // highS.tView.getItems().add(hss);
+		      
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
 		      System.out.println("An error occurred.");

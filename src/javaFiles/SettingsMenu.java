@@ -40,8 +40,8 @@ public class SettingsMenu {
 	int timeLimit = 60;
 	
 	Image aurora1, boston1, rho1, sunset1, train1, trees1, bamboo2;
-	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2;
-	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Choice;
+	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2, bamboo4;
+	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Bamboo, Choice;
 	String bgSetter;
 	
 	
@@ -65,9 +65,7 @@ public class SettingsMenu {
 		
 		timeSelect = new Button("Confirm Time Limit");
 		
-		bamboo2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/bamboo_scroll_art_2.jpg"));
-		
-		
+		bamboo2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/bamboo_scroll_art_2.jpg"));		
 		aurora1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/aurora_over_Canada_2016.jpg"));
 		boston1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Boston_Financial_District_skyline.jpg"));
 		rho1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Dark_Clouds_of_Rho_Ophiuchus.jpg"));
@@ -87,12 +85,16 @@ public class SettingsMenu {
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 		trees2 = new BackgroundImage(trees1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+		bamboo4 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+				new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+		
 		Aurora = new Background(aurora2);
 		Boston = new Background(boston2);
 		Space = new Background(rho2);
 		Sunset = new Background(sunset2);
 		Mountains = new Background(train2);
 		Forest = new Background(trees2);
+		Bamboo = new Background(bamboo4);
 		
 		EventHandler<ActionEvent> timeConfirm = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
@@ -105,6 +107,7 @@ public class SettingsMenu {
 		
 		timeSelect.setOnAction(timeConfirm);
 		
+		Choice = Bamboo;		
 		
 		EventHandler<ActionEvent> menuItems = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
