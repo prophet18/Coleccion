@@ -84,7 +84,6 @@ public class Game extends Application {
 		EventHandler<ActionEvent> hScores = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
 				allScores.scoring.show();
-				home.age4.close();
 			}
 		};			
 		home.button2.setOnAction(hScores);

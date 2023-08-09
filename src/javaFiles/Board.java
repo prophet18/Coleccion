@@ -40,30 +40,27 @@ import java.text.SimpleDateFormat;
 public class Board {			
 	
 	// Line 43		Instantiate custom game classes/objects	
-	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;			FindHint fh1;
+	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;			FindHint fh1;		GameOverScreen gos;
 	
 	// Line 46		Instantiate regular data types
 	Boolean active;		int h;		int f = 60;		Date date;		SimpleDateFormat dateFormat;
 
 	// Line 49		Instantiate objects for display/organization
-	Stage age3 = new Stage();		Scene bscene, ending;		VBox scored1, timed1;		HBox uuugh = new HBox(5);
+	Stage age3 = new Stage();		Scene bscene;		VBox scored1, timed1, rBox;		
 	Button doPause, hintButton, rButton;		Label timerKeep;			GridPane goGrid;
 	
 	// Line 53		Other instantiated objects
-	Text ulose;			File highScores;		TimerTask task;		Timer timer;
+	File highScores, csvScores;		TimerTask task;		Timer timer;
 	
 	
 	public Board() throws FileNotFoundException {
 		
 		// Create basic values from above, to set up basic conditions for Board object constructor
 		
-		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();
+		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();
 		
 		active = false;		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");				
-		
-		ulose = new Text("You are a loser!"); 	uuugh.getChildren().addAll(ulose);
-		
-				
+			
 		
 		task = new GameTime();		timer = new Timer();		timerKeep = new Label();	timerKeep.getStyleClass().add("TimerLabel");
 		
@@ -96,13 +93,15 @@ public class Board {
 
 		Background bamboo5 = new Background(bamboo4);
 		
-		scored1 = new VBox(5);		timed1 = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);
+		scored1 = new VBox(5);		timed1 = new VBox(5);	rBox = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);	rBox.setAlignment(Pos.CENTER);
 		
 		scored1.getChildren().addAll(scoreicon, allcard.scoreKeep, allcard.setResult);
 		
 		timed1.getChildren().addAll(timericon, timerKeep);
 		 
 		rButton = new Button("Lost? \nRandomize Cards");
+		rBox.getChildren().addAll(doPause, rButton);
+		
 		
 		  goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
 		  goGrid.setVgap(10);		goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
@@ -110,11 +109,11 @@ public class Board {
 		  goGrid.add(allcard.algb.get(0), 0, 0);	goGrid.add(allcard.algb.get(1), 0, 1);	goGrid.add(allcard.algb.get(2), 0, 2);		 goGrid.add(allcard.algb.get(3), 1, 0);
 		  goGrid.add(allcard.algb.get(4), 1, 1);	goGrid.add(allcard.algb.get(5), 1, 2);	goGrid.add(allcard.algb.get(6), 2, 0);		 goGrid.add(allcard.algb.get(7), 2, 1);
 		  goGrid.add(allcard.algb.get(8), 2, 2);	goGrid.add(allcard.algb.get(9), 3, 0);	goGrid.add(allcard.algb.get(10), 3, 1);		 goGrid.add(allcard.algb.get(11), 3, 2);
-		  goGrid.add(scored1, 4, 0);				goGrid.add(doPause, 4, 1);				goGrid.add(timed1, 4, 2);					goGrid.add(rButton, 5, 2);		 
+		  goGrid.add(scored1, 4, 0);				goGrid.add(rBox, 4, 1);					goGrid.add(timed1, 4, 2);						 
 		 
 		
 		
-		bscene = new Scene(goGrid, 1200, 800);							ending = new Scene(uuugh, 900, 500);
+		bscene = new Scene(goGrid, 1200, 800);							
 		bscene.getStylesheets().add("file:Coleccion_Styling.css");	
 		age3.setScene(bscene);
 		age3.setTitle("Colección!");
@@ -149,7 +148,7 @@ public class Board {
 	        if (f == 0) {
 	        	AddHighScore();
 	        	timer.cancel();
-	        	age3.setScene(ending);
+	        	age3.setScene(gos.ending);
 	        }
 	    });
 	    };	    
@@ -182,6 +181,7 @@ public class Board {
 	public void CreateFile() {
 		 try {
 			 highScores = new File("./Draw_Build_Files/HighScores.txt");
+			 csvScores = new File("./Draw_Build_Files/csvHighScores.csv");
 		     if (highScores.createNewFile()) {
 		        System.out.println("File created: " + highScores.getName());
 		     } else {
@@ -195,9 +195,15 @@ public class Board {
 	
 	public void AddHighScore() {
 		try {
+			
+			// HighScoreScreen addingScore = new HighScoreScreen(allcard.score.scoreTotal(), )
+			
 		      FileWriter addHS1 = new FileWriter("./Draw_Build_Files/HighScores.txt", true);
+		      FileWriter csvHS1 = new FileWriter("./Draw_Build_Files/csvHighScores.csv", true);
 		      BufferedWriter addHS = new BufferedWriter(addHS1);
-		      addHS.write("Score: " + allcard.score.scoreTotal() + " on " + dateFormat.format(date));	addHS.newLine();	addHS.close();		      
+		      BufferedWriter csvHS = new BufferedWriter(csvHS1);
+		      addHS.write("Score: ;" + allcard.score.scoreTotal() + ";" + " on " + dateFormat.format(date));	addHS.newLine();	addHS.close();	
+		      csvHS.write("Score: " + allcard.score.scoreTotal() + " on " + dateFormat.format(date));	csvHS.newLine();	csvHS.close();
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
 		      System.out.println("An error occurred.");

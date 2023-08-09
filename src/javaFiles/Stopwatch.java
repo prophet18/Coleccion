@@ -93,6 +93,7 @@ public class Stopwatch extends Application{
 		stage.setScene(scene);
         stage.setTitle("Stopwatch");
 		stage.show();
+		System.out.println(javafx.scene.text.Font.getFamilies());
 	}
 }
 

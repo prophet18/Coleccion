@@ -7,6 +7,18 @@
 
 */
 
+/*
+    Included font-families in JavaFX:
+      Alef - https://fonts.google.com/specimen/Alef?query=alef
+      Rubik - https://fonts.google.com/specimen/Rubik?query=rubik
+      Carlito - https://fonts.google.com/specimen/Carlito?query=carlito
+*/
+
+.root {
+  -fx-font-family: "Rubik";
+}
+
+
 #NewGame {
   -fx-background-color: none;
 }

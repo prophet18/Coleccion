@@ -37,9 +37,9 @@ public class SettingsMenu {
 	Label limTime, bgOpt;
 	TextField timLim;
 	
-	int timeLimit;
+	int timeLimit = 60;
 	
-	Image aurora1, boston1, rho1, sunset1, train1, trees1;
+	Image aurora1, boston1, rho1, sunset1, train1, trees1, bamboo2;
 	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2;
 	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Choice;
 	String bgSetter;
@@ -65,7 +65,7 @@ public class SettingsMenu {
 		
 		timeSelect = new Button("Confirm Time Limit");
 		
-		
+		bamboo2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/bamboo_scroll_art_2.jpg"));
 		
 		
 		aurora1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/aurora_over_Canada_2016.jpg"));
