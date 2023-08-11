@@ -57,7 +57,7 @@ public class Board {
 		
 		// Create basic values from above, to set up basic conditions for Board object constructor
 		
-		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();		highS = new HighScoreScreen();	
+		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();		// highS = new HighScoreScreen();	
 		
 		active = false;		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");				
 		

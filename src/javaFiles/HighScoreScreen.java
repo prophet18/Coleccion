@@ -23,7 +23,7 @@ public class HighScoreScreen {
 	
 	Button backMenu;
 	
-	TextArea tahs;			Board board;	int score, time;	String date;
+	TextArea tahs;		int score, time;	String date;
 	
 	TableView tView;		TableColumn<HighScoreScreen, Integer> sc1, ti1;		TableColumn<HighScoreScreen, String> da1;
 	ObservableList listScore;
@@ -40,14 +40,18 @@ public class HighScoreScreen {
 		// tView.getItems().add(listScore);   
 		
 		
-		tahs = new TextArea("Colección Results! \n");	board = new Board();		
+		tahs = new TextArea("Colección Results! \n");
+		
+		/*
 		
 		Scanner fileRead = new Scanner(board.highScores);
 		while (fileRead.hasNextLine()) {
 			String data = fileRead.nextLine();
 			tahs.appendText(data + "\n");
 		}
-		fileRead.close();			
+		fileRead.close();
+		
+					*/
 		
 		scoring5 = new VBox(10);
 		scoring5.getChildren().addAll(tView);

@@ -126,8 +126,8 @@ public class GameHelp {
 		
 		help3.setOnAction(pprev);
 		
-		ghsc1.getStylesheets().add("file:Coleccion_Styling.css");		ghsc1.getStylesheets().add("file:DidactGothic-Regular.ttf");	
-		ghsc2.getStylesheets().add("file:Coleccion_Styling.css");		ghsc2.getStylesheets().add("file:DidactGothic-Regular.ttf");	
+		ghsc1.getStylesheets().add("file:Coleccion_Styling.css");			
+		ghsc2.getStylesheets().add("file:Coleccion_Styling.css");			
 		
 	}
 }

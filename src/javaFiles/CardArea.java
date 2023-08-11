@@ -155,7 +155,7 @@ public class CardArea {
 	}
 	
 	
-	
+	/*
 	
 	
 	public void giveHint() {
@@ -176,7 +176,7 @@ public class CardArea {
 				}
 				
 			}
-			
+		*/	
 			
 			/*
 					chk = new CheckMatch(gbs[c].card, gbs[d].card, gbs[e].card);
@@ -187,9 +187,9 @@ public class CardArea {
 						gbs[e].info();
 					}
 				*/
-		}
+		
 	}
-	
+	/*
 	public void reShuffle() throws FileNotFoundException {
 		
 		 
@@ -204,7 +204,7 @@ public class CardArea {
     			u = 13;
     	}    
 	}
-		
+		*/
 	
-}
+
 

@@ -37,9 +37,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Game extends Application {	
-		
-	Stage s1 = new Stage();		
-	
+			
 	public static void main(String[] args) {				
         launch(args);
     }
@@ -51,7 +49,7 @@ public class Game extends Application {
 		
 		Board board = new Board();
     	
-		HighScoreScreen allScores = new HighScoreScreen();
+		// HighScoreScreen allScores = new HighScoreScreen();
 		
 		GameHelp help2 = new GameHelp();
 
@@ -81,12 +79,15 @@ public class Game extends Application {
 		};					
 		home.button1.setOnAction(newGame);		
 		
+		/*
 		EventHandler<ActionEvent> hScores = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
 				allScores.scoring.show();
 			}
-		};			
+		};
+					
 		home.button2.setOnAction(hScores);
+		*/
 		
 		EventHandler<ActionEvent> settingsButton = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
