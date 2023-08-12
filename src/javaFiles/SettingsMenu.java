@@ -5,6 +5,8 @@ package javaFiles;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -14,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,12 +33,13 @@ public class SettingsMenu {
 	Stage age6 = new Stage();
 	Scene settings2;
 	VBox smvbox;
-	Button timeSelect;
 	MenuButton mb;
 	MenuItem mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8;
 	
-	Label limTime, bgOpt;
+	Label limTime, bgOpt, timeSelect;
 	TextField timLim;
+	
+	TextField tEntry;
 	
 	int timeLimit = 60;
 	
@@ -48,22 +52,15 @@ public class SettingsMenu {
 
 	
 	
-	public SettingsMenu() throws FileNotFoundException {
+	public SettingsMenu() throws FileNotFoundException {		
 		
-		limTime = new Label("Enter Time Limit (in Seconds): ");
-		bgOpt  = new Label("Default Background Selected");
-		
-		timLim = new TextField();
+		bgOpt  = new Label("Background Selected: ");
 		
 		mb = new MenuButton("Choose Your Background!");
 		mi1 = new MenuItem("Aurora");		mi2 = new MenuItem("Boston");		mi3 = new MenuItem("Space");
 		mi4 = new MenuItem("Sunset");		mi5 = new MenuItem("Mountains");	mi6 = new MenuItem("Forest");
 		mi7 = new MenuItem("Bamboo");		mi8 = new MenuItem("Coast");
 		mb.getItems().addAll(mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8);
-		
-		smvbox = new VBox(25);	smvbox.setAlignment(Pos.CENTER);
-		
-		timeSelect = new Button("Confirm Time Limit");
 		
 		bamboo2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/bamboo_scroll_art_2.jpg"));		
 		aurora1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/aurora_over_Canada_2016.jpg"));
@@ -73,8 +70,7 @@ public class SettingsMenu {
 		train1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Train-mountains-winter.jpg"));
 		trees1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Trees_and_mountains_and_clouds_and_sky.jpg"));
 		coast2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/South_Oregon_Coast_18499357.jpeg"));
-		solar2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Screensaver_Solarwinds.jpg"));
-		
+		solar2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Screensaver_Solarwinds.jpg"));		
 		
 		aurora2 = new BackgroundImage(aurora1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
@@ -98,18 +94,7 @@ public class SettingsMenu {
 		Aurora = new Background(aurora2);		Boston = new Background(boston2);		Space = new Background(rho2);
 		Sunset = new Background(sunset2);		Mountains = new Background(train2);		Forest = new Background(trees2);
 		Bamboo = new Background(bamboo4);		Coast = new Background(coast1);			Solar = new Background(solar1);
-		
-		EventHandler<ActionEvent> timeConfirm = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e) {
-            	String keeping = timLim.getText();
-            	timeLimit = Integer.parseInt(keeping);
-            	
-            	
-            }
-		};
-		
-		timeSelect.setOnAction(timeConfirm);
-		
+				
 		Choice = Bamboo;		
 		
 		EventHandler<ActionEvent> menuItems = new EventHandler<ActionEvent>() {
@@ -147,10 +132,36 @@ public class SettingsMenu {
             }
         };
         mi1.setOnAction(menuItems);		mi2.setOnAction(menuItems);		mi3.setOnAction(menuItems);
-        mi4.setOnAction(menuItems);		mi5.setOnAction(menuItems);		mi6.setOnAction(menuItems);
+        mi4.setOnAction(menuItems);		mi5.setOnAction(menuItems);		mi6.setOnAction(menuItems);        
         mi7.setOnAction(menuItems);		mi8.setOnAction(menuItems);
         
-        smvbox.getChildren().addAll(mb, bgOpt, limTime, timLim, timeSelect);
+        limTime = new Label("Enter Time Limit: ");
+        
+        tEntry = new TextField("");
+        
+       
+        
+        EventHandler<ActionEvent> eventTime = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                timeSelect.setText(tEntry.getText());
+                timeLimit = Integer.parseInt(tEntry.getText());
+            }
+        };
+ 
+        // when enter is pressed
+        tEntry.setOnAction(eventTime);
+ 
+       
+		
+		timeSelect = new Label(" ");
+        
+        limTime.getStyleClass().add("big-yellow");
+        tEntry.getStyleClass().add("big-yellow");
+        bgOpt.getStyleClass().add("light-gray");
+        mb.getStyleClass().add("dark-gray");
+        
+        smvbox = new VBox(25);	smvbox.setAlignment(Pos.CENTER);
+        smvbox.getChildren().addAll(mb, bgOpt, limTime, tEntry, timeSelect);
         
         settings2 = new Scene(smvbox, 800, 600);
         

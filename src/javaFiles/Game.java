@@ -49,7 +49,7 @@ public class Game extends Application {
 		
 		Board board = new Board();
     	
-		// HighScoreScreen allScores = new HighScoreScreen();
+		HighScoreScreen allScores = new HighScoreScreen();
 		
 		GameHelp help2 = new GameHelp();
 
@@ -74,12 +74,13 @@ public class Game extends Application {
 				board.age3.show();
 				board.timer.schedule(board.task, 1000, 1000);
 				board.f = setMenu.timeLimit;
+				board.g = setMenu.timeLimit;
 				home.age4.close();
 			}
 		};					
 		home.button1.setOnAction(newGame);		
 		
-		/*
+		
 		EventHandler<ActionEvent> hScores = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
 				allScores.scoring.show();
@@ -87,7 +88,7 @@ public class Game extends Application {
 		};
 					
 		home.button2.setOnAction(hScores);
-		*/
+		
 		
 		EventHandler<ActionEvent> settingsButton = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {

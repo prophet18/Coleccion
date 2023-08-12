@@ -39,39 +39,36 @@ import java.text.SimpleDateFormat;
 
 public class Board {			
 	
-	// Line 43		Instantiate custom game classes/objects	
-	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;			FindHint fh1;		GameOverScreen gos;		HighScoreScreen hss, highS;
+	// Line 43				Instantiate custom game classes/objects	
+	SettingsMenu smnu;		CardArea allcard;		PauseScreen psnu;		GameOverScreen gos;		HighScoreScreen hss, highS;
 	
-	// Line 46		Instantiate regular data types
-	Boolean active;		int h, f;		Date date;		SimpleDateFormat dateFormat;
+	// Line 46				Instantiate regular data types
+	Boolean active;			int g, h, f;		Date date;		SimpleDateFormat dateFormat;
 
-	// Line 49		Instantiate objects for display/organization
-	Stage age3 = new Stage();		Scene bscene;		VBox scored1, timed1, rBox;		
+	// Lines 49 ---> 50		Instantiate objects for display/organization
+	Stage age3 = new Stage();					Scene bscene;				VBox scored1, timed1, rBox;		
 	Button doPause, hintButton, rButton;		Label timerKeep;			GridPane goGrid;
 	
 	// Line 53		Other instantiated objects
-	File highScores, csvScores;		TimerTask task;		Timer timer;
+	File highScores, csvScores;					TimerTask task;				Timer timer;	
 	
-	
-	public Board() throws FileNotFoundException {
+	public Board() throws Exception {
 		
-		// Create basic values from above, to set up basic conditions for Board object constructor
-		
-		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();		// highS = new HighScoreScreen();	
+		// Create basic values from above, to set up basic conditions for Board object constructor		
+		smnu = new SettingsMenu();		allcard = new CardArea();		psnu = new PauseScreen();		gos = new GameOverScreen();		 highS = new HighScoreScreen();	
 		
 		active = false;		date = new Date();		dateFormat = new SimpleDateFormat("dd MMMM yyyy, HH:mm z");				
 		
 		task = new GameTime();		timer = new Timer();		timerKeep = new Label();	timerKeep.getStyleClass().add("TimerLabel");
 	 
-		 Image pausebtn2 = new Image(new FileInputStream("./Draw_Build_Files/PauseIcon.png"));
-		 Image scoreicon2 = new Image(new FileInputStream("./Draw_Build_Files/ScoreIcon.png"));
-		 Image timericon2 = new Image(new FileInputStream("./Draw_Build_Files/TimerIcon.png"));
+		Image pausebtn2 = new Image(new FileInputStream("./Draw_Build_Files/PauseIcon.png"));
+		Image scoreicon2 = new Image(new FileInputStream("./Draw_Build_Files/ScoreIcon.png"));
+		Image timericon2 = new Image(new FileInputStream("./Draw_Build_Files/TimerIcon.png"));		 
+		ImageView pausebtn = new ImageView(pausebtn2);		pausebtn.setFitWidth(250);		pausebtn.setFitHeight(75);
+		ImageView scoreicon = new ImageView(scoreicon2);	scoreicon.setFitWidth(240);		scoreicon.setFitHeight(75);
+		ImageView timericon = new ImageView(timericon2);	timericon.setFitWidth(250);		timericon.setFitHeight(75);	
 		 
-		 ImageView pausebtn = new ImageView(pausebtn2);		pausebtn.setFitWidth(250);		pausebtn.setFitHeight(75);
-		 ImageView scoreicon = new ImageView(scoreicon2);	scoreicon.setFitWidth(240);		scoreicon.setFitHeight(75);
-		 ImageView timericon = new ImageView(timericon2);	timericon.setFitWidth(250);		timericon.setFitHeight(75);	
-		 
-		 doPause = new Button("", pausebtn);
+		doPause = new Button("", pausebtn);
 		 
 		EventHandler<ActionEvent> pauseNow = new EventHandler<ActionEvent>() {
 				public void handle(ActionEvent e) {							
@@ -82,8 +79,7 @@ public class Board {
 					}
 				}				
 			};
-		doPause.setOnAction(pauseNow);		psnu.returned.setOnAction(pauseNow);
-		doPause.setId("NObg"); 
+		doPause.setOnAction(pauseNow);		psnu.returned.setOnAction(pauseNow);		doPause.setId("NObg"); 
 		
 		scored1 = new VBox(5);		timed1 = new VBox(5);	rBox = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);	rBox.setAlignment(Pos.CENTER);
 		
@@ -91,20 +87,16 @@ public class Board {
 		
 		timed1.getChildren().addAll(timericon, timerKeep);
 		 
-		rButton = new Button("Lost? \nRandomize Cards");
-		rBox.getChildren().addAll(doPause, rButton);
+		rButton = new Button("Lost?\nRandomize Cards");		rBox.getChildren().addAll(doPause, rButton);		
 		
-		
-		  goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
-		  goGrid.setVgap(10);		goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
+		goGrid = new GridPane();	goGrid.setMinSize(1000, 800);		goGrid.setPadding(new Insets(5, 5, 5, 5));
+		goGrid.setVgap(10);			goGrid.setHgap(10);					goGrid.setAlignment(Pos.CENTER);
 
-		  goGrid.add(allcard.algb.get(0), 0, 0);	goGrid.add(allcard.algb.get(1), 0, 1);	goGrid.add(allcard.algb.get(2), 0, 2);		 goGrid.add(allcard.algb.get(3), 1, 0);
-		  goGrid.add(allcard.algb.get(4), 1, 1);	goGrid.add(allcard.algb.get(5), 1, 2);	goGrid.add(allcard.algb.get(6), 2, 0);		 goGrid.add(allcard.algb.get(7), 2, 1);
-		  goGrid.add(allcard.algb.get(8), 2, 2);	goGrid.add(allcard.algb.get(9), 3, 0);	goGrid.add(allcard.algb.get(10), 3, 1);		 goGrid.add(allcard.algb.get(11), 3, 2);
-		  goGrid.add(scored1, 4, 0);				goGrid.add(rBox, 4, 1);					goGrid.add(timed1, 4, 2);						 
-		 
-		
-		
+		goGrid.add(allcard.algb.get(0), 0, 0);	goGrid.add(allcard.algb.get(1), 0, 1);	goGrid.add(allcard.algb.get(2), 0, 2);		 goGrid.add(allcard.algb.get(3), 1, 0);
+		goGrid.add(allcard.algb.get(4), 1, 1);	goGrid.add(allcard.algb.get(5), 1, 2);	goGrid.add(allcard.algb.get(6), 2, 0);		 goGrid.add(allcard.algb.get(7), 2, 1);
+		goGrid.add(allcard.algb.get(8), 2, 2);	goGrid.add(allcard.algb.get(9), 3, 0);	goGrid.add(allcard.algb.get(10), 3, 1);		 goGrid.add(allcard.algb.get(11), 3, 2);
+		goGrid.add(scored1, 4, 0);				goGrid.add(rBox, 4, 1);					goGrid.add(timed1, 4, 2);						 
+		 				
 		bscene = new Scene(goGrid, 1200, 800);							
 		bscene.getStylesheets().add("file:Coleccion_Styling.css");	
 		age3.setScene(bscene);
@@ -121,25 +113,21 @@ public class Board {
 				}
 			}
 		};
-				rButton.setOnAction(rBevent);
+				rButton.setOnAction(rBevent);	rButton.setId("bevel-grey");
 				
-	}
-	
-	
-    	
+	}	
 
 	class GameTime extends TimerTask {
-	    
-	    public void run() {
-	    	
-	    	Platform.runLater(() -> {
-	    		
-	    			    		 
+	    // Create task (GameTime) to set up timer for game
+	    public void run() {	    	
+	    	Platform.runLater(() -> {	    		
+	    // Integer f is set by Game.java from the timeLimit variable in settings			    		 
 	        timerKeep.setText(--f + " Seconds Left");
-	        
+	    // When f = 0, or game ends, the instructions follow:    
 	        if (f == 0) {
 	        	AddHighScore();
 	        	timer.cancel();
+	        	gos.gover.setText("Time's Up!\nYou found " + allcard.scoreLabel + " Coleccións!");
 	        	age3.setScene(gos.ending);
 	        }
 	    });
@@ -147,26 +135,20 @@ public class Board {
 	}	
 	
 	public void StopGame() {
-		
+		// Open pause menu object from board object
 		active = true;
 		h = f;
-		timer.cancel();
-		
+		timer.cancel();		
 		psnu.pausing.show();		
 	}
 
 	public void ResumeGame() {
-		
-		active = false;
-		
-		f = h;
-		
-		timer = new Timer();
-		
-		task = new GameTime();
-			
-		timer.schedule(task, 1000, 1000);	
-		
+		// Close pause menu object and return to board object
+		active = false;		
+		f = h;		
+		timer = new Timer();		
+		task = new GameTime();			
+		timer.schedule(task, 1000, 1000);			
 		psnu.pausing.close();			
 	}
 
@@ -186,18 +168,17 @@ public class Board {
 	}
 	
 	public void AddHighScore() {
-		try {
-						
+		try {						
 		      FileWriter addHS1 = new FileWriter("./Draw_Build_Files/HighScores.txt", true);
 		      FileWriter csvHS1 = new FileWriter("./Draw_Build_Files/csvHighScores.csv", true);
 		      BufferedWriter addHS = new BufferedWriter(addHS1);
 		      BufferedWriter csvHS = new BufferedWriter(csvHS1);
 		      addHS.write("Score: ;" + allcard.score.scoreTotal() + ";" + " on " + dateFormat.format(date));	addHS.newLine();	addHS.close();	
-		      csvHS.write("Score: " + allcard.score.scoreTotal() + " on " + dateFormat.format(date));	csvHS.newLine();	csvHS.close();
+		      csvHS.write(allcard.scoreLabel + "," + g + "," + dateFormat.format(date));	csvHS.newLine();	csvHS.close();
+		      String jj = String.valueOf(g);
+		      hss = new HighScoreScreen(allcard.scoreLabel, jj, dateFormat.format(date));
 		      
-		      hss = new HighScoreScreen(allcard.score.scoreTotal(), smnu.timeLimit, dateFormat.format(date));
-		      
-		      // highS.tView.getItems().add(hss);
+		      highS.tView.getItems().add(hss);
 		      
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
@@ -206,16 +187,7 @@ public class Board {
 		    }
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 
 }

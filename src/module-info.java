@@ -54,6 +54,7 @@ module Colección {
 	requires javafx.base;
 	requires javafx.fxml;
 	requires java.desktop;
+	requires java.sql;
 	
 	exports frameworks;
 	exports javaFiles;

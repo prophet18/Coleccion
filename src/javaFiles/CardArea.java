@@ -34,7 +34,7 @@ public class CardArea {
 		
 		scoreLabel = new String("0");									scoreKeep = new Label(scoreLabel);
 		
-		setResult = new Label("");										scoreKeep.getStyleClass().add("ScoreLabel");		
+		setResult = new Label("");	setResult.setId("glass-grey");		scoreKeep.getStyleClass().add("ScoreLabel");		
 		
     	for (int i = 0; i < 144; i++) {
     		cards[i] = Deck.peek();
@@ -130,8 +130,7 @@ public class CardArea {
 					check = null;										
 				}					
 	    	}
-	    	};
-	    	
+	    	};	    	
 	    	btn.setOnAction(handler1);			
 		};				
 	}
@@ -145,65 +144,18 @@ public class CardArea {
 		
 		for (GameButton btn : algb) {
 			for (int r = 0; r < 12; r++) {
-				algb.get(r).replace(cards[u + r]);
-				
-				
+				algb.get(r).replace(cards[u + r]);				
 			}
 		}
 		u = u + 12;
-		setResult.setText("Active Cards Were Randomized!");
+		setResult.setText("Active Cards Were Randomized!");		
 	}
-	
+		
+}	
 	
 	/*
 	
 	
-	public void giveHint() {
-		for (GameButton btn : algb) {
-			
-			
-			for (int y = 0; y < 10; y++) {
-				card1 = algb.get(y).card;
-				card2 = algb.get(y + 1).card;
-				card3 = algb.get(y + 2).card;
-				
-				chk = new CheckMatch(card1, card2, card3);
-				
-				if (chk.matchCheck == true) {
-					card1.info();
-					card2.info();
-					card3.info();
-				}
-				
-			}
-		*/	
-			
-			/*
-					chk = new CheckMatch(gbs[c].card, gbs[d].card, gbs[e].card);
-					
-					if (chk.matchCheck == true) {
-						gbs[c].info();
-						gbs[d].info();
-						gbs[e].info();
-					}
-				*/
-		
-	}
-	/*
-	public void reShuffle() throws FileNotFoundException {
-		
-		 
-    		
-    		if (Deck.size() <= 14) {
-    			Deck = new Deck();
-    			Collections.shuffle(Deck);
-    			for (int i = 0; i < 144; i++) {
-    	    		cards[i] = Deck.peek();
-    	    		Deck.pop();     			
-    		}
-    			u = 13;
-    	}    
-	}
 		*/
 	
 

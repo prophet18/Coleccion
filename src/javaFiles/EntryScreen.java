@@ -26,6 +26,7 @@ public class EntryScreen {
 	// Line 27		Instantiate buttons for main actions on entry screen	
 	Button button1, button2, button3, button4;
 	
+	// Line 30		Create stage and screen for the entry / landing menu
 	Stage age4 = new Stage();		Scene escene;
 	
 	// Constructor for main screen object
@@ -37,13 +38,12 @@ public class EntryScreen {
 		Image sButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/SettingsBtn2.png"));
 		Image hButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/HelpBtn2.png"));		
 		Image dRains = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Digital_rain.gif"));
-		Image swan2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/swan_scroll_art_1.jpg"));
 		
 		ImageView logoI = new ImageView(logoImg);		logoI.setFitWidth(1000);		logoI.setFitHeight(150);
-		ImageView ngI = new ImageView(ngButtonImg);		ngI.setFitWidth(500);	ngI.setFitHeight(125);
-		ImageView cI = new ImageView(cButtonImg);		cI.setFitWidth(500);	cI.setFitHeight(125);
-		ImageView sI = new ImageView(sButtonImg);		sI.setFitWidth(500);	sI.setFitHeight(125);
-		ImageView hI = new ImageView(hButtonImg);		hI.setFitWidth(300);	hI.setFitHeight(125);				
+		ImageView ngI = new ImageView(ngButtonImg);		ngI.setFitWidth(500);			ngI.setFitHeight(125);
+		ImageView cI = new ImageView(cButtonImg);		cI.setFitWidth(500);			cI.setFitHeight(125);
+		ImageView sI = new ImageView(sButtonImg);		sI.setFitWidth(500);			sI.setFitHeight(125);
+		ImageView hI = new ImageView(hButtonImg);		hI.setFitWidth(300);			hI.setFitHeight(125);				
 		
 		button1 = new Button ("", ngI);		button1.setId("NewGame");	
 		button2 = new Button ("", cI);		button2.setId("NewGame");
@@ -52,30 +52,20 @@ public class EntryScreen {
 
 		GridPane container = new GridPane();			container.setMinSize(1000, 800);		container.setPadding(new Insets(15, 15, 15, 15));
 				 container.setVgap(20);					container.setHgap(20);					container.setAlignment(Pos.CENTER);
-
 				 container.add(logoI, 0, 0, 2, 1);		container.add(button1, 0, 1, 1, 1);		container.add(button2, 1, 2, 1, 1);
 				 container.add(button3, 0, 3, 1, 1);	container.add(button4, 1, 4, 1, 1);
-	
-
 		 
-		 BackgroundImage bgImg3 = new BackgroundImage(swan2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+		BackgroundImage dRains1 = new BackgroundImage(dRains, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 					new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
-		 Background bgSwan = new Background(bgImg3);
-		 
-		 BackgroundImage dRains1 = new BackgroundImage(dRains, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-					new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+		Background bgRains = new Background(dRains1);
 
-		 Background bgRains = new Background(dRains1);
-
-		 container.setBackground(bgRains);		
+		container.setBackground(bgRains);		
 				
-		 escene = new Scene(container, 1200, 800);
-			escene.getStylesheets().add("file:Coleccion_Styling.css");		
-			age4.setScene(escene);
-			age4.setTitle("Welcome to Colección!");
+		escene = new Scene(container, 1200, 800);
+		escene.getStylesheets().add("file:Coleccion_Styling.css");		
+		age4.setScene(escene);
+		age4.setTitle("Welcome to Colección!");
 							
-	}
-	
-	
+	}	
 }
