@@ -46,22 +46,22 @@ public class GameHelp {
 		intro = new Label("How to play: \n"	+ "The goal of Colección is to find sets of three cards, \n" +
 				"that fulfill the requirements for matching as rapidly as possible. \n" +
 				"There are 4 properties that define the image on each card: \n");
-		props = new TextArea("Color \n" + "Each card has 1 of 4 possible colors: \n Blue, Orange, Green, and Red. \n" +
-				"Number \n" + "The number of shapes present on the card: \n 1, 2, or 3. \n" +
-				"Type \n" + "There are 4 different kinds of shapes in the game: \n Triangles, Parallelograms, Semicircles, and Rectangles \n" +
-				"Fill \n" + "Each shape will have 1 of 3 patterns: \n Solid, Empty, or Grid.");
+		props = new TextArea("Color \n" + "Each card has 1 of 4 possible colors: \nBlue, Orange, Green, and Red. \n" +
+				"\nNumber \n" + "The number of shapes present on the card: \n1, 2, or 3. \n" +
+				"\nType \n" + "There are 4 different kinds of shapes in the game: \nTriangles, Parallelograms, Semicircles, and Rectangles \n" +
+				"\nFill \n" + "Each shape will have 1 of 3 patterns: \nSolid, Empty, or Grid.");
 		examples = new TextArea("A “Colección” is a set where 3 cards either share the same characteristic for a property, \n" +
 				"or have different, unique characteristics, for all 4 properties. \n" +
-				"Example – Color \n" + "If three cards are all Blue, the color property for a Colección is satisfied. \n" +
+				"\nExample – Color \n" + "If three cards are all Blue, the color property for a Colección is satisfied. \n" +
 				"If one card is Blue, the second Red, and the third Green, the color property is likewise satisfied. \n" +
 				"If two cards are Orange, and one Blue, the color property is NOT satisfied. \n" +
-				"Example – Number \n" + "If three cards each have one shape on them, the number property is satisfied. \n" +
+				"\nExample – Number \n" + "If three cards each have one shape on them, the number property is satisfied. \n" +
 				"If one card has one shape, another, two shapes, and the third has three shapes, the number property is likewise satisfied. \n" +
 				"If one card has two shapes, and the other two have three shapes, the number property is NOT satisfiied. \n" +
-				"Example – Type \n" + "If all three cards are semicircle shaped, the type property is satisfied. \n" +
+				"\nExample – Type \n" + "If all three cards are semicircle shaped, the type property is satisfied. \n" +
 				"If one card is rectangular, another, triangular, and the last, a parallelogram, the type property is likewise satisfied. \n" +
 				"If two cards are semicircles, and the third is a triangle, the type property is NOT satisfied. \n" +
-				"Example – Fill \n" + "If all three cards have a fill of empty, the fill property is satisfied. \n" +
+				"\nExample – Fill \n" + "If all three cards have a fill of empty, the fill property is satisfied. \n" +
 				"If one card has a solid fill, another, grid, and a third, empty, the fill property is satisfied. \n" +
 				"If two cards have a grid filling, and the third, solid, the fill property is NOT satisfied. \n" +
 				"A coleccion is not valid unless the requirements for ALL four properties are fulfilled.");		

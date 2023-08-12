@@ -82,8 +82,9 @@ public class Board {
 					}
 				}				
 			};
-		doPause.setOnAction(pauseNow);		doPause.getStyleClass().add("GameButton");		psnu.returned.setOnAction(pauseNow);
-		 
+		doPause.setOnAction(pauseNow);		psnu.returned.setOnAction(pauseNow);
+		doPause.setId("NObg"); 
+		
 		scored1 = new VBox(5);		timed1 = new VBox(5);	rBox = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);	rBox.setAlignment(Pos.CENTER);
 		
 		scored1.getChildren().addAll(scoreicon, allcard.scoreKeep, allcard.setResult);

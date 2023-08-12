@@ -36,6 +36,8 @@ public class EntryScreen {
 		Image cButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/HighScoreBtn2.png"));		
 		Image sButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/SettingsBtn2.png"));
 		Image hButtonImg = new Image(new FileInputStream("./Draw_Build_Files/Menu_Icons/HelpBtn2.png"));		
+		Image dRains = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Digital_rain.gif"));
+		Image swan2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/swan_scroll_art_1.jpg"));
 		
 		ImageView logoI = new ImageView(logoImg);		logoI.setFitWidth(1000);		logoI.setFitHeight(150);
 		ImageView ngI = new ImageView(ngButtonImg);		ngI.setFitWidth(500);	ngI.setFitHeight(125);
@@ -55,13 +57,18 @@ public class EntryScreen {
 				 container.add(button3, 0, 3, 1, 1);	container.add(button4, 1, 4, 1, 1);
 	
 
-		 Image swan2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/swan_scroll_art_1.jpg"));
+		 
 		 BackgroundImage bgImg3 = new BackgroundImage(swan2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 					new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
 		 Background bgSwan = new Background(bgImg3);
+		 
+		 BackgroundImage dRains1 = new BackgroundImage(dRains, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+					new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 
-		 container.setBackground(bgSwan);		
+		 Background bgRains = new Background(dRains1);
+
+		 container.setBackground(bgRains);		
 				
 		 escene = new Scene(container, 1200, 800);
 			escene.getStylesheets().add("file:Coleccion_Styling.css");		

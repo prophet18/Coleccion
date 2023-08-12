@@ -20,7 +20,12 @@
 
 
 #NewGame {
+  -fx-background-color: black;
+}
+
+#NObg {
   -fx-background-color: none;
+
 }
 
 
@@ -64,21 +69,21 @@
 .ScoreLabel {
 
   -fx-color-one: white;
-  -fx-background-color: green;
-  -fx-font-size: 30px;
+  -fx-background-color: black;
+  -fx-font-size: 40px;
   -fx-font-weight: bold;
-  -fx-text-fill: purple;
+  -fx-text-fill: white;
   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 
 }
 
 .TimerLabel {
 
-  -fx-color-one: blue;
-  -fx-background-color: yellow;
-  -fx-font-size: 30px;
+  -fx-color-one: rgb(225, 247, 103);
+  -fx-background-color: black;
+  -fx-font-size: 40px;
   -fx-font-weight: bold;
-  -fx-text-fill: red;
+  -fx-text-fill: white;
   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 
 }
@@ -86,7 +91,7 @@
 
 
 #HsTitle {
-  -fx-font-family: Didac Gothic;
+  -fx-font-family: Verdana;
   -fx-background-color: black;
   -fx-font-size: 35px;
   -fx-font-weight: bold;
@@ -94,19 +99,22 @@
 }
 
 #HsIntro {
+  -fx-font-family: Verdana;
   -fx-background-color: white;
-  -fx-font-size: 20px;
+  -fx-font-size: 25px;
   -fx-font-weight: bold;
   -fx-text-fill: black;
 }
 
 #HsProps {
-  -fx-font-size: 20px;
+  -fx-font-family: Verdana;
+  -fx-font-size: 25px;
   -fx-font-weight: bold;
   -fx-text-fill: black;
 }
 
 #HsExamples {
+  -fx-font-family: Verdana;
   -fx-font-size: 25px;
   -fx-font-weight: bold;
   -fx-text-fill: black;

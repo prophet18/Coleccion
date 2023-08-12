@@ -32,21 +32,20 @@ public class SettingsMenu {
 	VBox smvbox;
 	Button timeSelect;
 	MenuButton mb;
-	MenuItem mi1, mi2, mi3, mi4, mi5, mi6;
+	MenuItem mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8;
 	
 	Label limTime, bgOpt;
 	TextField timLim;
 	
 	int timeLimit = 60;
 	
-	Image aurora1, boston1, rho1, sunset1, train1, trees1, bamboo2;
-	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2, bamboo4;
-	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Bamboo, Choice;
+	Image aurora1, boston1, rho1, sunset1, train1, trees1, bamboo2, coast2, solar2;
+	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2, bamboo4, coast1, solar1;
+	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Bamboo, Coast, Choice, Solar;
 	String bgSetter;
 	
 	
-	
-	
+
 	
 	
 	public SettingsMenu() throws FileNotFoundException {
@@ -59,9 +58,10 @@ public class SettingsMenu {
 		mb = new MenuButton("Choose Your Background!");
 		mi1 = new MenuItem("Aurora");		mi2 = new MenuItem("Boston");		mi3 = new MenuItem("Space");
 		mi4 = new MenuItem("Sunset");		mi5 = new MenuItem("Mountains");	mi6 = new MenuItem("Forest");
-		mb.getItems().addAll(mi1, mi2, mi3, mi4, mi5, mi6);
+		mi7 = new MenuItem("Bamboo");		mi8 = new MenuItem("Coast");
+		mb.getItems().addAll(mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8);
 		
-		smvbox = new VBox(15);	smvbox.setAlignment(Pos.CENTER);
+		smvbox = new VBox(25);	smvbox.setAlignment(Pos.CENTER);
 		
 		timeSelect = new Button("Confirm Time Limit");
 		
@@ -72,6 +72,9 @@ public class SettingsMenu {
 		sunset1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Sunset-with-birds.png"));
 		train1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Train-mountains-winter.jpg"));
 		trees1 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Trees_and_mountains_and_clouds_and_sky.jpg"));
+		coast2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/South_Oregon_Coast_18499357.jpeg"));
+		solar2 = new Image(new FileInputStream("./Draw_Build_Files/Game_Backgrounds/Screensaver_Solarwinds.jpg"));
+		
 		
 		aurora2 = new BackgroundImage(aurora1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
@@ -87,14 +90,14 @@ public class SettingsMenu {
 				  new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 		bamboo4 = new BackgroundImage(bamboo2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
 				new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+		coast1 = new BackgroundImage(coast2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+				new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
+		solar1 = new BackgroundImage(solar2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+				new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true));
 		
-		Aurora = new Background(aurora2);
-		Boston = new Background(boston2);
-		Space = new Background(rho2);
-		Sunset = new Background(sunset2);
-		Mountains = new Background(train2);
-		Forest = new Background(trees2);
-		Bamboo = new Background(bamboo4);
+		Aurora = new Background(aurora2);		Boston = new Background(boston2);		Space = new Background(rho2);
+		Sunset = new Background(sunset2);		Mountains = new Background(train2);		Forest = new Background(trees2);
+		Bamboo = new Background(bamboo4);		Coast = new Background(coast1);			Solar = new Background(solar1);
 		
 		EventHandler<ActionEvent> timeConfirm = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
@@ -134,15 +137,24 @@ public class SettingsMenu {
                 	case "Forest":
                 		Choice = Forest;
                 		break;
+                	case "Bamboo":
+                		Choice = Bamboo;
+                		break;
+                	case "Coast":
+                		Choice = Coast;
+                		break;
                 }
             }
         };
         mi1.setOnAction(menuItems);		mi2.setOnAction(menuItems);		mi3.setOnAction(menuItems);
         mi4.setOnAction(menuItems);		mi5.setOnAction(menuItems);		mi6.setOnAction(menuItems);
+        mi7.setOnAction(menuItems);		mi8.setOnAction(menuItems);
         
         smvbox.getChildren().addAll(mb, bgOpt, limTime, timLim, timeSelect);
         
         settings2 = new Scene(smvbox, 800, 600);
+        
+        smvbox.setBackground(Solar);
         settings2.getStylesheets().add("file:Coleccion_Styling.css");	
 		age6.setScene(settings2);
 		age6.setTitle("Colección Settings");
