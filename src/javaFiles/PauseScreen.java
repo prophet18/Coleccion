@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,12 +27,10 @@ public class PauseScreen {
 	Stage pausing = new Stage();
 	Scene pausing2;
 	Image swans2;		
-	Background swans;
-	
+	Background swans;	
 	Button returned, helpings, pauseQuit;		
 	
 	public PauseScreen() throws FileNotFoundException {		
-		
 		
 		Image resumed1 = new Image(new FileInputStream("./Draw_Build_Files/ResumeButton.png"));
 		Image quits1 = new Image(new FileInputStream("./Draw_Build_Files/QuitButton.png"));
@@ -44,10 +43,8 @@ public class PauseScreen {
 		returned.setId("NObg");
 		pauseQuit.setId("NObg");
 	 
-		// swan_scroll_art_1
-		
-		
 		pausing5 = new VBox(15);	pausing5.setAlignment(Pos.CENTER);
+		pausing5.setSpacing(15);	pausing5.setPadding(new Insets(10, 10, 10, 10));
 		pausing5.getChildren().addAll(returned, pauseQuit);
 		
 		BackgroundImage swans3 = new BackgroundImage(swans2, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
@@ -59,8 +56,6 @@ public class PauseScreen {
 		pausing2 = new Scene(pausing5, 700, 500);
 		pausing2.getStylesheets().add("file:Coleccion_Styling.css");
 		pausing.setScene(pausing2);
-		pausing.setTitle("Colección Game Paused");
-		
+		pausing.setTitle("Colección Game Paused");		
 	}
-
 }

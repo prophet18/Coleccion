@@ -1,9 +1,13 @@
 package javaFiles;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -19,37 +23,43 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class HighScoreScreen {
+	String delimiter = new String(" ");	File filenu = new File("./Draw_Build_Files/csvHighScores.csv");
 	
+	CSVTableView uno;
 	
 	VBox scoring5;
 	Stage scoring = new Stage();
 	Scene scoring2;
-	String score, time, date;
+	String score, time, date, colons;
 	Button backMenu;
 	int scores, times;	
 	
-	TableView<HighScoreScreen> tView;		TableColumn sc1, ti1, da1;
+	TableView<HighScoreScreen> tView;		
 	ObservableList<HighScoreScreen> listScore = FXCollections.observableArrayList();
 	
 	
+	TableColumn<String, String> sc1 = new TableColumn<>(score);
+	TableColumn<String, String> ti1 = new TableColumn<>(time);
+	TableColumn<String, String> da1 = new TableColumn<>(date);
+	
 	public HighScoreScreen() throws Exception {
 		
+		colons = new String(",");
 		
+		uno = new CSVTableView(colons, filenu);
+		
+		List<String> lines = Files.readAllLines(Paths.get("./Draw_Build_Files/csvHighScores.csv"));
+
 		
 		
 		tView = new TableView<HighScoreScreen>();
 		
 		
 		
-		
-		sc1 = new TableColumn<>("Game Score");
-		ti1 = new TableColumn<>("Time Limit");
-		da1 = new TableColumn<>("Date, Time, & Zone");
 		sc1.setCellValueFactory(new PropertyValueFactory<>("score"));
 		ti1.setCellValueFactory(new PropertyValueFactory<>("time"));
 		da1.setCellValueFactory(new PropertyValueFactory<>("date"));
 		tView.setItems(listScore);
-		tView.getColumns().addAll(sc1, ti1, da1);
 		// tView.getItems().add(listScore);   
 		
 		

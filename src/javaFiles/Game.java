@@ -80,15 +80,12 @@ public class Game extends Application {
 		};					
 		home.button1.setOnAction(newGame);		
 		
-		
 		EventHandler<ActionEvent> hScores = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {			
-				allScores.scoring.show();
+				allScores.uno.age9.show();
 			}
-		};
-					
-		home.button2.setOnAction(hScores);
-		
+		};					
+		home.button2.setOnAction(hScores);		
 		
 		EventHandler<ActionEvent> settingsButton = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
@@ -107,21 +104,13 @@ public class Game extends Application {
 		// Display the entry screen to start the program
 		home.age4.show();
 		
-		
-		
-		
-		
+	
 		
 	
 	}
 	
-	
-
-	
 
 }
-
-
 
 
 

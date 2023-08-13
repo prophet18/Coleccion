@@ -81,7 +81,11 @@ public class Board {
 			};
 		doPause.setOnAction(pauseNow);		psnu.returned.setOnAction(pauseNow);		doPause.setId("NObg"); 
 		
+		// Lines 85 ---> 107	Creating stage and visual objects
 		scored1 = new VBox(5);		timed1 = new VBox(5);	rBox = new VBox(5);		scored1.setAlignment(Pos.CENTER);	timed1.setAlignment(Pos.CENTER);	rBox.setAlignment(Pos.CENTER);
+		
+		scored1.setSpacing(15);	scored1.setPadding(new Insets(10, 10, 10, 10));		timed1.setSpacing(15);	timed1.setPadding(new Insets(10, 10, 10, 10));
+		rBox.setSpacing(15);	rBox.setPadding(new Insets(10, 10, 10, 10));		
 		
 		scored1.getChildren().addAll(scoreicon, allcard.scoreKeep, allcard.setResult);
 		

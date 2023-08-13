@@ -9,6 +9,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,28 +35,19 @@ public class SettingsMenu {
 	Scene settings2;
 	VBox smvbox;
 	MenuButton mb;
-	MenuItem mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8;
-	
+	MenuItem mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8;	
 	Label limTime, bgOpt, timeSelect;
-	TextField timLim;
-	
-	TextField tEntry;
-	
+	TextField timLim, tEntry;
 	int timeLimit = 60;
 	
 	Image aurora1, boston1, rho1, sunset1, train1, trees1, bamboo2, coast2, solar2;
 	BackgroundImage aurora2, boston2, rho2, sunset2, train2, trees2, bamboo4, coast1, solar1;
 	Background Aurora, Boston, Space, Sunset, Mountains, Forest, Bamboo, Coast, Choice, Solar;
-	String bgSetter;
-	
-	
-
-	
+	String bgSetter;	
 	
 	public SettingsMenu() throws FileNotFoundException {		
 		
-		bgOpt  = new Label("Background Selected: ");
-		
+		bgOpt  = new Label("Background Selected: ");		
 		mb = new MenuButton("Choose Your Background!");
 		mi1 = new MenuItem("Aurora");		mi2 = new MenuItem("Boston");		mi3 = new MenuItem("Space");
 		mi4 = new MenuItem("Sunset");		mi5 = new MenuItem("Mountains");	mi6 = new MenuItem("Forest");
@@ -137,9 +129,7 @@ public class SettingsMenu {
         
         limTime = new Label("Enter Time Limit: ");
         
-        tEntry = new TextField("");
-        
-       
+        tEntry = new TextField("");       
         
         EventHandler<ActionEvent> eventTime = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
@@ -149,9 +139,7 @@ public class SettingsMenu {
         };
  
         // when enter is pressed
-        tEntry.setOnAction(eventTime);
- 
-       
+        tEntry.setOnAction(eventTime);     
 		
 		timeSelect = new Label(" ");
         
@@ -163,6 +151,7 @@ public class SettingsMenu {
         smvbox = new VBox(25);	smvbox.setAlignment(Pos.CENTER);
         smvbox.getChildren().addAll(mb, bgOpt, limTime, tEntry, timeSelect);
         
+        smvbox.setSpacing(15);	smvbox.setPadding(new Insets(10, 10, 10, 10));
         settings2 = new Scene(smvbox, 800, 600);
         
         smvbox.setBackground(Solar);
